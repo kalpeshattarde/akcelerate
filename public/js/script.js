@@ -15,6 +15,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ── Theme Toggle ─────────────────────────────
+  const applyTheme = (theme) => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('ak-theme', theme);
+  };
+
+  const savedTheme = localStorage.getItem('ak-theme') || 'light';
+  applyTheme(savedTheme);
+
+  document.querySelectorAll('.theme-toggle-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      applyTheme(current === 'dark' ? 'light' : 'dark');
+    });
+  });
+
   // ── Navbar scroll effect ──────────────────────
   const navbar = document.getElementById('navbar');
   const backToTop = document.getElementById('backToTop');
@@ -48,22 +64,26 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Smooth scroll for anchor links ────────────
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      const href = this.getAttribute('href');
+      if (!href || href === '#') return;
+      try {
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      } catch (_) {}
     });
   });
 
   // ── Counter animation ─────────────────────────
-  const counters = document.querySelectorAll('[data-target]');
+  const counters = document.querySelectorAll('[data-target],[data-count]');
   const animatedCounters = new Set();
 
   const animateCounter = (el) => {
     if (animatedCounters.has(el)) return;
     animatedCounters.add(el);
-    const target = +el.getAttribute('data-target');
+    const target = +(el.getAttribute('data-target') || el.getAttribute('data-count'));
     const duration = 1800;
     const step = target / (duration / 16);
     let current = 0;
