@@ -20,12 +20,20 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
+app.get('/solutions', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/solutions.html'));
+});
+
+app.get('/services', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/services.html'));
+});
+
 app.get('/case-studies', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/case-studies.html'));
 });
 
-app.get('/founder', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/founder.html'));
+app.get('/about', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/about.html'));
 });
 
 app.get('/contact', (req, res) => {

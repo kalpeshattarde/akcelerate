@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services – AKcelerate AI Manufacturing Analytics</title>
+  <meta name="description" content="Explore AKcelerate's full analytics stack: data integration, advanced AI, operational intelligence, predictive maintenance, and implementation services." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { primary: '#2563EB', accent: '#06B6D4', teal: '#0FCCCE', dark: '#111827' },
+          fontFamily: { poppins: ['Poppins', 'sans-serif'], inter: ['Inter', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center pulse-anim">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+        </div>
+        <span class="font-poppins font-700 text-xl text-slate-900 font-bold tracking-tight">AK<span class="gradient-text">celerate</span></span>
+      </a>
+      <div class="hidden lg:flex items-center gap-8">
+        <a href="/" class="nav-link">Home</a>
+        <a href="solutions.html" class="nav-link">Solutions</a>
+        <a href="services.html" class="nav-link" style="color:#2563EB;font-weight:600">Services</a>
+        <a href="case-studies.html" class="nav-link">Case Studies</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="contact.html" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          Request Demo
+        </a>
+      </div>
+      <button id="menu-toggle" class="lg:hidden p-2 text-gray-500 hover:text-gray-900">
+        <svg id="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="max-w-7xl mx-auto px-4 py-4 space-y-1">
+      <a href="/" class="block py-2.5 px-4 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all">Home</a>
+      <a href="solutions.html" class="block py-2.5 px-4 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all">Solutions</a>
+      <a href="services.html" class="block py-2.5 px-4 text-blue-600 bg-blue-50 rounded-lg font-medium">Services</a>
+      <a href="case-studies.html" class="block py-2.5 px-4 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all">Case Studies</a>
+      <a href="about.html" class="block py-2.5 px-4 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all">About</a>
+      <a href="contact.html" class="block py-2.5 px-4 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all">Contact</a>
+      <div class="pt-2"><a href="contact.html" class="btn-primary w-full justify-center">Request Demo</a></div>
+    </div>
+  </div>
+</nav>
+
+
+<!-- PAGE HERO -->
+<section style="background:linear-gradient(135deg,#EFF6FF,#F0FDFF,#ECFEFF);padding-top:7rem;padding-bottom:4rem;position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(37,99,235,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,0.04) 1px,transparent 1px);background-size:50px 50px"></div>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10" data-aos="fade-up">
+    <span class="section-label">Our Platform</span>
+    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+      An Entire Analytics Stack<br/><span class="gradient-text">Built for Manufacturing</span>
+    </h1>
+    <p class="text-slate-500 text-lg max-w-2xl mx-auto mb-8">
+      From raw sensor data to boardroom decisions — our platform covers every layer of the manufacturing intelligence stack with enterprise-grade reliability.
+    </p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="contact.html" class="btn-primary text-base px-8 py-4">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        Request Demo
+      </a>
+      <a href="solutions.html" class="btn-secondary text-base px-8 py-4">View Benefits</a>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CORE CAPABILITIES -->
+<section class="py-20 lg:py-28" style="background:#FFFFFF">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16" data-aos="fade-up">
+      <span class="section-label">Core Capabilities</span>
+      <h2 class="text-3xl lg:text-4xl font-bold mb-4">
+        Four Pillars of <span class="gradient-text">Manufacturing Intelligence</span>
+      </h2>
+      <p class="text-slate-500 max-w-2xl mx-auto">Every capability working together to give you complete visibility and control over your manufacturing operations.</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6">
+
+      <div data-aos="fade-up" data-aos-delay="0" style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:20px;padding:2rem;transition:all 0.3s ease;box-shadow:0 2px 12px rgba(15,23,42,0.05)" onmouseover="this.style.borderColor='rgba(37,99,235,0.35)';this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 40px rgba(37,99,235,0.1)'" onmouseout="this.style.borderColor='#E2E8F0';this.style.transform='translateY(0)';this.style.boxShadow='0 2px 12px rgba(15,23,42,0.05)'">
+        <div class="flex items-start gap-4">
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:linear-gradient(135deg,rgba(37,99,235,0.2),rgba(6,182,212,0.1));border:1px solid rgba(37,99,235,0.3)">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          </div>
+          <div>
+            <h3 class="font-poppins font-semibold text-xl mb-2">Data Integration</h3>
+            <p class="text-slate-500 text-sm leading-relaxed mb-4">Connect and harmonize data from every factory system into a unified data fabric without disrupting operations.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag-pill">ERP</span><span class="tag-pill">MES</span><span class="tag-pill">SCADA</span><span class="tag-pill">IoT Sensors</span><span class="tag-pill">Historian</span><span class="tag-pill">PLM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div data-aos="fade-up" data-aos-delay="100" style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:20px;padding:2rem;transition:all 0.3s ease;box-shadow:0 2px 12px rgba(15,23,42,0.05)" onmouseover="this.style.borderColor='rgba(37,99,235,0.35)';this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 40px rgba(37,99,235,0.1)'" onmouseout="this.style.borderColor='#E2E8F0';this.style.transform='translateY(0)';this.style.boxShadow='0 2px 12px rgba(15,23,42,0.05)'">
+        <div class="flex items-start gap-4">
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:linear-gradient(135deg,rgba(37,99,235,0.2),rgba(6,182,212,0.1));border:1px solid rgba(37,99,235,0.3)">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <div>
+            <h3 class="font-poppins font-semibold text-xl mb-2">Advanced Analytics & AI</h3>
+            <p class="text-slate-500 text-sm leading-relaxed mb-4">Deploy enterprise-grade machine learning models trained on your manufacturing data for maximum predictive accuracy.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag-pill">ML Models</span><span class="tag-pill">Anomaly Detection</span><span class="tag-pill">Forecasting</span><span class="tag-pill">Root Cause Analysis</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div data-aos="fade-up" data-aos-delay="0" style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:20px;padding:2rem;transition:all 0.3s ease;box-shadow:0 2px 12px rgba(15,23,42,0.05)" onmouseover="this.style.borderColor='rgba(37,99,235,0.35)';this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 40px rgba(37,99,235,0.1)'" onmouseout="this.style.borderColor='#E2E8F0';this.style.transform='translateY(0)';this.style.boxShadow='0 2px 12px rgba(15,23,42,0.05)'">
+        <div class="flex items-start gap-4">
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:linear-gradient(135deg,rgba(37,99,235,0.2),rgba(6,182,212,0.1));border:1px solid rgba(37,99,235,0.3)">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0FCCCE" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <div>
+            <h3 class="font-poppins font-semibold text-xl mb-2">Operational Intelligence</h3>
+            <p class="text-slate-500 text-sm leading-relaxed mb-4">Real-time dashboards and KPI monitoring that give every stakeholder — from shop floor to C-suite — actionable visibility.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag-pill">Real-time Dashboards</span><span class="tag-pill">Plant Monitoring</span><span class="tag-pill">OEE Tracking</span><span class="tag-pill">Alerts</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div data-aos="fade-up" data-aos-delay="100" style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:20px;padding:2rem;transition:all 0.3s ease;box-shadow:0 2px 12px rgba(15,23,42,0.05)" onmouseover="this.style.borderColor='rgba(37,99,235,0.35)';this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 40px rgba(37,99,235,0.1)'" onmouseout="this.style.borderColor='#E2E8F0';this.style.transform='translateY(0)';this.style.boxShadow='0 2px 12px rgba(15,23,42,0.05)'">
+        <div class="flex items-start gap-4">
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:linear-gradient(135deg,rgba(37,99,235,0.2),rgba(6,182,212,0.1));border:1px solid rgba(37,99,235,0.3)">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div>
+            <h3 class="font-poppins font-semibold text-xl mb-2">Predictive Maintenance AI</h3>
+            <p class="text-slate-500 text-sm leading-relaxed mb-4">Detect early signs of equipment failure using vibration analysis, thermal imaging data, and deep learning fault classification.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag-pill">Fault Detection</span><span class="tag-pill">RUL Prediction</span><span class="tag-pill">Digital Twin</span><span class="tag-pill">Maintenance Scheduling</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- IMPLEMENTATION ARCHITECTURE -->
+<section class="py-20 lg:py-28" style="background:#F0F7FF">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div data-aos="fade-right">
+        <span class="section-label">Implementation</span>
+        <h2 class="text-3xl lg:text-4xl font-bold mb-6">
+          Enterprise-Grade <span class="gradient-text">Integration Architecture</span>
+        </h2>
+        <p class="text-slate-500 leading-relaxed mb-8">AKcelerate connects seamlessly with your existing technology investments. Our integration layer supports all major enterprise platforms, enabling rapid deployment without disrupting operations.</p>
+        <div class="grid grid-cols-2 gap-4 mb-8">
+          <div style="background:rgba(37,99,235,0.06);border:1px solid rgba(37,99,235,0.15);border-radius:12px;padding:1rem">
+            <div class="text-accent font-semibold text-sm mb-2">Supported Systems</div>
+            <div class="space-y-1 text-xs text-slate-500">
+              <div>• ERP (SAP, Oracle, Microsoft)</div>
+              <div>• CRM (Salesforce, HubSpot)</div>
+              <div>• MES (GE, Rockwell, Siemens)</div>
+              <div>• SCM & Logistics platforms</div>
+              <div>• IoT / IIoT platforms</div>
+              <div>• SCADA & Historians</div>
+            </div>
+          </div>
+          <div style="background:rgba(6,182,212,0.06);border:1px solid rgba(6,182,212,0.15);border-radius:12px;padding:1rem">
+            <div class="text-accent font-semibold text-sm mb-2">Deployment Options</div>
+            <div class="space-y-1 text-xs text-slate-500">
+              <div>• Cloud (AWS, Azure, GCP)</div>
+              <div>• On-premise</div>
+              <div>• Hybrid architecture</div>
+              <div>• Edge + Cloud hybrid</div>
+              <div>• Private cloud / VPC</div>
+              <div>• Air-gapped environments</div>
+            </div>
+          </div>
+        </div>
+        <div style="background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.2);border-radius:16px;padding:1.5rem">
+          <div class="text-sm font-semibold text-slate-600 mb-3">Investment Range</div>
+          <div class="flex items-end gap-3">
+            <div>
+              <div class="text-3xl font-bold font-poppins gradient-text">$70K – $1M</div>
+              <div class="text-xs text-slate-500 mt-1">depending on scope, integrations, and scale</div>
+            </div>
+          </div>
+          <div class="mt-3 text-xs text-gray-500">Typical payback period: 8–18 months</div>
+        </div>
+      </div>
+      <div data-aos="fade-left" data-aos-delay="100">
+        <canvas id="roiChart" height="280"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- PROCESS SECTION -->
+<section class="py-20 lg:py-28" style="background:#FFFFFF">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16" data-aos="fade-up">
+      <span class="section-label">How We Work</span>
+      <h2 class="text-3xl lg:text-4xl font-bold mb-4">
+        From Data Discovery to <span class="gradient-text">Continuous Optimization</span>
+      </h2>
+      <p class="text-slate-500 max-w-2xl mx-auto">Our proven 5-step implementation methodology ensures rapid time-to-value with minimal operational disruption.</p>
+    </div>
+    <div class="space-y-6">
+
+      <div class="flex gap-6 items-start" data-aos="fade-up" data-aos-delay="0">
+        <div class="process-number">1</div>
+        <div class="glass-card p-6 flex-1">
+          <h3 class="font-poppins font-semibold text-lg mb-2 gradient-text">Data Discovery</h3>
+          <p class="text-slate-500 text-sm leading-relaxed">We audit your existing factory systems, data sources, and data quality. Our team identifies gaps, mapping the data landscape needed to deliver business outcomes.</p>
+          <div class="flex flex-wrap gap-2 mt-3">
+            <span class="tag-pill">Systems Audit</span><span class="tag-pill">Data Quality Assessment</span><span class="tag-pill">KPI Definition</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex gap-6 items-start" data-aos="fade-up" data-aos-delay="80">
+        <div class="process-number">2</div>
+        <div class="glass-card p-6 flex-1">
+          <h3 class="font-poppins font-semibold text-lg mb-2 gradient-text">Data Integration</h3>
+          <p class="text-slate-500 text-sm leading-relaxed">Our engineers connect your ERP, MES, IoT, and SCADA systems using pre-built connectors and custom ETL pipelines, building a unified manufacturing data fabric.</p>
+          <div class="flex flex-wrap gap-2 mt-3">
+            <span class="tag-pill">API Connectors</span><span class="tag-pill">ETL Pipelines</span><span class="tag-pill">Real-time Streaming</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex gap-6 items-start" data-aos="fade-up" data-aos-delay="160">
+        <div class="process-number">3</div>
+        <div class="glass-card p-6 flex-1">
+          <h3 class="font-poppins font-semibold text-lg mb-2 gradient-text">Analytics Modeling</h3>
+          <p class="text-slate-500 text-sm leading-relaxed">Our data scientists build and validate machine learning models trained on your historical production data — tailored to your specific equipment, processes, and quality standards.</p>
+          <div class="flex flex-wrap gap-2 mt-3">
+            <span class="tag-pill">ML Model Training</span><span class="tag-pill">Feature Engineering</span><span class="tag-pill">Model Validation</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex gap-6 items-start" data-aos="fade-up" data-aos-delay="240">
+        <div class="process-number">4</div>
+        <div class="glass-card p-6 flex-1">
+          <h3 class="font-poppins font-semibold text-lg mb-2 gradient-text">Dashboard Deployment</h3>
+          <p class="text-slate-500 text-sm leading-relaxed">We deploy role-specific operational dashboards and executive KPI views. Every stakeholder sees precisely what they need to drive decisions faster.</p>
+          <div class="flex flex-wrap gap-2 mt-3">
+            <span class="tag-pill">Executive Dashboards</span><span class="tag-pill">Operator Views</span><span class="tag-pill">Mobile Access</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex gap-6 items-start" data-aos="fade-up" data-aos-delay="320">
+        <div class="process-number">5</div>
+        <div class="glass-card p-6 flex-1">
+          <h3 class="font-poppins font-semibold text-lg mb-2 gradient-text">Optimization & Support</h3>
+          <p class="text-slate-500 text-sm leading-relaxed">Ongoing model retraining, new use case development, and dedicated support ensure the platform keeps delivering value as your business evolves.</p>
+          <div class="flex flex-wrap gap-2 mt-3">
+            <span class="tag-pill">Continuous Improvement</span><span class="tag-pill">Model Retraining</span><span class="tag-pill">24/7 Support</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CTA -->
+<section class="py-20 lg:py-28" style="background:linear-gradient(135deg,#080d1a 0%,#0d1b35 50%,#080d1a 100%);position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(37,99,235,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,0.06) 1px,transparent 1px);background-size:60px 60px"></div>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+    <div data-aos="fade-up">
+      <span class="section-label">Get Started</span>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight text-white">
+        Ready to Deploy the Full<br/><span class="gradient-text">Analytics Stack?</span>
+      </h2>
+      <p class="text-blue-200 text-lg max-w-2xl mx-auto mb-10">Book a discovery call and we'll map out exactly which services fit your factory's current maturity and goals.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="contact.html" class="btn-primary text-base px-8 py-4">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          Request Demo
+        </a>
+        <a href="contact.html" class="btn-secondary text-base px-8 py-4">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-gradient py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
+      <div class="col-span-2 md:col-span-1">
+        <div class="flex items-center gap-2.5 mb-4">
+          <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+          </div>
+          <span class="font-poppins font-bold text-lg text-white">AK<span class="gradient-text">celerate</span></span>
+        </div>
+        <p class="text-gray-500 text-sm leading-relaxed mb-4">AI-powered manufacturing analytics platform transforming factory data into strategic intelligence.</p>
+        <div class="flex items-center gap-1 text-xs text-gray-500">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Mumbai, India
+        </div>
+      </div>
+      <div>
+        <h4 class="font-poppins font-semibold text-sm text-white mb-4">Company</h4>
+        <div class="space-y-2.5">
+          <a href="about.html" class="footer-link">About</a>
+          <a href="#" class="footer-link">Careers</a>
+          <a href="#" class="footer-link">Blog</a>
+          <a href="contact.html" class="footer-link">Contact</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-poppins font-semibold text-sm text-white mb-4">Solutions</h4>
+        <div class="space-y-2.5">
+          <a href="solutions.html" class="footer-link">Manufacturing Analytics</a>
+          <a href="solutions.html" class="footer-link">Predictive Maintenance</a>
+          <a href="solutions.html" class="footer-link">Supply Chain Intelligence</a>
+          <a href="solutions.html" class="footer-link">Quality Analytics</a>
+          <a href="solutions.html" class="footer-link">Energy Management</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-poppins font-semibold text-sm text-white mb-4">Contact</h4>
+        <div class="space-y-3">
+          <div class="flex items-start gap-2">
+            <svg class="flex-shrink-0 mt-0.5" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:akcelerateindia@gmail.com" class="footer-link text-xs">akcelerateindia@gmail.com</a>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="flex-shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:8208555380" class="footer-link text-xs">+91 8208555380</a>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="flex-shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span class="text-gray-500 text-xs">Mumbai, India</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-slate-100 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p class="text-gray-600 text-sm">© 2025 AKcelerate. All rights reserved.</p>
+      <div class="flex gap-5 text-xs text-gray-600">
+        <a href="#" class="hover:text-slate-500 transition-colors">Privacy Policy</a>
+        <a href="#" class="hover:text-slate-500 transition-colors">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/918208555380" target="_blank" class="floating-whatsapp" title="Chat on WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+</button>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
