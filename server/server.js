@@ -48,6 +48,7 @@ app.get('/careers', (req, res) => res.sendFile(path.join(__dirname, '../public/c
 app.get('/privacy', (req, res) => res.sendFile(path.join(__dirname, '../public/privacy.html')));
 app.get('/terms', (req, res) => res.sendFile(path.join(__dirname, '../public/terms.html')));
 app.get('/resources', (req, res) => res.sendFile(path.join(__dirname, '../public/resources.html')));
+app.get('/completed-projects', (req, res) => res.sendFile(path.join(__dirname, '../public/completed-projects.html')));
 
 // ── Blog Article Pages ────────────────────────────
 app.get('/blog/generative-ai-operations', (req, res) =>
