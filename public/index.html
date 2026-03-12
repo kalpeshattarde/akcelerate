@@ -1,322 +1,1223 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AKcelerate - AI & Data Analytics Consulting | Mumbai, India</title>
-    <meta name="description" content="AKcelerate helps MSMEs, startups & manufacturing units grow smarter with AI, machine learning, data analytics & business consulting. Based in Mumbai serving India & international clients.">
-    <meta name="keywords" content="AI consulting, machine learning, data analytics, business consulting, generative AI, MSME growth, Mumbai, India, data science">
-    <meta name="author" content="Kalpesh Attarde">
-    <meta property="og:title" content="AKcelerate - Think Faster. Grow Smarter.">
-    <meta property="og:description" content="AI-powered solutions, data engineering, and analytics to accelerate your digital transformation">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://akcelerate-website.vercel.app/">
-    <link rel="canonical" href="https://akcelerate-website.vercel.app/">
-    <meta name="description" content="We don't just advise. We architect growth. Premium strategy & transformation consulting for high-growth businesses.">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/premium-theme.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AKcelerate – AI Manufacturing Analytics Platform</title>
+  <meta name="description" content="AKcelerate provides AI-driven manufacturing analytics, predictive maintenance, and supply chain intelligence for Industry 4.0 transformation." />
+  <meta name="keywords" content="manufacturing analytics, AI, predictive maintenance, Industry 4.0, supply chain, OEE, factory data, IIoT" />
+  <meta name="author" content="Kalpesh Attarde" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2563EB',
+            accent: '#06B6D4',
+            teal: '#0FCCCE',
+            dark: '#111827'
+          },
+          fontFamily: {
+            poppins: ['Poppins', 'sans-serif'],
+            inter: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- AOS Animations -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-container">
-            <a href="/" class="logo">AKcelerate</a>
-            <div class="nav-links desktop-nav">
-                <a href="/">Home</a>
-                <a href="/services-new">Services</a>
-                <a href="/case-studies">Case Studies</a>
-                <a href="/founder">About</a>
-                <a href="/contact" class="btn-primary-nav">Book Strategy Call</a>
-            </div>
-            <button class="mobile-menu-toggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-        <!-- Mobile Menu -->
-        <div class="mobile-menu">
-            <a href="/">Home</a>
-            <a href="/services-new">Services</a>
-            <a href="/case-studies">Case Studies</a>
-            <a href="/founder">About</a>
-            <a href="/contact">Book Strategy Call</a>
-        </div>
-    </nav>
 
-    <!-- Hero Section - Authority Driven -->
-    <section class="hero-premium">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title-premium">Turn Data Into Measurable Business Value</h1>
-                <p class="hero-subtitle-premium">Think Faster. Grow Smarter.</p>
-                <p style="font-size: 1.1rem; margin-top: 10px; opacity: 0.9;">AI-powered solutions, data engineering, and analytics to accelerate your digital transformation</p>
-                <div class="hero-cta-premium">
-                    <a href="/contact" class="btn-primary-large">Book Strategy Call</a>
-                    <a href="/case-studies" class="btn-secondary-large">View Case Studies</a>
-                </div>
-            </div>
+<!-- ══════════════════════════════════════════
+     NAVIGATION
+══════════════════════════════════════════ -->
+<nav class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center pulse-anim">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
         </div>
-    </section>
+        <span class="font-poppins font-700 text-xl text-white font-bold tracking-tight">AK<span class="gradient-text">celerate</span></span>
+      </a>
 
-    <!-- Credibility Section - Authority Stats -->
-    <section class="credibility-section">
-        <div class="container">
-            <div class="credibility-grid">
-                <div class="credibility-stat">
-                    <div class="stat-number-large">50+</div>
-                    <div class="stat-label-large">Enterprise Clients</div>
-                </div>
-                <div class="credibility-stat">
-                    <div class="stat-number-large">₹10Cr+</div>
-                    <div class="stat-label-large">Value Delivered</div>
-                </div>
-                <div class="credibility-stat">
-                    <div class="stat-number-large">10-15</div>
-                    <div class="stat-label-large">AI, ML & DevOps Experts</div>
-                </div>
-                <div class="credibility-stat">
-                    <div class="stat-number-large">95%</div>
-                    <div class="stat-label-large">Client Satisfaction</div>
-                </div>
-            </div>
+      <!-- Desktop Nav -->
+      <div class="hidden lg:flex items-center gap-8">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#solutions" class="nav-link">Solutions</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#case-studies" class="nav-link">Case Studies</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="contact.html" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          Request Demo
+        </a>
+      </div>
+
+      <!-- Mobile toggle -->
+      <button id="menu-toggle" class="lg:hidden p-2 text-gray-300 hover:text-white">
+        <svg id="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="max-w-7xl mx-auto px-4 py-4 space-y-1">
+      <a href="#home" class="block py-2.5 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-all">Home</a>
+      <a href="#solutions" class="block py-2.5 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-all">Solutions</a>
+      <a href="#services" class="block py-2.5 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-all">Services</a>
+      <a href="#case-studies" class="block py-2.5 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-all">Case Studies</a>
+      <a href="#about" class="block py-2.5 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-all">About</a>
+      <a href="contact.html" class="block py-2.5 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-all">Contact</a>
+      <div class="pt-2">
+        <a href="contact.html" class="btn-primary w-full justify-center">Request Demo</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════════════
+     HERO SECTION
+══════════════════════════════════════════ -->
+<section class="hero-section" id="home">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow hero-glow-1"></div>
+  <div class="hero-glow hero-glow-2"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <!-- Left -->
+      <div>
+        <div class="hero-badge" data-aos="fade-down" data-aos-duration="600">
+          <span class="w-2 h-2 rounded-full bg-accent inline-block"></span>
+          Industry 4.0 Analytics Platform
         </div>
-    </section>
 
-    <!-- What We Do - Premium Services -->
-    <section class="services-section">
-        <div class="container">
-            <div class="section-header-premium">
-                <h2 class="section-title-premium">What We Do</h2>
-                <p class="section-intro" style="text-align: center; max-width: 700px; margin: 20px auto 0; font-size: 1.2rem; color: #4a5568;">End-to-end AI and data solutions to turn insights into measurable business value</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 2L2 7L12 12L22 7L12 2Z"/>
-                            <path d="M2 17L12 22L22 17"/>
-                            <path d="M2 12L12 17L22 12"/>
-                        </svg>
-                    </div>
-                    <h3>Data Analysis & ML</h3>
-                    <p>Transform raw data into actionable insights with advanced machine learning and artificial intelligence solutions.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="3" y="3" width="18" height="18" rx="2"/>
-                            <path d="M9 3V21"/>
-                            <path d="M3 9H21"/>
-                            <path d="M3 15H21"/>
-                        </svg>
-                    </div>
-                    <h3>Business Consulting & Brand Strategy</h3>
-                    <p>Strategic consulting to accelerate growth for MSMEs, startups, and manufacturing units with data-driven insights.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-                        </svg>
-                    </div>
-                    <h3>Generative AI & ML Deployment</h3>
-                    <p>End-to-end machine learning product deployment with cutting-edge generative AI solutions for real business impact.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-                            <polyline points="7.5 4.21 12 6.81 16.5 4.21"/>
-                            <polyline points="7.5 19.79 7.5 14.6 3 12"/>
-                            <polyline points="21 12 16.5 14.6 16.5 19.79"/>
-                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-                            <line x1="12" y1="22.08" x2="12" y2="12"/>
-                        </svg>
-                    </div>
-                    <h3>Analytics & Cognitive BI</h3>
-                    <p>Advanced analytics and intelligent business intelligence to unlock insights and drive measurable growth.</p>
-                </div>
-            </div>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6" data-aos="fade-up" data-aos-delay="100">
+          Transform Manufacturing with<br/>
+          <span class="gradient-text">AI-Driven Data</span><br/>
+          Intelligence
+        </h1>
+
+        <p class="text-gray-400 text-lg leading-relaxed mb-8 max-w-xl" data-aos="fade-up" data-aos-delay="200">
+          Manufacturing organizations generate massive volumes of data from ERP systems, IoT sensors, MES platforms, and supply chains. Our analytics platform converts this data into actionable insights that improve operational efficiency and enable smarter decisions.
+        </p>
+
+        <div class="flex flex-wrap gap-4 mb-12" data-aos="fade-up" data-aos-delay="300">
+          <a href="#solutions" class="btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            Explore Platform
+          </a>
+          <a href="contact.html" class="btn-secondary">
+            Request Demo
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
         </div>
-    </section>
 
-    <!-- Portfolio - Case Study Preview -->
-    <section class="portfolio-section">
-        <div class="container">
-            <div class="section-header-premium">
-                <h2 class="section-title-premium">Transformation Documentation</h2>
-            </div>
-            <div class="portfolio-grid">
-                <div class="portfolio-card">
-                    <div class="portfolio-header">
-                        <h3 class="portfolio-title">SaaS Revenue Acceleration</h3>
-                        <span class="portfolio-industry">B2B SaaS</span>
-                    </div>
-                    <div class="portfolio-body">
-                        <div class="portfolio-item">
-                            <span class="portfolio-label">Problem</span>
-                            <p>$2M ARR plateau, 45% churn, no scalable systems</p>
-                        </div>
-                        <div class="portfolio-item">
-                            <span class="portfolio-label">Strategy</span>
-                            <p>RevOps rebuild, customer success automation, pricing restructure</p>
-                        </div>
-                        <div class="portfolio-item">
-                            <span class="portfolio-label">Outcome</span>
-                            <p><strong>$8.5M ARR in 18 months</strong> · 12% churn · 3.2x revenue growth</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="portfolio-card">
-                    <div class="portfolio-header">
-                        <h3 class="portfolio-title">E-Commerce Operations Scale</h3>
-                        <span class="portfolio-industry">E-Commerce</span>
-                    </div>
-                    <div class="portfolio-body">
-                        <div class="portfolio-item">
-                            <span class="portfolio-label">Problem</span>
-                            <p>Manual fulfillment, inventory chaos, 8-week lead times</p>
-                        </div>
-                        <div class="portfolio-item">
-                            <span class="portfolio-label">Strategy</span>
-                            <p>Supply chain automation, inventory intelligence, team restructure</p>
-                        </div>
-                        <div class="portfolio-item">
-                            <span class="portfolio-label">Outcome</span>
-                            <p><strong>72% operational cost reduction</strong> · 3-day lead times · 4x capacity</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="portfolio-card">
-                    <div class="portfolio-header">
-                        <h3 class="portfolio-title">Agency Infrastructure Build</h3>
-                        <span class="portfolio-industry">Professional Services</span>
-                    </div>
-                    <div class="portfolio-body">
-                        <div class="portfolio-item">
-                            <span class="portfolio-label">Problem</span>
-                            <p>Founder bottleneck, inconsistent delivery, 25% margins</p>
-                        </div>
-                        <div class="portfolio-item">
-                            <span class="portfolio-label">Strategy</span>
-                            <p>Process documentation, delivery playbooks, pricing optimization</p>
-                        </div>
-                        <div class="portfolio-item">
-                            <span class="portfolio-label">Outcome</span>
-                            <p><strong>58% margin improvement</strong> · Founder time reduced 70% · Scalable delivery</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="portfolio-cta">
-                <a href="/case-studies" class="btn-secondary-large">View All Case Studies</a>
-            </div>
+        <!-- Stats -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" data-aos="fade-up" data-aos-delay="400">
+          <div class="hero-stat-card text-center">
+            <div class="stat-number" data-target="35">0</div>
+            <div class="text-gray-400 text-xs mt-1">% Downtime Reduction</div>
+          </div>
+          <div class="hero-stat-card text-center">
+            <div class="stat-number" data-target="15">0</div>
+            <div class="text-gray-400 text-xs mt-1">% Productivity Gain</div>
+          </div>
+          <div class="hero-stat-card text-center">
+            <div class="stat-number" style="font-size:1.75rem">10x</div>
+            <div class="text-gray-400 text-xs mt-1">Faster Insights</div>
+          </div>
+          <div class="hero-stat-card text-center">
+            <div class="stat-number" style="font-size:1.5rem">315%</div>
+            <div class="text-gray-400 text-xs mt-1">Average ROI</div>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <!-- Founder Section - Authority Profile -->
-    <section class="founder-section">
-        <div class="container">
-            <div class="founder-layout">
-                <div class="founder-image">
-                    <div class="image-placeholder">
-                        <!-- Placeholder for professional founder image -->
-                        <svg width="100%" height="100%" viewBox="0 0 400 500" fill="none">
-                            <rect width="400" height="500" fill="#F9FAFB"/>
-                            <circle cx="200" cy="180" r="60" fill="#0FCCCE" opacity="0.2"/>
-                            <rect x="140" y="280" width="120" height="40" rx="4" fill="#0FCCCE" opacity="0.2"/>
-                            <rect x="120" y="340" width="160" height="12" rx="4" fill="#CCCCCC"/>
-                            <rect x="100" y="370" width="200" height="12" rx="4" fill="#CCCCCC"/>
-                        </svg>
-                    </div>
-                </div>
-                <div class="founder-content">
-                    <h2 class="founder-title">Work Directly With The Founder</h2>
-                    <div class="founder-bio">
-                        <p class="bio-highlight">I'm not a consultant who parachutes in with generic frameworks. I'm an operator who builds systems from the inside out.</p>
-                        
-                        <p>15 years scaling businesses from chaos to clarity. Started as employee #8 at a SaaS company that went from $500K to $25M ARR. Built it, broke it, rebuilt it at every stage.</p>
-                        
-                        <p>Then led operations for a PE-backed firm, scaling five portfolio companies simultaneously. That's where I developed the frameworks I use today—repeatable systems that work across industries.</p>
-                        
-                        <div class="founder-traits">
-                            <div class="trait-item">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                                    <polyline points="20 6 9 17 4 12"/>
-                                </svg>
-                                <span>Operator Mindset</span>
-                            </div>
-                            <div class="trait-item">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                                    <polyline points="20 6 9 17 4 12"/>
-                                </svg>
-                                <span>Systems Thinker</span>
-                            </div>
-                            <div class="trait-item">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                                    <polyline points="20 6 9 17 4 12"/>
-                                </svg>
-                                <span>Growth Strategist</span>
-                            </div>
-                            <div class="trait-item">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                                    <polyline points="20 6 9 17 4 12"/>
-                                </svg>
-                                <span>Data-Driven</span>
-                            </div>
-                        </div>
-                        
-                        <a href="/founder" class="link-premium">Read Full Story →</a>
-                    </div>
-                </div>
+      <!-- Right – Dashboard Mockup -->
+      <div class="hidden lg:block" data-aos="fade-left" data-aos-delay="200">
+        <div class="float-anim">
+          <div class="dashboard-mockup">
+            <div class="dashboard-header">
+              <div class="dot" style="background:#EF4444"></div>
+              <div class="dot" style="background:#F59E0B"></div>
+              <div class="dot" style="background:#10B981"></div>
+              <span class="text-gray-400 text-xs ml-3 font-mono">manufacturing-analytics.io</span>
             </div>
+            <div class="p-4">
+              <!-- Mini metric row -->
+              <div class="grid grid-cols-3 gap-3 mb-4">
+                <div style="background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.2);border-radius:10px;padding:0.75rem">
+                  <div class="text-xs text-gray-400 mb-1">OEE Score</div>
+                  <div class="text-xl font-bold font-poppins gradient-text">87.4%</div>
+                  <div class="text-xs text-green-400 mt-1">↑ 4.2%</div>
+                </div>
+                <div style="background:rgba(6,182,212,0.1);border:1px solid rgba(6,182,212,0.2);border-radius:10px;padding:0.75rem">
+                  <div class="text-xs text-gray-400 mb-1">Uptime</div>
+                  <div class="text-xl font-bold font-poppins" style="color:#06B6D4">96.8%</div>
+                  <div class="text-xs text-green-400 mt-1">↑ 2.1%</div>
+                </div>
+                <div style="background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2);border-radius:10px;padding:0.75rem">
+                  <div class="text-xs text-gray-400 mb-1">Defect Rate</div>
+                  <div class="text-xl font-bold font-poppins" style="color:#10B981">0.8%</div>
+                  <div class="text-xs text-green-400 mt-1">↓ 0.3%</div>
+                </div>
+              </div>
+              <!-- Chart placeholder -->
+              <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:1rem">
+                <div class="flex justify-between items-center mb-3">
+                  <span class="text-xs font-medium text-gray-300">Production Output – Last 7 Days</span>
+                  <span class="tag-pill">Live</span>
+                </div>
+                <canvas id="heroChart" height="130"></canvas>
+              </div>
+              <!-- Alert row -->
+              <div class="mt-3" style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.2);border-radius:10px;padding:0.75rem">
+                <div class="flex items-center gap-2">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                  <span class="text-xs text-yellow-300 font-medium">Predictive Alert: Compressor Unit #3 — Service recommended in 48h</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
 
-    <!-- CTA Section - Premium -->
-    <section class="cta-section-premium">
-        <div class="container">
-            <div class="cta-content-premium">
-                <h2 class="cta-title-premium">Ready to Build What Scales?</h2>
-                <p class="cta-subtitle-premium">Let's design your next phase of growth.</p>
-                <a href="/contact" class="btn-primary-large">Book Consultation</a>
-            </div>
+    <!-- Hero capability cards -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-14" data-aos="fade-up" data-aos-delay="500">
+      <div class="glass-card p-4 flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600/20 to-cyan-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
         </div>
-    </section>
-
-    <!-- Footer - Premium Clean -->
-    <footer class="footer-premium">
-        <div class="container">
-            <div class="footer-content-premium">
-                <div class="footer-brand-premium">
-                    <h3 class="footer-logo-premium">AKcelerate</h3>
-                    <p class="footer-tagline-premium">Architecting Scalable Growth</p>
-                </div>
-                <div class="footer-links-premium">
-                    <div class="footer-column-premium">
-                        <a href="/case-studies">Case Studies</a>
-                        <a href="/founder">Founder</a>
-                        <a href="/contact">Contact</a>
-                    </div>
-                    <div class="footer-column-premium">
-                        <a href="https://linkedin.com/company/akcelerate" target="_blank" rel="noopener">LinkedIn</a>
-                        <a href="mailto:hello@akcelerate.com">hello@akcelerate.com</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom-premium">
-                <p>&copy; 2026 AKcelerate. All rights reserved.</p>
-            </div>
+        <div>
+          <div class="text-sm font-semibold font-poppins text-white">Predictive Maintenance</div>
+          <div class="text-xs text-gray-400">AI-powered failure detection</div>
         </div>
-    </footer>
+      </div>
+      <div class="glass-card p-4 flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600/20 to-cyan-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </div>
+        <div>
+          <div class="text-sm font-semibold font-poppins text-white">Production Analytics</div>
+          <div class="text-xs text-gray-400">Real-time OEE monitoring</div>
+        </div>
+      </div>
+      <div class="glass-card p-4 flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600/20 to-cyan-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0FCCCE" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <div>
+          <div class="text-sm font-semibold font-poppins text-white">Supply Chain Intelligence</div>
+          <div class="text-xs text-gray-400">End-to-end visibility</div>
+        </div>
+      </div>
+      <div class="glass-card p-4 flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600/20 to-cyan-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+        </div>
+        <div>
+          <div class="text-sm font-semibold font-poppins text-white">Smart Factory</div>
+          <div class="text-xs text-gray-400">Industry 4.0 transformation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script src="js/main.js"></script>
-    <script src="js/premium-animations.js"></script>
+
+<!-- ══════════════════════════════════════════
+     INTEGRATION STRIP
+══════════════════════════════════════════ -->
+<div class="py-8 border-y border-white/5" style="background:#0D1117">
+  <div class="max-w-7xl mx-auto px-4 mb-5">
+    <p class="text-center text-gray-500 text-sm">Integrates with your existing factory systems</p>
+  </div>
+  <div class="integration-strip">
+    <div class="integration-track">
+      <div class="integration-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> SAP ERP</div>
+      <div class="integration-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg> Oracle MES</div>
+      <div class="integration-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0FCCCE" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4"/></svg> SCADA Systems</div>
+      <div class="integration-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> IIoT Sensors</div>
+      <div class="integration-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg> Historian DB</div>
+      <div class="integration-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0FCCCE" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/></svg> Salesforce CRM</div>
+      <div class="integration-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2"><path d="M3 3h18M3 12h18M3 21h18"/></svg> Microsoft Dynamics</div>
+      <div class="integration-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg> AWS IoT</div>
+      <!-- Duplicate for seamless loop -->
+      <div class="integration-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> SAP ERP</div>
+      <div class="integration-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg> Oracle MES</div>
+      <div class="integration-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0FCCCE" stroke-width="2"><circle cx="12" cy="12" r="3"/></svg> SCADA Systems</div>
+      <div class="integration-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> IIoT Sensors</div>
+      <div class="integration-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/></svg> Historian DB</div>
+      <div class="integration-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0FCCCE" stroke-width="2"><rect x="1" y="3" width="15" height="13"/></svg> Salesforce CRM</div>
+      <div class="integration-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2"><path d="M3 3h18M3 12h18M3 21h18"/></svg> Microsoft Dynamics</div>
+      <div class="integration-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg> AWS IoT</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     ABOUT MANUFACTURING ANALYTICS
+══════════════════════════════════════════ -->
+<section class="py-20 lg:py-28" id="about" style="background:#0D1117">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div data-aos="fade-right">
+        <span class="section-label">What We Do</span>
+        <h2 class="text-3xl lg:text-4xl font-bold mb-6 leading-tight">
+          Manufacturing Analytics:<br/>
+          <span class="gradient-text">Data That Drives Decisions</span>
+        </h2>
+        <p class="text-gray-400 leading-relaxed mb-6">
+          Manufacturing analytics consolidates and analyzes data across factory systems including ERP, MES, IoT sensors, and supply chains. By breaking down data silos, our platform delivers a unified operational picture that enables leaders to act with confidence.
+        </p>
+        <p class="text-gray-400 leading-relaxed mb-8">
+          Our AI models continuously learn from your production environment, identifying patterns invisible to the human eye — enabling proactive intervention before problems escalate into costly downtime.
+        </p>
+        <div class="space-y-3">
+          <div class="flex items-center gap-3">
+            <div class="w-6 h-6 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <span class="text-gray-300 text-sm">Identify production bottlenecks in real-time</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-6 h-6 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <span class="text-gray-300 text-sm">Optimize resource utilization and OEE</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-6 h-6 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <span class="text-gray-300 text-sm">Enable predictive maintenance with AI</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-6 h-6 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <span class="text-gray-300 text-sm">Improve supply chain planning and visibility</span>
+          </div>
+        </div>
+      </div>
+
+      <div data-aos="fade-left" data-aos-delay="100">
+        <!-- Analytics chart -->
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:20px;padding:1.5rem">
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <p class="font-poppins font-semibold text-white">OEE Improvement Over Time</p>
+              <p class="text-xs text-gray-400">After AKcelerate platform deployment</p>
+            </div>
+            <span class="tag-pill">+18.3%</span>
+          </div>
+          <canvas id="oeeChart" height="200"></canvas>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3 mt-4">
+          <div style="background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.15);border-radius:12px;padding:1rem">
+            <div class="stat-number text-2xl mb-1">500+</div>
+            <div class="text-xs text-gray-400">Data Sources Integrated</div>
+          </div>
+          <div style="background:rgba(6,182,212,0.08);border:1px solid rgba(6,182,212,0.15);border-radius:12px;padding:1rem">
+            <div class="stat-number text-2xl mb-1">50ms</div>
+            <div class="text-xs text-gray-400">Real-time Latency</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══════════════════════════════════════════
+     CORE BENEFITS
+══════════════════════════════════════════ -->
+<section class="py-20 lg:py-28" id="solutions" style="background:#111827">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16" data-aos="fade-up">
+      <span class="section-label">Core Benefits</span>
+      <h2 class="text-3xl lg:text-4xl font-bold mb-4">
+        Why Manufacturers Choose <span class="gradient-text">AKcelerate</span>
+      </h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">Industry-benchmark results delivered by our AI analytics platform across manufacturing operations worldwide.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <div class="glass-card p-7" data-aos="fade-up" data-aos-delay="0">
+        <div class="feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3 class="font-poppins font-semibold text-lg mb-2">Transform Raw Data into Insights</h3>
+        <p class="text-gray-400 text-sm leading-relaxed mb-4">Unify disparate factory data streams into a single intelligent analytics layer that surfaces actionable intelligence instantly.</p>
+        <div class="flex items-center gap-2 text-accent text-sm font-medium">
+          <span class="text-2xl font-bold font-poppins gradient-text">10x</span>
+          <span class="text-gray-400 text-xs">faster insights vs. manual reporting</span>
+        </div>
+      </div>
+
+      <div class="glass-card p-7" data-aos="fade-up" data-aos-delay="80">
+        <div class="feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <h3 class="font-poppins font-semibold text-lg mb-2">Reduce Operational Costs</h3>
+        <p class="text-gray-400 text-sm leading-relaxed mb-4">Eliminate waste, reduce energy consumption, and optimize labor allocation through AI-driven operational intelligence.</p>
+        <div class="flex items-center gap-2 text-sm font-medium">
+          <span class="text-2xl font-bold font-poppins gradient-text">23%</span>
+          <span class="text-gray-400 text-xs">average operational cost reduction</span>
+        </div>
+      </div>
+
+      <div class="glass-card p-7" data-aos="fade-up" data-aos-delay="160">
+        <div class="feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0FCCCE" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3 class="font-poppins font-semibold text-lg mb-2">Increase Equipment Uptime</h3>
+        <p class="text-gray-400 text-sm leading-relaxed mb-4">Predict failures before they occur. Our AI models detect anomalies weeks in advance, enabling planned maintenance.</p>
+        <div class="flex items-center gap-2 text-sm font-medium">
+          <span class="text-2xl font-bold font-poppins gradient-text">35%</span>
+          <span class="text-gray-400 text-xs">downtime reduction achieved</span>
+        </div>
+      </div>
+
+      <div class="glass-card p-7" data-aos="fade-up" data-aos-delay="0">
+        <div class="feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <h3 class="font-poppins font-semibold text-lg mb-2">Optimize Supply Chains</h3>
+        <p class="text-gray-400 text-sm leading-relaxed mb-4">Gain end-to-end supply chain visibility with demand forecasting and inventory optimization powered by ML models.</p>
+        <div class="flex items-center gap-2 text-sm font-medium">
+          <span class="text-2xl font-bold font-poppins gradient-text">28%</span>
+          <span class="text-gray-400 text-xs">inventory turnover improvement</span>
+        </div>
+      </div>
+
+      <div class="glass-card p-7" data-aos="fade-up" data-aos-delay="80">
+        <div class="feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h3 class="font-poppins font-semibold text-lg mb-2">Improve Product Quality</h3>
+        <p class="text-gray-400 text-sm leading-relaxed mb-4">Apply statistical process control and ML-based anomaly detection to reduce defect rates and improve yield.</p>
+        <div class="flex items-center gap-2 text-sm font-medium">
+          <span class="text-2xl font-bold font-poppins gradient-text">40%</span>
+          <span class="text-gray-400 text-xs">defect reduction on average</span>
+        </div>
+      </div>
+
+      <div class="glass-card p-7" data-aos="fade-up" data-aos-delay="160">
+        <div class="feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0FCCCE" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3 class="font-poppins font-semibold text-lg mb-2">15% Productivity Increase</h3>
+        <p class="text-gray-400 text-sm leading-relaxed mb-4">Empower operators with real-time guidance and AI-augmented workflows that boost throughput without capital expenditure.</p>
+        <div class="flex items-center gap-2 text-sm font-medium">
+          <span class="text-2xl font-bold font-poppins gradient-text">315%</span>
+          <span class="text-gray-400 text-xs">average ROI over 3 years</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══════════════════════════════════════════
+     CORE CAPABILITIES
+══════════════════════════════════════════ -->
+<section class="py-20 lg:py-28" id="services" style="background:#0D1117">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16" data-aos="fade-up">
+      <span class="section-label">Core Capabilities</span>
+      <h2 class="text-3xl lg:text-4xl font-bold mb-4">
+        An Entire Analytics Stack <span class="gradient-text">Built for Manufacturing</span>
+      </h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">From raw sensor data to boardroom decisions — our platform covers every layer of the manufacturing intelligence stack.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+
+      <!-- Data Integration -->
+      <div data-aos="fade-up" data-aos-delay="0" style="background:rgba(255,255,255,0.03);border:1px solid rgba(37,99,235,0.15);border-radius:20px;padding:2rem;transition:all 0.3s ease" onmouseover="this.style.borderColor='rgba(37,99,235,0.4)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(37,99,235,0.15)';this.style.transform='translateY(0)'">
+        <div class="flex items-start gap-4">
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:linear-gradient(135deg,rgba(37,99,235,0.2),rgba(6,182,212,0.1));border:1px solid rgba(37,99,235,0.3)">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          </div>
+          <div>
+            <h3 class="font-poppins font-semibold text-xl mb-2">Data Integration</h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4">Connect and harmonize data from every factory system into a unified data fabric without disrupting operations.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag-pill">ERP</span>
+              <span class="tag-pill">MES</span>
+              <span class="tag-pill">SCADA</span>
+              <span class="tag-pill">IoT Sensors</span>
+              <span class="tag-pill">Historian</span>
+              <span class="tag-pill">PLM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Advanced Analytics -->
+      <div data-aos="fade-up" data-aos-delay="100" style="background:rgba(255,255,255,0.03);border:1px solid rgba(37,99,235,0.15);border-radius:20px;padding:2rem;transition:all 0.3s ease" onmouseover="this.style.borderColor='rgba(37,99,235,0.4)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(37,99,235,0.15)';this.style.transform='translateY(0)'">
+        <div class="flex items-start gap-4">
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:linear-gradient(135deg,rgba(37,99,235,0.2),rgba(6,182,212,0.1));border:1px solid rgba(37,99,235,0.3)">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <div>
+            <h3 class="font-poppins font-semibold text-xl mb-2">Advanced Analytics & AI</h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4">Deploy enterprise-grade machine learning models trained on your manufacturing data for maximum predictive accuracy.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag-pill">ML Models</span>
+              <span class="tag-pill">Anomaly Detection</span>
+              <span class="tag-pill">Forecasting</span>
+              <span class="tag-pill">Root Cause Analysis</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Operational Intelligence -->
+      <div data-aos="fade-up" data-aos-delay="0" style="background:rgba(255,255,255,0.03);border:1px solid rgba(37,99,235,0.15);border-radius:20px;padding:2rem;transition:all 0.3s ease" onmouseover="this.style.borderColor='rgba(37,99,235,0.4)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(37,99,235,0.15)';this.style.transform='translateY(0)'">
+        <div class="flex items-start gap-4">
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:linear-gradient(135deg,rgba(37,99,235,0.2),rgba(6,182,212,0.1));border:1px solid rgba(37,99,235,0.3)">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0FCCCE" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <div>
+            <h3 class="font-poppins font-semibold text-xl mb-2">Operational Intelligence</h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4">Real-time dashboards and KPI monitoring that give every stakeholder — from shop floor to C-suite — actionable visibility.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag-pill">Real-time Dashboards</span>
+              <span class="tag-pill">Plant Monitoring</span>
+              <span class="tag-pill">OEE Tracking</span>
+              <span class="tag-pill">Alerts</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Predictive Maintenance -->
+      <div data-aos="fade-up" data-aos-delay="100" style="background:rgba(255,255,255,0.03);border:1px solid rgba(37,99,235,0.15);border-radius:20px;padding:2rem;transition:all 0.3s ease" onmouseover="this.style.borderColor='rgba(37,99,235,0.4)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(37,99,235,0.15)';this.style.transform='translateY(0)'">
+        <div class="flex items-start gap-4">
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:linear-gradient(135deg,rgba(37,99,235,0.2),rgba(6,182,212,0.1));border:1px solid rgba(37,99,235,0.3)">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div>
+            <h3 class="font-poppins font-semibold text-xl mb-2">Predictive Maintenance AI</h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4">Detect early signs of equipment failure using vibration analysis, thermal imaging data, and deep learning fault classification.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag-pill">Fault Detection</span>
+              <span class="tag-pill">RUL Prediction</span>
+              <span class="tag-pill">Digital Twin</span>
+              <span class="tag-pill">Maintenance Scheduling</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══════════════════════════════════════════
+     USE CASES
+══════════════════════════════════════════ -->
+<section class="py-20 lg:py-28" style="background:#111827">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16" data-aos="fade-up">
+      <span class="section-label">Use Cases</span>
+      <h2 class="text-3xl lg:text-4xl font-bold mb-4">
+        Solving Real <span class="gradient-text">Manufacturing Challenges</span>
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+
+      <div class="glass-card p-6" data-aos="fade-up" data-aos-delay="0">
+        <div class="w-12 h-12 rounded-xl mb-4 flex items-center justify-center" style="background:linear-gradient(135deg,rgba(37,99,235,0.2),rgba(6,182,212,0.1));border:1px solid rgba(37,99,235,0.2)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </div>
+        <h3 class="font-poppins font-semibold mb-2">Production Optimization</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">AI-powered scheduling and throughput optimization to maximize output and minimize cycle times across production lines.</p>
+      </div>
+
+      <div class="glass-card p-6" data-aos="fade-up" data-aos-delay="80">
+        <div class="w-12 h-12 rounded-xl mb-4 flex items-center justify-center" style="background:linear-gradient(135deg,rgba(37,99,235,0.2),rgba(6,182,212,0.1));border:1px solid rgba(37,99,235,0.2)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h3 class="font-poppins font-semibold mb-2">Quality Analytics</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Statistical process control and ML defect classification to reduce scrap rates and meet tightest quality specifications.</p>
+      </div>
+
+      <div class="glass-card p-6" data-aos="fade-up" data-aos-delay="160">
+        <div class="w-12 h-12 rounded-xl mb-4 flex items-center justify-center" style="background:linear-gradient(135deg,rgba(37,99,235,0.2),rgba(6,182,212,0.1));border:1px solid rgba(37,99,235,0.2)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0FCCCE" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <h3 class="font-poppins font-semibold mb-2">Supply Chain Intelligence</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Demand sensing, supplier risk assessment, and inventory optimization across multi-tier supply networks.</p>
+      </div>
+
+      <div class="glass-card p-6" data-aos="fade-up" data-aos-delay="240">
+        <div class="w-12 h-12 rounded-xl mb-4 flex items-center justify-center" style="background:linear-gradient(135deg,rgba(37,99,235,0.2),rgba(6,182,212,0.1));border:1px solid rgba(37,99,235,0.2)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h3 class="font-poppins font-semibold mb-2">Energy Management</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Monitor, forecast, and optimize energy consumption across facilities to reduce carbon footprint and utility costs.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══════════════════════════════════════════
+     CASE STUDIES
+══════════════════════════════════════════ -->
+<section class="py-20 lg:py-28" id="case-studies" style="background:#0D1117">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16" data-aos="fade-up">
+      <span class="section-label">Case Studies</span>
+      <h2 class="text-3xl lg:text-4xl font-bold mb-4">
+        Proven Results at <span class="gradient-text">Scale</span>
+      </h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">Real outcomes from real manufacturers who partnered with AKcelerate to transform their operations.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <div class="case-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="tag-pill">Automotive</span>
+          <span class="tag-pill">Predictive Maintenance</span>
+        </div>
+        <div class="text-4xl font-bold font-poppins gradient-text mb-2">35%</div>
+        <div class="text-sm text-gray-400 mb-4">Unplanned Downtime Reduction</div>
+        <h3 class="font-poppins font-semibold text-lg mb-3">Predictive Maintenance Implementation</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">A Tier-1 automotive supplier deployed our vibration analytics and ML fault models across 120 CNC machines, eliminating surprise breakdowns and reducing maintenance costs by $2.4M annually.</p>
+        <div class="mt-5 pt-5 border-t border-white/5 flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-xs font-bold text-white">A</div>
+          <div>
+            <div class="text-xs font-medium text-gray-300">Automotive Tier-1 Supplier</div>
+            <div class="text-xs text-gray-500">India · 5,000 employees</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="tag-pill">FMCG</span>
+          <span class="tag-pill">Supply Chain</span>
+        </div>
+        <div class="text-4xl font-bold font-poppins gradient-text mb-2">28%</div>
+        <div class="text-sm text-gray-400 mb-4">Inventory Turnover Improvement</div>
+        <h3 class="font-poppins font-semibold text-lg mb-3">Supply Chain Analytics Transformation</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">An FMCG manufacturer integrated our demand forecasting and supplier intelligence platform, cutting stockouts by 60% and reducing excess inventory holding costs dramatically.</p>
+        <div class="mt-5 pt-5 border-t border-white/5 flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-gradient-to-br from-accent to-teal flex items-center justify-center text-xs font-bold text-white">F</div>
+          <div>
+            <div class="text-xs font-medium text-gray-300">Consumer Goods Manufacturer</div>
+            <div class="text-xs text-gray-500">India · 12,000 employees</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="tag-pill">Pharma</span>
+          <span class="tag-pill">Quality & OEE</span>
+        </div>
+        <div class="text-4xl font-bold font-poppins gradient-text mb-2">18%</div>
+        <div class="text-sm text-gray-400 mb-4">OEE Improvement</div>
+        <h3 class="font-poppins font-semibold text-lg mb-3">Production Optimization at Scale</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">A pharmaceutical manufacturer used our real-time OEE dashboards and production scheduling AI to optimize 40 packaging lines, achieving record throughput with zero additional capex.</p>
+        <div class="mt-5 pt-5 border-t border-white/5 flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-gradient-to-br from-teal to-primary flex items-center justify-center text-xs font-bold text-white">P</div>
+          <div>
+            <div class="text-xs font-medium text-gray-300">Pharmaceutical Manufacturer</div>
+            <div class="text-xs text-gray-500">India · 8,000 employees</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══════════════════════════════════════════
+     IMPLEMENTATION DETAILS
+══════════════════════════════════════════ -->
+<section class="py-20 lg:py-28" style="background:#111827">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div data-aos="fade-right">
+        <span class="section-label">Implementation</span>
+        <h2 class="text-3xl lg:text-4xl font-bold mb-6">
+          Enterprise-Grade <span class="gradient-text">Integration Architecture</span>
+        </h2>
+        <p class="text-gray-400 leading-relaxed mb-8">
+          AKcelerate connects seamlessly with your existing technology investments. Our integration layer supports all major enterprise platforms, enabling rapid deployment without disrupting operations.
+        </p>
+
+        <div class="grid grid-cols-2 gap-4 mb-8">
+          <div style="background:rgba(37,99,235,0.06);border:1px solid rgba(37,99,235,0.15);border-radius:12px;padding:1rem">
+            <div class="text-accent font-semibold text-sm mb-2">Supported Systems</div>
+            <div class="space-y-1 text-xs text-gray-400">
+              <div>• ERP (SAP, Oracle, Microsoft)</div>
+              <div>• CRM (Salesforce, HubSpot)</div>
+              <div>• MES (GE, Rockwell, Siemens)</div>
+              <div>• SCM & Logistics platforms</div>
+              <div>• IoT / IIoT platforms</div>
+              <div>• SCADA & Historians</div>
+            </div>
+          </div>
+          <div style="background:rgba(6,182,212,0.06);border:1px solid rgba(6,182,212,0.15);border-radius:12px;padding:1rem">
+            <div class="text-accent font-semibold text-sm mb-2">Deployment Options</div>
+            <div class="space-y-1 text-xs text-gray-400">
+              <div>• Cloud (AWS, Azure, GCP)</div>
+              <div>• On-premise</div>
+              <div>• Hybrid architecture</div>
+              <div>• Edge + Cloud hybrid</div>
+              <div>• Private cloud / VPC</div>
+              <div>• Air-gapped environments</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.2);border-radius:16px;padding:1.5rem">
+          <div class="text-sm font-semibold text-gray-300 mb-3">Investment Range</div>
+          <div class="flex items-end gap-3">
+            <div>
+              <div class="text-3xl font-bold font-poppins gradient-text">$70K – $1M</div>
+              <div class="text-xs text-gray-400 mt-1">depending on scope, integrations, and scale</div>
+            </div>
+          </div>
+          <div class="mt-3 text-xs text-gray-500">Typical payback period: 8–18 months</div>
+        </div>
+      </div>
+
+      <div data-aos="fade-left" data-aos-delay="100">
+        <canvas id="roiChart" height="280"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══════════════════════════════════════════
+     PROCESS SECTION
+══════════════════════════════════════════ -->
+<section class="py-20 lg:py-28" style="background:#0D1117">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16" data-aos="fade-up">
+      <span class="section-label">How We Work</span>
+      <h2 class="text-3xl lg:text-4xl font-bold mb-4">
+        From Data Discovery to <span class="gradient-text">Continuous Optimization</span>
+      </h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">Our proven 5-step implementation methodology ensures rapid time-to-value with minimal operational disruption.</p>
+    </div>
+
+    <div class="space-y-6">
+
+      <div class="flex gap-6 items-start" data-aos="fade-up" data-aos-delay="0">
+        <div class="process-number">1</div>
+        <div class="glass-card p-6 flex-1">
+          <h3 class="font-poppins font-semibold text-lg mb-2 gradient-text">Data Discovery</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">We audit your existing factory systems, data sources, and data quality. Our team identifies gaps, mapping the data landscape needed to deliver business outcomes.</p>
+          <div class="flex flex-wrap gap-2 mt-3">
+            <span class="tag-pill">Systems Audit</span>
+            <span class="tag-pill">Data Quality Assessment</span>
+            <span class="tag-pill">KPI Definition</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex gap-6 items-start" data-aos="fade-up" data-aos-delay="80">
+        <div class="process-number">2</div>
+        <div class="glass-card p-6 flex-1">
+          <h3 class="font-poppins font-semibold text-lg mb-2 gradient-text">Data Integration</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Our engineers connect your ERP, MES, IoT, and SCADA systems using pre-built connectors and custom ETL pipelines, building a unified manufacturing data fabric.</p>
+          <div class="flex flex-wrap gap-2 mt-3">
+            <span class="tag-pill">API Connectors</span>
+            <span class="tag-pill">ETL Pipelines</span>
+            <span class="tag-pill">Real-time Streaming</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex gap-6 items-start" data-aos="fade-up" data-aos-delay="160">
+        <div class="process-number">3</div>
+        <div class="glass-card p-6 flex-1">
+          <h3 class="font-poppins font-semibold text-lg mb-2 gradient-text">Analytics Modeling</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Our data scientists build and validate machine learning models trained on your historical production data — tailored to your specific equipment, processes, and quality standards.</p>
+          <div class="flex flex-wrap gap-2 mt-3">
+            <span class="tag-pill">ML Model Training</span>
+            <span class="tag-pill">Feature Engineering</span>
+            <span class="tag-pill">Model Validation</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex gap-6 items-start" data-aos="fade-up" data-aos-delay="240">
+        <div class="process-number">4</div>
+        <div class="glass-card p-6 flex-1">
+          <h3 class="font-poppins font-semibold text-lg mb-2 gradient-text">Dashboard Deployment</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">We deploy role-specific operational dashboards and executive KPI views. Every stakeholder sees precisely what they need to drive decisions faster.</p>
+          <div class="flex flex-wrap gap-2 mt-3">
+            <span class="tag-pill">Executive Dashboards</span>
+            <span class="tag-pill">Operator Views</span>
+            <span class="tag-pill">Mobile Access</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex gap-6 items-start" data-aos="fade-up" data-aos-delay="320">
+        <div class="process-number">5</div>
+        <div class="glass-card p-6 flex-1">
+          <h3 class="font-poppins font-semibold text-lg mb-2 gradient-text">Optimization & Support</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Ongoing model retraining, new use case development, and dedicated support ensure the platform keeps delivering value as your business evolves.</p>
+          <div class="flex flex-wrap gap-2 mt-3">
+            <span class="tag-pill">Continuous Improvement</span>
+            <span class="tag-pill">Model Retraining</span>
+            <span class="tag-pill">24/7 Support</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══════════════════════════════════════════
+     FOUNDER SECTION
+══════════════════════════════════════════ -->
+<section class="py-20 lg:py-28" style="background:#111827">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16" data-aos="fade-up">
+      <span class="section-label">Leadership</span>
+      <h2 class="text-3xl lg:text-4xl font-bold">
+        Meet the <span class="gradient-text">Founder</span>
+      </h2>
+    </div>
+
+    <div class="max-w-4xl mx-auto">
+      <div data-aos="fade-up" style="background:linear-gradient(135deg,rgba(37,99,235,0.08),rgba(6,182,212,0.04));border:1px solid rgba(37,99,235,0.2);border-radius:24px;padding:2.5rem">
+        <div class="flex flex-col sm:flex-row items-center sm:items-start gap-8">
+          <!-- Avatar -->
+          <div class="flex-shrink-0">
+            <div class="w-28 h-28 rounded-2xl flex items-center justify-center text-4xl font-bold font-poppins text-white pulse-anim" style="background:linear-gradient(135deg,#2563EB,#06B6D4)">
+              KA
+            </div>
+          </div>
+          <div>
+            <h3 class="font-poppins font-bold text-2xl mb-1">Kalpesh Attarde</h3>
+            <div class="gradient-text font-semibold mb-4">Founder & CEO, AKcelerate</div>
+            <p class="text-gray-400 leading-relaxed mb-6">
+              Kalpesh Attarde is the founder of AKcelerate, focused on building AI-powered manufacturing analytics platforms that transform operational data into strategic intelligence. With deep expertise in industrial data engineering, machine learning, and enterprise software, he brings together technology and manufacturing domain knowledge to deliver measurable ROI for manufacturers across India and globally.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a href="tel:8208555380" class="flex items-center gap-2 text-sm text-gray-300 hover:text-accent transition-colors">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                +91 8208555380
+              </a>
+              <a href="contact.html" class="flex items-center gap-2 text-sm text-gray-300 hover:text-accent transition-colors">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                Send Message
+              </a>
+              <a href="#" class="flex items-center gap-2 text-sm text-gray-300 hover:text-accent transition-colors">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                LinkedIn Profile
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══════════════════════════════════════════
+     TEAM SECTION
+══════════════════════════════════════════ -->
+<section class="py-20 lg:py-28" style="background:#0D1117">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16" data-aos="fade-up">
+      <span class="section-label">Our Team</span>
+      <h2 class="text-3xl lg:text-4xl font-bold mb-4">
+        Expert Minds Behind <span class="gradient-text">Every Insight</span>
+      </h2>
+      <p class="text-gray-400 max-w-xl mx-auto">A multidisciplinary team combining manufacturing domain expertise with cutting-edge AI and data engineering skills.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+      <div class="glass-card p-6 text-center" data-aos="fade-up" data-aos-delay="0">
+        <div class="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center text-xl font-bold font-poppins text-white" style="background:linear-gradient(135deg,#2563EB,#06B6D4)">DS</div>
+        <h3 class="font-poppins font-semibold mb-1">Dr. Shreya Mehta</h3>
+        <div class="text-accent text-sm mb-3">Chief Data Scientist</div>
+        <p class="text-gray-400 text-xs leading-relaxed">PhD in Applied ML with 12+ years building predictive models for manufacturing environments.</p>
+        <a href="#" class="mt-4 inline-flex items-center gap-1 text-xs text-gray-500 hover:text-accent transition-colors">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+      </div>
+
+      <div class="glass-card p-6 text-center" data-aos="fade-up" data-aos-delay="80">
+        <div class="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center text-xl font-bold font-poppins text-white" style="background:linear-gradient(135deg,#06B6D4,#0FCCCE)">RK</div>
+        <h3 class="font-poppins font-semibold mb-1">Rahul Kulkarni</h3>
+        <div class="text-accent text-sm mb-3">AI Engineer</div>
+        <p class="text-gray-400 text-xs leading-relaxed">Specializes in industrial AI, edge computing, and real-time anomaly detection systems for smart factories.</p>
+        <a href="#" class="mt-4 inline-flex items-center gap-1 text-xs text-gray-500 hover:text-accent transition-colors">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+      </div>
+
+      <div class="glass-card p-6 text-center" data-aos="fade-up" data-aos-delay="160">
+        <div class="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center text-xl font-bold font-poppins text-white" style="background:linear-gradient(135deg,#0FCCCE,#2563EB)">PS</div>
+        <h3 class="font-poppins font-semibold mb-1">Priya Singh</h3>
+        <div class="text-accent text-sm mb-3">Manufacturing Analytics Consultant</div>
+        <p class="text-gray-400 text-xs leading-relaxed">15 years of hands-on experience optimizing production systems across automotive, FMCG, and pharma sectors.</p>
+        <a href="#" class="mt-4 inline-flex items-center gap-1 text-xs text-gray-500 hover:text-accent transition-colors">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+      </div>
+
+      <div class="glass-card p-6 text-center" data-aos="fade-up" data-aos-delay="240">
+        <div class="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center text-xl font-bold font-poppins text-white" style="background:linear-gradient(135deg,#2563EB,#0FCCCE)">AM</div>
+        <h3 class="font-poppins font-semibold mb-1">Arjun Malhotra</h3>
+        <div class="text-accent text-sm mb-3">Product Manager</div>
+        <p class="text-gray-400 text-xs leading-relaxed">Leads platform roadmap and customer success, translating complex manufacturing needs into elegant product solutions.</p>
+        <a href="#" class="mt-4 inline-flex items-center gap-1 text-xs text-gray-500 hover:text-accent transition-colors">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══════════════════════════════════════════
+     RESOURCES
+══════════════════════════════════════════ -->
+<section class="py-20 lg:py-28" style="background:#111827">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16" data-aos="fade-up">
+      <span class="section-label">Resources</span>
+      <h2 class="text-3xl lg:text-4xl font-bold mb-4">
+        Manufacturing AI <span class="gradient-text">Knowledge Hub</span>
+      </h2>
+      <p class="text-gray-400 max-w-xl mx-auto">Practical guides, research, and insights to help manufacturers accelerate their AI analytics journey.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+      <div class="glass-card p-6 cursor-pointer" data-aos="fade-up" data-aos-delay="0">
+        <div class="w-11 h-11 rounded-xl mb-4 flex items-center justify-center" style="background:linear-gradient(135deg,rgba(37,99,235,0.2),rgba(6,182,212,0.1));border:1px solid rgba(37,99,235,0.2)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <span class="tag-pill text-xs mb-3 inline-block">E-Book</span>
+        <h3 class="font-poppins font-semibold mb-2 text-sm">The Complete Guide to Manufacturing Analytics</h3>
+        <p class="text-gray-400 text-xs leading-relaxed">A comprehensive 80-page guide covering data strategy, platform selection, and ROI measurement for manufacturing AI.</p>
+        <div class="mt-4 text-accent text-xs font-medium flex items-center gap-1">Download Free <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+      </div>
+
+      <div class="glass-card p-6 cursor-pointer" data-aos="fade-up" data-aos-delay="80">
+        <div class="w-11 h-11 rounded-xl mb-4 flex items-center justify-center" style="background:linear-gradient(135deg,rgba(37,99,235,0.2),rgba(6,182,212,0.1));border:1px solid rgba(37,99,235,0.2)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <span class="tag-pill text-xs mb-3 inline-block">Analytics Guide</span>
+        <h3 class="font-poppins font-semibold mb-2 text-sm">Predictive Maintenance: From Reactive to AI-Driven</h3>
+        <p class="text-gray-400 text-xs leading-relaxed">Step-by-step implementation guide for deploying predictive maintenance ML models on real factory equipment.</p>
+        <div class="mt-4 text-accent text-xs font-medium flex items-center gap-1">Read Guide <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+      </div>
+
+      <div class="glass-card p-6 cursor-pointer" data-aos="fade-up" data-aos-delay="160">
+        <div class="w-11 h-11 rounded-xl mb-4 flex items-center justify-center" style="background:linear-gradient(135deg,rgba(37,99,235,0.2),rgba(6,182,212,0.1));border:1px solid rgba(37,99,235,0.2)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0FCCCE" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85"/></svg>
+        </div>
+        <span class="tag-pill text-xs mb-3 inline-block">AI Insights</span>
+        <h3 class="font-poppins font-semibold mb-2 text-sm">Manufacturing AI Maturity Model 2025</h3>
+        <p class="text-gray-400 text-xs leading-relaxed">Benchmark your AI maturity against 200+ manufacturers and discover the highest-ROI digital transformation investments.</p>
+        <div class="mt-4 text-accent text-xs font-medium flex items-center gap-1">Download Report <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+      </div>
+
+      <div class="glass-card p-6 cursor-pointer" data-aos="fade-up" data-aos-delay="240">
+        <div class="w-11 h-11 rounded-xl mb-4 flex items-center justify-center" style="background:linear-gradient(135deg,rgba(37,99,235,0.2),rgba(6,182,212,0.1));border:1px solid rgba(37,99,235,0.2)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+        </div>
+        <span class="tag-pill text-xs mb-3 inline-block">Industry 4.0</span>
+        <h3 class="font-poppins font-semibold mb-2 text-sm">Industry 4.0 Transformation Roadmap</h3>
+        <p class="text-gray-400 text-xs leading-relaxed">A practical framework for manufacturing leaders to plan and execute a successful Industry 4.0 digital transformation.</p>
+        <div class="mt-4 text-accent text-xs font-medium flex items-center gap-1">Get Roadmap <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══════════════════════════════════════════
+     FAQ SECTION
+══════════════════════════════════════════ -->
+<section class="py-20 lg:py-28" style="background:#0D1117">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14" data-aos="fade-up">
+      <span class="section-label">FAQ</span>
+      <h2 class="text-3xl lg:text-4xl font-bold">
+        Frequently Asked <span class="gradient-text">Questions</span>
+      </h2>
+    </div>
+
+    <div data-aos="fade-up" data-aos-delay="100">
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How does manufacturing analytics improve efficiency?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Manufacturing analytics eliminates guesswork by providing real-time visibility into every production variable. By identifying bottlenecks, waste patterns, and underperforming equipment automatically, your teams can act on facts rather than intuition — driving continuous improvement across throughput, quality, and costs.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How does predictive maintenance work?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Our platform collects vibration, temperature, pressure, and electrical data from equipment sensors. AI models trained on historical failure patterns analyze this data in real-time, detecting subtle anomalies that precede failures — often days or weeks in advance. You receive actionable alerts with recommended maintenance actions before costly breakdowns occur.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What systems can the platform integrate with?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          AKcelerate integrates with virtually any enterprise system: ERP (SAP, Oracle, Microsoft Dynamics), MES (GE, Rockwell, Siemens), SCADA and historian systems, IoT/IIoT platforms (AWS IoT, Azure IoT Hub, PTC ThingWorx), CRM platforms, and custom data sources via REST APIs or direct database connections.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What ROI can manufacturers expect?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Industry benchmarks show manufacturers achieve 315% ROI over 3 years. Common outcomes include 35% reduction in unplanned downtime, 15-20% productivity improvement, 23% reduction in operational costs, and 28% improvement in inventory turnover. Your specific ROI depends on current operational maturity and scope of deployment.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How long does implementation take?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          A typical initial deployment takes 8–16 weeks from project kickoff to first dashboards going live. We use a phased approach — delivering quick wins in the first 4 weeks while building the full platform in parallel. Enterprise-wide rollouts across multiple plants typically take 6–12 months.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Is the platform available on-premise or cloud?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Yes — AKcelerate supports cloud (AWS, Azure, GCP), on-premise, and hybrid deployment models. For manufacturers with strict data sovereignty requirements, we offer fully on-premise and air-gapped configurations. Our edge-cloud hybrid architecture is ideal for factories with limited connectivity.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══════════════════════════════════════════
+     CTA SECTION
+══════════════════════════════════════════ -->
+<section class="py-20 lg:py-28" style="background:linear-gradient(135deg,#080d1a 0%,#0d1b35 50%,#080d1a 100%);position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(37,99,235,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,0.06) 1px,transparent 1px);background-size:60px 60px"></div>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+    <div data-aos="fade-up">
+      <span class="section-label">Get Started Today</span>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+        Ready to Transform Your<br/>
+        <span class="gradient-text">Manufacturing Operations?</span>
+      </h2>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto mb-10">
+        Join manufacturers who have already unlocked the power of AI-driven analytics. Book a personalized demo and see what's possible for your operations.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="contact.html" class="btn-primary text-base px-8 py-4">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          Request Demo
+        </a>
+        <a href="contact.html" class="btn-secondary text-base px-8 py-4">Contact Us</a>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-8 mt-12 text-sm text-gray-500">
+        <div class="flex items-center gap-2">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          No commitment required
+        </div>
+        <div class="flex items-center gap-2">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Personalized to your industry
+        </div>
+        <div class="flex items-center gap-2">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Response within 24 hours
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer class="footer-gradient py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
+
+      <!-- Brand -->
+      <div class="col-span-2 md:col-span-1">
+        <div class="flex items-center gap-2.5 mb-4">
+          <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+          </div>
+          <span class="font-poppins font-bold text-lg text-white">AK<span class="gradient-text">celerate</span></span>
+        </div>
+        <p class="text-gray-500 text-sm leading-relaxed mb-4">AI-powered manufacturing analytics platform transforming factory data into strategic intelligence.</p>
+        <div class="flex items-center gap-1 text-xs text-gray-500">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Mumbai, India
+        </div>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <h4 class="font-poppins font-semibold text-sm text-white mb-4">Company</h4>
+        <div class="space-y-2.5">
+          <a href="#about" class="footer-link">About</a>
+          <a href="#" class="footer-link">Careers</a>
+          <a href="#" class="footer-link">Blog</a>
+          <a href="contact.html" class="footer-link">Contact</a>
+        </div>
+      </div>
+
+      <!-- Solutions -->
+      <div>
+        <h4 class="font-poppins font-semibold text-sm text-white mb-4">Solutions</h4>
+        <div class="space-y-2.5">
+          <a href="#solutions" class="footer-link">Manufacturing Analytics</a>
+          <a href="#solutions" class="footer-link">Predictive Maintenance</a>
+          <a href="#solutions" class="footer-link">Supply Chain Intelligence</a>
+          <a href="#solutions" class="footer-link">Quality Analytics</a>
+          <a href="#solutions" class="footer-link">Energy Management</a>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h4 class="font-poppins font-semibold text-sm text-white mb-4">Contact</h4>
+        <div class="space-y-3">
+          <div class="flex items-start gap-2">
+            <svg class="flex-shrink-0 mt-0.5" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:akcelerateindia@gmail.com" class="footer-link text-xs">akcelerateindia@gmail.com</a>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="flex-shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:8208555380" class="footer-link text-xs">+91 8208555380</a>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="flex-shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span class="text-gray-500 text-xs">Mumbai, India</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="border-t border-white/5 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p class="text-gray-600 text-sm">© 2025 AKcelerate. All rights reserved.</p>
+      <div class="flex gap-5 text-xs text-gray-600">
+        <a href="#" class="hover:text-gray-400 transition-colors">Privacy Policy</a>
+        <a href="#" class="hover:text-gray-400 transition-colors">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/918208555380" target="_blank" class="floating-whatsapp" title="Chat on WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- Back to top -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+</button>
+
+
+<!-- ══════════════════════════════════════════
+     SCRIPTS
+══════════════════════════════════════════ -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
