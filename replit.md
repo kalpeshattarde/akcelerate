@@ -1,60 +1,111 @@
-# AKcelerate – AI Manufacturing Analytics Platform
+# AKcelerate — $100M AI Manufacturing Analytics Platform
 
 ## Overview
-A professional enterprise SaaS-style website for AKcelerate, providing AI-powered manufacturing analytics, predictive maintenance, supply chain intelligence, and Industry 4.0 transformation services. Built with a WingzSphere-inspired light theme.
+Enterprise SaaS-style website for AKcelerate — AI-powered manufacturing analytics, predictive maintenance, supply chain intelligence, quality analytics, and energy management for India's industrial sector.
+
+**Founder:** Kalpesh Attarde | +91 8208555380 | akcelerateindia@gmail.com | Mumbai, India
 
 ## Architecture
-- **Runtime**: Node.js 20 with Express (static file server)
+- **Runtime**: Node.js 20 + Express 4
+- **Security**: Helmet + express-rate-limit
 - **Frontend**: HTML5, Tailwind CSS CDN, Vanilla JavaScript
-- **Libraries**: Chart.js, AOS animations, Lucide Icons
-- **Fonts**: Google Fonts (Poppins + Inter)
-- **Port**: 5000 (0.0.0.0)
+- **Libraries**: Chart.js, AOS (Animate on Scroll), Lucide Icons
+- **Fonts**: Google Fonts — Poppins (headings) + Inter (body)
+- **Port**: 5000, Host: 0.0.0.0
 
-## Project Structure
+## Complete Project Structure
 ```
-├── server/
-│   └── server.js         # Express server (port 5000, host 0.0.0.0)
-├── public/
-│   ├── index.html        # Homepage (Hero + Integration strip + all CTA links)
-│   ├── solutions.html    # Solutions page (Benefits + Use Cases)
-│   ├── services.html     # Services page (Capabilities + Implementation + Process)
-│   ├── case-studies.html # Case Studies page (Case Studies + Resources)
-│   ├── about.html        # About page (What We Do + Founder + Team + FAQ)
-│   ├── contact.html      # Contact page (form + WhatsApp + info)
-│   ├── css/
-│   │   └── styles.css    # Full light theme CSS
-│   └── js/
-│       └── script.js     # Charts (Chart.js), AOS init, FAQ accordion, counter animation, form validation
+/
+├── server/server.js              # Express + Helmet + rate-limiting + all routes
+├── public/                       # Main website pages
+│   ├── index.html                # Homepage
+│   ├── solutions.html            # Solutions overview
+│   ├── services.html             # Services overview
+│   ├── case-studies.html         # Case studies
+│   ├── about.html                # About page
+│   ├── contact.html              # Contact form
+│   ├── pricing.html              # Pricing page (3 plans + toggle)
+│   ├── gallery.html              # Gallery
+│   ├── founder.html              # Founder portfolio
+│   ├── blog.html                 # Blog
+│   ├── services/                 # Individual service pages
+│   │   ├── predictive-maintenance.html
+│   │   ├── supply-chain-analytics.html
+│   │   ├── quality-analytics.html
+│   │   └── energy-management.html
+│   ├── css/styles.css            # Main stylesheet (light + dark themes + dropdowns + pricing)
+│   └── js/script.js              # Theme toggle, AOS, charts, FAQ, counters, smooth scroll
+├── design-system/                # Design token library
+│   ├── index.css                 # Master import (all tokens)
+│   └── tokens/
+│       ├── colors.css            # Color tokens (light + dark)
+│       ├── typography.css        # Font tokens
+│       ├── spacing.css           # Spacing tokens
+│       ├── shadows.css           # Shadow tokens
+│       └── radius.css            # Border radius tokens
+├── brand-kit/                    # Brand assets folder
+│   ├── logo/                     # Logo files
+│   ├── letterhead/               # Letterhead templates
+│   ├── social/                   # Social media templates
+│   └── README.md                 # Brand kit guide
+├── private/                      # Private files (gitignored)
+│   └── README.md
+├── modules/                      # Future feature modules
+│   ├── analytics-dashboard/
+│   ├── ai-tools/
+│   ├── client-portal/
+│   ├── admin-panel/
+│   └── README.md
+├── docs/                         # Documentation
+│   ├── architecture.md
+│   ├── ui-system.md
+│   ├── customization-guide.md
+│   ├── branding-guide.md
+│   ├── security-guide.md
+│   └── deployment-guide.md
+├── .gitignore                    # Includes /private/
+└── package.json
 ```
 
 ## Pages & Routes
-- `/` or `/index.html` — Homepage with Hero section, integration strip, cross-page navigation
-- `/solutions.html` — Core Benefits (6 cards) + Use Cases (4 cards)
-- `/services.html` — Platform Capabilities (4 cards) + Implementation Architecture + ROI chart + 5-step Process
-- `/case-studies.html` — 3 Case Studies (Automotive/FMCG/Pharma) + 4 Resource cards
-- `/about.html` — What We Do + OEE chart + Founder (Kalpesh Attarde) + Team (4) + FAQ (6 items)
-- `/contact.html` — Validated contact form, WhatsApp integration, contact info, stats
+| Route | File | Description |
+|-------|------|-------------|
+| `/` | index.html | Homepage — Hero, integrations, features, stats |
+| `/solutions` | solutions.html | Solutions overview |
+| `/services` | services.html | Services overview |
+| `/case-studies` | case-studies.html | 3 case studies (Auto/FMCG/Pharma) |
+| `/about` | about.html | About + Founder profile |
+| `/contact` | contact.html | Contact form + WhatsApp |
+| `/pricing` | pricing.html | Pricing plans (Starter/Pro/Enterprise) + toggle |
+| `/gallery` | gallery.html | Gallery/portfolio |
+| `/founder` | founder.html | Founder portfolio |
+| `/blog` | blog.html | Blog page |
+| `/services/predictive-maintenance` | services/predictive-maintenance.html | Service sub-page |
+| `/services/supply-chain-analytics` | services/supply-chain-analytics.html | Service sub-page |
+| `/services/quality-analytics` | services/quality-analytics.html | Service sub-page |
+| `/services/energy-management` | services/energy-management.html | Service sub-page |
+| `POST /api/contact` | server.js | Contact form endpoint (rate-limited) |
 
 ## Design System (Light Theme)
-- **Body background**: #FFFFFF (white)
-- **Alt sections**: #F0F7FF (light blue-gray)
-- **Primary**: #2563EB (Blue)
-- **Accent**: #06B6D4 (Cyan)
-- **Teal**: #0FCCCE
-- **Headings**: #0F172A (dark navy)
-- **Body text**: #64748B (slate-500)
-- **Card borders**: #E2E8F0
-- **Footer/CTA**: dark gradient (intentionally dark)
-- **Typography**: Poppins (headings) + Inter (body)
+- **Body background**: `#FFFFFF`
+- **Alt sections**: `#F0F7FF` (light blue)
+- **Primary**: `#2563EB` (Blue)
+- **Accent**: `#06B6D4` (Cyan)
+- **Headings**: `#0F172A` (dark navy)
+- **Body text**: `#64748B` (slate-500)
+- **Card borders**: `#E2E8F0`
+- **Footer/CTA**: intentionally dark gradient
+- **Dark theme**: toggled via `[data-theme="dark"]` on `<html>`, stored in `localStorage` as `ak-theme`
 
-## Navigation
-Each page highlights its own nav item in blue (color:#2563EB, font-weight:600). All nav links point to dedicated pages:
-- Home → `/`
-- Solutions → `solutions.html`
-- Services → `services.html`
-- Case Studies → `case-studies.html`
-- About → `about.html`
-- Contact → `contact.html`
+## Key Features
+- **Dual theme**: Light + Dark mode toggle on all pages (moon/sun icon in nav)
+- **Nav dropdowns**: Solutions and Services have hover dropdowns with sub-page links + icons
+- **Individual service pages**: 4 dedicated pages with hero, stats, capabilities, process, CTA
+- **Pricing page**: Monthly/Annual toggle with 3 plans (₹49,999 / ₹1,49,999 / Custom)
+- **Security**: Helmet security headers + rate-limiting on API endpoints
+- **Design tokens**: Centralized CSS variables in `/design-system/tokens/`
+- **Docs**: 6 markdown documentation files in `/docs/`
+- **Animated counters**: `data-count` attribute on stat numbers
 
 ## Running
 ```bash
@@ -62,8 +113,8 @@ npm start       # Production
 npm run dev     # Development (nodemon)
 ```
 
-## Founder
-Kalpesh Attarde — Founder & CEO
-Phone: +91 8208555380
-Email: akcelerateindia@gmail.com
-Location: Mumbai, India
+## Security Notes
+- `/private/` is gitignored — use for sensitive brand files
+- `.env` is gitignored — use for secrets
+- `helmet` sets secure HTTP headers
+- `express-rate-limit` limits `/api/*` to 100 requests/15min/IP
