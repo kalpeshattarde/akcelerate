@@ -13,6 +13,32 @@ Enterprise SaaS-style website for AKcelerate — AI-powered manufacturing analyt
 - **Fonts**: Google Fonts — Poppins (headings) + Inter (body)
 - **Port**: 5000, Host: 0.0.0.0
 
+## All Pages (No Dead Buttons — Every Link Has a Destination)
+- `/` — Homepage
+- `/solutions` — Platform solutions overview
+- `/services` — Services and consulting
+- `/case-studies` — Real-world results
+- `/about` — Company about page
+- `/contact` — Contact + demo booking
+- `/pricing` — 3-tier pricing (Starter/Professional/Enterprise)
+- `/gallery` — Platform dashboard gallery
+- `/founder` — Kalpesh Attarde profile page
+- `/blog` — Blog listing (6 article cards)
+- `/blog/generative-ai-operations` — Blog article 1
+- `/blog/data-to-intelligence` — Blog article 2
+- `/blog/msme-growth-strategies` — Blog article 3
+- `/blog/ml-deployment-guide` — Blog article 4
+- `/blog/ai-manufacturing-adoption` — Blog article 5
+- `/blog/data-driven-brand` — Blog article 6
+- `/careers` — Careers page (5 open roles)
+- `/privacy` — Privacy policy (8 sections)
+- `/terms` — Terms of service (9 sections)
+- `/resources` — Resource library
+- `/services/predictive-maintenance` — Service sub-page
+- `/services/supply-chain-analytics` — Service sub-page
+- `/services/quality-analytics` — Service sub-page
+- `/services/energy-management` — Service sub-page
+
 ## Complete Project Structure
 ```
 /

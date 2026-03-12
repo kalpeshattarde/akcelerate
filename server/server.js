@@ -44,6 +44,24 @@ app.get('/pricing', (req, res) => res.sendFile(path.join(__dirname, '../public/p
 app.get('/gallery', (req, res) => res.sendFile(path.join(__dirname, '../public/gallery.html')));
 app.get('/founder', (req, res) => res.sendFile(path.join(__dirname, '../public/founder.html')));
 app.get('/blog', (req, res) => res.sendFile(path.join(__dirname, '../public/blog.html')));
+app.get('/careers', (req, res) => res.sendFile(path.join(__dirname, '../public/careers.html')));
+app.get('/privacy', (req, res) => res.sendFile(path.join(__dirname, '../public/privacy.html')));
+app.get('/terms', (req, res) => res.sendFile(path.join(__dirname, '../public/terms.html')));
+app.get('/resources', (req, res) => res.sendFile(path.join(__dirname, '../public/resources.html')));
+
+// ── Blog Article Pages ────────────────────────────
+app.get('/blog/generative-ai-operations', (req, res) =>
+  res.sendFile(path.join(__dirname, '../public/blog/generative-ai-operations.html')));
+app.get('/blog/data-to-intelligence', (req, res) =>
+  res.sendFile(path.join(__dirname, '../public/blog/data-to-intelligence.html')));
+app.get('/blog/msme-growth-strategies', (req, res) =>
+  res.sendFile(path.join(__dirname, '../public/blog/msme-growth-strategies.html')));
+app.get('/blog/ml-deployment-guide', (req, res) =>
+  res.sendFile(path.join(__dirname, '../public/blog/ml-deployment-guide.html')));
+app.get('/blog/ai-manufacturing-adoption', (req, res) =>
+  res.sendFile(path.join(__dirname, '../public/blog/ai-manufacturing-adoption.html')));
+app.get('/blog/data-driven-brand', (req, res) =>
+  res.sendFile(path.join(__dirname, '../public/blog/data-driven-brand.html')));
 
 // ── Individual Service Pages ──────────────────────
 app.get('/services/predictive-maintenance', (req, res) =>
