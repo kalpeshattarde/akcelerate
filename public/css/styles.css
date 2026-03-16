@@ -1781,6 +1781,33 @@ a.ak-link-card:hover {
   line-height: 1.4;
 }
 [data-theme="dark"] .impact-stat-label { color: #94A3B8; }
+[data-theme="dark"] .impact-stat { border-color: rgba(255,255,255,0.06) !important; }
+
+/* ── Dark mode extras for viz components ── */
+[data-theme="dark"] .skill-bar-value { color: #60A5FA; }
+[data-theme="dark"] .skill-bar-label { color: #CBD5E1; }
+[data-theme="dark"] .comparison-bar-tag.after { color: #60A5FA; }
+[data-theme="dark"] .comparison-bar-pct.after  { color: #60A5FA; }
+[data-theme="dark"] .comparison-bar-fill.after  { background: linear-gradient(90deg,#1D4ED8,#0891B2); }
+[data-theme="dark"] .comparison-bar-fill.before { background: rgba(148,163,184,0.25); }
+[data-theme="dark"] .skill-bar-fill { background: linear-gradient(90deg,#1D4ED8,#0891B2); }
+
+/* ── Tech pill dark variant ── */
+[data-theme="dark"] .tech-pill {
+  background: rgba(37,99,235,0.12);
+  border-color: rgba(37,99,235,0.25);
+  color: #93C5FD;
+}
+
+/* ── process-flow dark ── */
+[data-theme="dark"] .process-step { background: #1E293B; border-color: rgba(255,255,255,0.08); }
+[data-theme="dark"] .process-step-num { background: rgba(37,99,235,0.15); color: #60A5FA; }
+
+/* ── section-light dark ── */
+[data-theme="dark"] .section-light { background: #0F172A !important; }
+
+/* ── Chart.js canvas dark text ── */
+[data-theme="dark"] canvas { filter: none; }
 
 /* ── Section divider with icon ── */
 .viz-section-badge {

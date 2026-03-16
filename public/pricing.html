@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -231,6 +232,43 @@
   </div>
 </section>
 
+
+<div class="section-divider"></div>
+
+<!-- ROI & VALUE INFOGRAPHIC -->
+<section style="background:#F8FAFF;padding:5rem 0;">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12" data-aos="fade-up">
+      <span class="section-label">Return on Investment</span>
+      <h2 class="text-3xl lg:text-4xl font-bold mb-4">
+        What Each Plan <span class="gradient-text">Delivers</span>
+      </h2>
+      <p class="text-slate-500 max-w-2xl mx-auto">Every tier is designed to generate returns that far exceed the investment — see the numbers for yourself.</p>
+    </div>
+    <div class="grid lg:grid-cols-2 gap-10 items-start">
+      <div class="chart-card" data-aos="fade-right">
+        <p class="font-poppins font-semibold text-slate-900 mb-1">Average ROI by Engagement Type</p>
+        <p class="text-xs text-slate-500 mb-4">Measured at 12 months post go-live</p>
+        <canvas id="pricingROI" height="260"></canvas>
+      </div>
+      <div data-aos="fade-left" data-aos-delay="100">
+        <p class="font-poppins font-semibold text-slate-900 mb-6">Business Impact Comparison</p>
+        <div id="pricingBars">
+          <div class="comparison-bar-wrap"><div class="comparison-bar-label">Process Efficiency</div><div class="comparison-bars"><div class="comparison-bar-row"><span class="comparison-bar-tag before">Before</span><div class="comparison-bar-track"><div class="comparison-bar-fill before" data-width="35"></div></div><span class="comparison-bar-pct before">35%</span></div><div class="comparison-bar-row"><span class="comparison-bar-tag after">After</span><div class="comparison-bar-track"><div class="comparison-bar-fill after" data-width="82"></div></div><span class="comparison-bar-pct after">82%</span></div></div></div>
+          <div class="comparison-bar-wrap"><div class="comparison-bar-label">Decision Speed</div><div class="comparison-bars"><div class="comparison-bar-row"><span class="comparison-bar-tag before">Before</span><div class="comparison-bar-track"><div class="comparison-bar-fill before" data-width="25"></div></div><span class="comparison-bar-pct before">25%</span></div><div class="comparison-bar-row"><span class="comparison-bar-tag after">After</span><div class="comparison-bar-track"><div class="comparison-bar-fill after" data-width="78"></div></div><span class="comparison-bar-pct after">78%</span></div></div></div>
+          <div class="comparison-bar-wrap"><div class="comparison-bar-label">Operational Cost Savings</div><div class="comparison-bars"><div class="comparison-bar-row"><span class="comparison-bar-tag before">Before</span><div class="comparison-bar-track"><div class="comparison-bar-fill before" data-width="10"></div></div><span class="comparison-bar-pct before">10%</span></div><div class="comparison-bar-row"><span class="comparison-bar-tag after">After</span><div class="comparison-bar-track"><div class="comparison-bar-fill after" data-width="64"></div></div><span class="comparison-bar-pct after">64%</span></div></div></div>
+          <div class="comparison-bar-wrap" style="margin-bottom:0"><div class="comparison-bar-label">Revenue Forecast Accuracy</div><div class="comparison-bars"><div class="comparison-bar-row"><span class="comparison-bar-tag before">Before</span><div class="comparison-bar-track"><div class="comparison-bar-fill before" data-width="28"></div></div><span class="comparison-bar-pct before">28%</span></div><div class="comparison-bar-row"><span class="comparison-bar-tag after">After</span><div class="comparison-bar-track"><div class="comparison-bar-fill after" data-width="87"></div></div><span class="comparison-bar-pct after">87%</span></div></div></div>
+        </div>
+        <div class="grid grid-cols-2 gap-3 mt-6">
+          <div class="impact-stat" style="background:rgba(37,99,235,0.06);border-color:rgba(37,99,235,0.15)"><div class="impact-stat-num">315%</div><div class="impact-stat-label">Avg 3-year ROI</div></div>
+          <div class="impact-stat" style="background:rgba(6,182,212,0.06);border-color:rgba(6,182,212,0.15)"><div class="impact-stat-num">6–12 mo</div><div class="impact-stat-label">Typical payback period</div></div>
+          <div class="impact-stat" style="background:rgba(16,185,129,0.06);border-color:rgba(16,185,129,0.15)"><div class="impact-stat-num">₹2.8Cr</div><div class="impact-stat-label">Avg annual cost savings</div></div>
+          <div class="impact-stat" style="background:rgba(124,58,237,0.06);border-color:rgba(124,58,237,0.15)"><div class="impact-stat-num">92%</div><div class="impact-stat-label">Client retention rate</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <!-- CTA -->
 <section style="padding:6rem 0;background:linear-gradient(135deg,#0F172A 0%,#1E293B 100%);">
   <div class="max-w-3xl mx-auto px-4 text-center" data-aos="fade-up">
@@ -259,6 +297,11 @@
 <a href="https://wa.me/919529314215" class="floating-whatsapp" target="_blank"><svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg></button>
 
+
+<script>
+(function(){var c=document.getElementById('pricingROI');if(!c)return;new Chart(c.getContext('2d'),{type:'bar',data:{labels:['AI/ML Project','Automation','SaaS Dev','Analytics','Consulting','MLOps'],datasets:[{label:'3-Year ROI (%)',data:[360,290,240,310,185,330],backgroundColor:['#2563EB','#06B6D4','#7C3AED','#059669','#D97706','#0891B2'],borderRadius:8,borderSkipped:false}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{ticks:{callback:function(v){return v+'%';},font:{size:11}},grid:{color:'rgba(0,0,0,0.04)'}},x:{ticks:{font:{size:11}},grid:{display:false}}}}});})();
+(function(){var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.querySelectorAll('.comparison-bar-fill[data-width]').forEach(function(el){el.style.width=el.getAttribute('data-width')+'%';});obs.unobserve(e.target);}});},{threshold:0.2});var el=document.getElementById('pricingBars');if(el)obs.observe(el);})();
+</script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="js/script.js"></script>
 <script>

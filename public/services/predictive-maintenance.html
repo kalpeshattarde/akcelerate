@@ -8,6 +8,7 @@
   <meta name="description" content="AI-powered predictive maintenance that reduces unplanned downtime by 47%. Real-time sensor monitoring, ML failure prediction, and automated alerts for manufacturers.">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
   <link rel="stylesheet" href="/css/styles.css">
 </head>
@@ -204,6 +205,41 @@
   </div>
 </section>
 
+
+<!-- TECH STACK & RESULTS VIZ -->
+<section style="background:#F8FAFF;padding:5rem 0;">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12" data-aos="fade-up">
+      <span class="section-label">Technology & Impact</span>
+      <h2 class="text-3xl lg:text-4xl font-bold mb-4">
+        Stack That Powers <span class="gradient-text">Predictive Maintenance</span>
+      </h2>
+      <p class="text-slate-500 max-w-2xl mx-auto">Best-in-class tools paired with proven methodology — delivering measurable outcomes across every engagement.</p>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mb-12" data-aos="fade-up" data-aos-delay="80">
+      <div class="chart-card"><div class="font-poppins font-semibold text-sm mb-3" style="color:#334155">ML & IoT</div><div class="tech-stack-grid" style="justify-content:flex-start"><span class="tech-pill tech-pill-blue">Python</span><span class="tech-pill tech-pill-blue">TensorFlow</span><span class="tech-pill tech-pill-blue">Scikit-learn</span><span class="tech-pill tech-pill-blue">MQTT</span><span class="tech-pill tech-pill-blue">TimescaleDB</span></div></div><div class="chart-card"><div class="font-poppins font-semibold text-sm mb-3" style="color:#334155">Edge & Cloud</div><div class="tech-stack-grid" style="justify-content:flex-start"><span class="tech-pill tech-pill-teal">AWS IoT</span><span class="tech-pill tech-pill-teal">Azure IoT Hub</span><span class="tech-pill tech-pill-teal">Docker</span><span class="tech-pill tech-pill-teal">InfluxDB</span><span class="tech-pill tech-pill-teal">Kafka</span></div></div><div class="chart-card"><div class="font-poppins font-semibold text-sm mb-3" style="color:#334155">Visualization</div><div class="tech-stack-grid" style="justify-content:flex-start"><span class="tech-pill tech-pill-green">Grafana</span><span class="tech-pill tech-pill-green">Power BI</span><span class="tech-pill tech-pill-green">D3.js</span><span class="tech-pill tech-pill-green">Plotly</span><span class="tech-pill tech-pill-green">Streamlit</span></div></div><div class="chart-card"><div class="font-poppins font-semibold text-sm mb-3" style="color:#334155">Alerting</div><div class="tech-stack-grid" style="justify-content:flex-start"><span class="tech-pill tech-pill-orange">PagerDuty</span><span class="tech-pill tech-pill-orange">Slack Bot</span><span class="tech-pill tech-pill-orange">SMS Alerts</span><span class="tech-pill tech-pill-orange">Email</span><span class="tech-pill tech-pill-orange">Webhook</span></div></div>
+    </div>
+    <div class="grid lg:grid-cols-2 gap-10">
+      <div class="chart-card" data-aos="fade-right">
+        <p class="font-poppins font-semibold text-slate-900 mb-1">Client Results — Before vs. After</p>
+        <p class="text-xs text-slate-500 mb-5">Average across active engagements</p>
+        <div id="pmBars"><div class="comparison-bar-wrap"><div class="comparison-bar-label">Equipment Uptime</div><div class="comparison-bars"><div class="comparison-bar-row"><span class="comparison-bar-tag before">Before</span><div class="comparison-bar-track"><div class="comparison-bar-fill before" data-width="58"></div></div><span class="comparison-bar-pct before">58%</span></div><div class="comparison-bar-row"><span class="comparison-bar-tag after">After</span><div class="comparison-bar-track"><div class="comparison-bar-fill after" data-width="94"></div></div><span class="comparison-bar-pct after">94%</span></div></div></div><div class="comparison-bar-wrap"><div class="comparison-bar-label">Unplanned Downtime Reduction</div><div class="comparison-bars"><div class="comparison-bar-row"><span class="comparison-bar-tag before">Before</span><div class="comparison-bar-track"><div class="comparison-bar-fill before" data-width="20"></div></div><span class="comparison-bar-pct before">20%</span></div><div class="comparison-bar-row"><span class="comparison-bar-tag after">After</span><div class="comparison-bar-track"><div class="comparison-bar-fill after" data-width="78"></div></div><span class="comparison-bar-pct after">78%</span></div></div></div><div class="comparison-bar-wrap"><div class="comparison-bar-label">Maintenance Cost Savings</div><div class="comparison-bars"><div class="comparison-bar-row"><span class="comparison-bar-tag before">Before</span><div class="comparison-bar-track"><div class="comparison-bar-fill before" data-width="30"></div></div><span class="comparison-bar-pct before">30%</span></div><div class="comparison-bar-row"><span class="comparison-bar-tag after">After</span><div class="comparison-bar-track"><div class="comparison-bar-fill after" data-width="68"></div></div><span class="comparison-bar-pct after">68%</span></div></div></div><div class="comparison-bar-wrap"><div class="comparison-bar-label">Fault Detection Accuracy</div><div class="comparison-bars"><div class="comparison-bar-row"><span class="comparison-bar-tag before">Before</span><div class="comparison-bar-track"><div class="comparison-bar-fill before" data-width="45"></div></div><span class="comparison-bar-pct before">45%</span></div><div class="comparison-bar-row"><span class="comparison-bar-tag after">After</span><div class="comparison-bar-track"><div class="comparison-bar-fill after" data-width="95"></div></div><span class="comparison-bar-pct after">95%</span></div></div></div><div class="comparison-bar-wrap" style="margin-bottom:0"><div class="comparison-bar-label">MTTR Improvement</div><div class="comparison-bars"><div class="comparison-bar-row"><span class="comparison-bar-tag before">Before</span><div class="comparison-bar-track"><div class="comparison-bar-fill before" data-width="40"></div></div><span class="comparison-bar-pct before">40%</span></div><div class="comparison-bar-row"><span class="comparison-bar-tag after">After</span><div class="comparison-bar-track"><div class="comparison-bar-fill after" data-width="82"></div></div><span class="comparison-bar-pct after">82%</span></div></div></div></div>
+      </div>
+      <div class="chart-card" data-aos="fade-left" data-aos-delay="100">
+        <p class="font-poppins font-semibold text-slate-900 mb-1">Project Focus Distribution</p>
+        <p class="text-xs text-slate-500 mb-4">By solution component</p>
+        <canvas id="pmChart" height="220"></canvas>
+        <div class="grid grid-cols-2 gap-3 mt-6">
+          <div class="impact-stat" style="background:rgba(37,99,235,0.06);border-color:rgba(37,99,235,0.15)"><div class="impact-stat-num">6–10 wk</div><div class="impact-stat-label">Time to deployment</div></div>
+          <div class="impact-stat" style="background:rgba(6,182,212,0.06);border-color:rgba(6,182,212,0.15)"><div class="impact-stat-num">₹1.5–3Cr</div><div class="impact-stat-label">Avg annual savings</div></div>
+          <div class="impact-stat" style="background:rgba(16,185,129,0.06);border-color:rgba(16,185,129,0.15)"><div class="impact-stat-num">280%</div><div class="impact-stat-label">Average 3-yr ROI</div></div>
+          <div class="impact-stat" style="background:rgba(124,58,237,0.06);border-color:rgba(124,58,237,0.15)"><div class="impact-stat-num">100%</div><div class="impact-stat-label">In-house delivery</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- OTHER SOLUTIONS -->
 <section style="background:#F0F7FF;padding:6rem 0;">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -269,6 +305,11 @@
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
 </button>
 
+
+<script>
+(function(){var c=document.getElementById('pmChart');if(!c)return;new Chart(c.getContext('2d'),{type:'doughnut',data:{labels:["Vibration Analysis","Thermal Monitoring","Acoustic Sensing","Predictive Alerts"],datasets:[{data:[32,28,24,16],backgroundColor:["#2563EB","#06B6D4","#059669","#D97706"],borderWidth:0,hoverOffset:6}]},options:{cutout:'62%',responsive:true,plugins:{legend:{position:'bottom',labels:{font:{size:11},padding:8,boxWidth:10}}}}});})();
+(function(){var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.querySelectorAll('.comparison-bar-fill[data-width]').forEach(function(el){el.style.width=el.getAttribute('data-width')+'%';});obs.unobserve(e.target);}});},{threshold:0.2});var el=document.getElementById('pmBars');if(el)obs.observe(el);})();
+</script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="/js/script.js"></script>
 </body>
