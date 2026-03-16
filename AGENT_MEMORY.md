@@ -52,6 +52,7 @@ Manufacturing, FMCG, Healthcare, Retail, FinTech, Education, Real Estate, Logist
 | Headings | `#0F172A` |
 | Body text | `#64748B` (slate-500) |
 | Card borders | `#E2E8F0` |
+| Footer gradient | `#1E3A8A → #0F172A → #164E63` |
 | Dark theme toggle | `[data-theme="dark"]` on `<html>`, stored in `localStorage` as `ak-theme` |
 | Nav font size | `14px` (0.875rem) — **do not change** |
 
@@ -69,131 +70,116 @@ Manufacturing, FMCG, Healthcare, Retail, FinTech, Education, Real Estate, Logist
 
 ---
 
-## File Map
+## File Map (Current State)
 
 | File | Status | Notes |
 |---|---|---|
-| `public/index.html` | ✅ Fully updated | Homepage — hero, integrations, case studies, team, knowledge hub |
-| `public/solutions.html` | ✅ Fully updated | 8 solution areas, 13 industries |
-| `public/about.html` | ✅ Fully updated | Hero, What We Do, Founder bio, FAQ (6 Q&As), CTA |
-| `public/services.html` | ✅ Fully updated | 4 capability cards, 5 process steps, integration list |
-| `public/founder.html` | ✅ Fully updated | Hero, story, 4 competency cards, philosophy quote, CTA |
-| `public/contact.html` | ✅ Contact info updated | Phone, email, WhatsApp |
-| `public/pricing.html` | ✅ Contact info updated | Plans unchanged |
-| `public/css/styles.css` | ✅ Unchanged | Light + dark themes, navbar, glass-card, components |
-| `public/js/script.js` | ✅ Unchanged | Theme toggle, counters, AOS, FAQ, mobile menu |
-| `server/server.js` | ✅ Unchanged | Express routes, Helmet, rate-limiting |
-| `public/case-studies.html` | ⚠️ Not reviewed this session | May still have manufacturing-specific copy |
-| `public/blog.html` | ⚠️ Not reviewed this session | May have old references |
-| `public/services/predictive-maintenance.html` | ⚠️ Sub-page — not repositioned | Old manufacturing content, linked from old nav only |
-| `public/services/supply-chain-analytics.html` | ⚠️ Sub-page — not repositioned | Old manufacturing content |
-| `public/services/quality-analytics.html` | ⚠️ Sub-page — not repositioned | Old manufacturing content |
-| `public/services/energy-management.html` | ⚠️ Sub-page — not repositioned | Old manufacturing content |
-| `public/careers.html` | ⚠️ Not reviewed | May have old references |
-| `public/privacy.html` | ⚠️ Not reviewed | Contact info may be outdated |
-| `public/terms.html` | ⚠️ Not reviewed | Contact info may be outdated |
-| `public/gallery.html` | ⚠️ Not reviewed | — |
-| `public/resources.html` | ⚠️ Not reviewed | — |
+| `public/index.html` | ✅ Complete | Homepage — hero, features, team photos (Kalpesh/Rakesh/Kaushal) |
+| `public/solutions.html` | ✅ Complete | 8 solution areas with anchor IDs + "Learn more →" links to individual pages |
+| `public/about.html` | ✅ Complete | Hero, team with real photos, FAQ |
+| `public/services.html` | ✅ Complete | Services overview |
+| `public/founder.html` | ✅ Complete | Kalpesh Attarde — hero with real photo, story, competencies |
+| `public/contact.html` | ✅ Complete | Contact form, phone, email, WhatsApp |
+| `public/pricing.html` | ✅ Complete | 3-tier pricing, monthly/annual toggle |
+| `public/css/styles.css` | ✅ Complete | Light + dark themes, nav-dropdown, glass-card, components |
+| `public/js/main.js` | ✅ Complete | Theme toggle, counters, AOS, FAQ, mobile menu |
+| `server/server.js` | ✅ Complete | Routes for all pages incl. 8 new solution pages |
+| `public/solutions/business-automation.html` | ✅ NEW | Full solution page — hero (Unsplash img), stats, 6 services, process, industries |
+| `public/solutions/ai-ml.html` | ✅ NEW | Full solution page |
+| `public/solutions/business-consulting.html` | ✅ NEW | Full solution page |
+| `public/solutions/saas-dev.html` | ✅ NEW | Full solution page |
+| `public/solutions/automated-analytics.html` | ✅ NEW | Full solution page |
+| `public/solutions/data-visualization.html` | ✅ NEW | Full solution page |
+| `public/solutions/cloud-devops.html` | ✅ NEW | Full solution page |
+| `public/solutions/mlops.html` | ✅ NEW | Full solution page |
+| `public/images/kalpesh-attarde.jpeg` | ✅ Real photo | Used on index, about, founder pages |
+| `public/images/rakesh-chaudhari.jpeg` | ✅ Real photo | Used on index, about pages |
+| `public/images/kaushal-bharambe.png` | ✅ Real photo | Used on index, about pages |
+| `public/services/predictive-maintenance.html` | ⚠️ Legacy | Old manufacturing content, still accessible via direct URL |
+| `public/services/supply-chain-analytics.html` | ⚠️ Legacy | Old manufacturing content |
+| `public/services/quality-analytics.html` | ⚠️ Legacy | Old manufacturing content |
+| `public/services/energy-management.html` | ⚠️ Legacy | Old manufacturing content |
+| `public/case-studies.html` | ⚠️ Not updated | May still have manufacturing-specific copy |
+| `public/blog.html` | ⚠️ Not updated | May have old references |
+
+---
+
+## Team Members
+
+| Name | Role | LinkedIn | Photo |
+|---|---|---|---|
+| Kalpesh Attarde | Founder & CEO | — | `public/images/kalpesh-attarde.jpeg` |
+| Rakesh Chaudhari | Senior DevOps/MLOps | linkedin.com/in/crak/ | `public/images/rakesh-chaudhari.jpeg` |
+| Kaushal Bharambe | Senior AI/ML Engineer | linkedin.com/in/kaushal-bharambe/ | `public/images/kaushal-bharambe.png` |
+| Priya Singh | Data Scientist | — | Placeholder (DS initials) |
+| Arjun Malhotra | Cloud Architect | — | Placeholder (AM initials) |
+
+---
+
+## Nav Dropdown State (Current)
+
+The Solutions nav dropdown on **all pages** now links to individual solution pages:
+
+```
+solutions/business-automation.html     (top-level pages)
+../solutions/business-automation.html  (pages inside subdirectories)
+```
+
+Full list: business-automation, ai-ml, business-consulting, saas-dev, automated-analytics, data-visualization, cloud-devops, mlops
 
 ---
 
 ## Session Log
 
----
+### Session 1 — Brand Repositioning
+- **Task**: Reposition from "AI Manufacturing Analytics" to broad consulting platform
+- **Changes**: Updated index.html, about.html, services.html, solutions.html, founder.html
+- **Result**: All manufacturing references removed; 8 solution areas + 13 industries added everywhere
+- **GitHub Push**: Completed — multiple commits to `main`
 
-### Session 1 — Brand Repositioning (March 2026)
+### Session 2 — Real Team Photos
+- **Task**: Add real photos for Kalpesh Attarde, Rakesh Chaudhari, Kaushal Bharambe
+- **Changes**:
+  - `public/images/kalpesh-attarde.jpeg` added
+  - `public/images/rakesh-chaudhari.jpeg` added
+  - `public/images/kaushal-bharambe.png` added
+  - Photos applied to index.html (team section), about.html (bio cards), founder.html (hero)
+  - Team card data updated: Rakesh Chaudhari (Senior DevOps/MLOps), Kaushal Bharambe (Senior AI/ML Engineer)
+- **GitHub Push**: Completed — commit `c89b9f2`
 
-**Objective**: Reposition AKcelerate from narrow "AI Manufacturing Analytics" to broad premium consulting platform.
+### Session 3 — Solutions Nav Dropdown Update
+- **Task**: Replace old manufacturing sub-page links in Solutions nav dropdown with 8 solution areas
+- **Changes**:
+  - Solutions dropdown updated across 16 HTML files
+  - Old items: Predictive Maintenance, Supply Chain Intelligence, Quality Analytics, Energy Management
+  - New items: All 8 solution areas
+  - Anchor IDs (`id="business-automation"` etc.) added to all 8 cards in solutions.html
+- **GitHub Push**: Completed — commit `77602c0`
 
-**Prompts / Instructions Received**:
-- Remove all manufacturing-specific copy from every page
-- Broaden brand to 8 solution areas + 13 industries
-- Replace old contact info (phone: +91 8208555380, email: akcelerateindia@gmail.com) with new info everywhere
-- Every button and link must point to a real page — no `href="#"` dead links
-- Keep nav font at 14px (0.875rem) — do not change
-- Push all changes to GitHub after completion
+### Session 4 — Individual Solution Pages Created (March 2026)
+- **Task**: Create separate dedicated webpages for all 8 solution areas with images and information
+- **Changes**:
+  - Created `public/solutions/` directory with 8 full HTML pages
+  - Each page includes: hero (Unsplash image), stats bar, 6 service cards, 4-step process, industries section, dark CTA, 3 related solutions, full footer
+  - Updated nav dropdown on all 16+ pages to link to individual solution pages
+  - Added "Learn more →" links to each card in solutions.html
+  - Added 8 clean URL routes to `server/server.js`
+  - Updated `replit.md` and `AGENT_MEMORY.md`
+- **GitHub Push**: Completed — commit `5ba4f20`
+- **Unsplash images used**:
+  - Business Automation: `photo-1518186285589-2f7649de83e0`
+  - AI/ML: `photo-1677442135703-1787eea5ce01`
+  - Business Consulting: `photo-1542744173-8e7e53415bb0`
+  - SaaS Dev: `photo-1618477388954-7852f32655ec`
+  - Automated Analytics: `photo-1551288049-bebda4e38f71`
+  - Data Visualization: `photo-1460925895917-afdab827c52f`
+  - Cloud & DevOps: `photo-1451187580459-43490279c0fa`
+  - MLOps: `photo-1555949963-aa79dcee981c`
 
-**Key Decisions Made**:
-- Old narrow positioning removed entirely — no "AI Manufacturing Analytics" copy remains on main pages
-- Manufacturing is still listed as one of 13 industries served (it is a valid client sector, not the only one)
-- Case study card "Predictive Analytics for Automotive Retail Chain" rewritten with consistent retail-focused metrics (stock-outs, inventory, fulfillment), not factory/CNC references
-- Philosophy quote updated from "Indian manufacturers" to "Indian businesses"
-- Footer Solutions links on `founder.html` updated to point to `solutions.html` instead of old sub-pages
-- `replit.md` updated to reflect new brand positioning and new contact info
-
-**Changes Applied**:
-
-#### `public/index.html`
-- Meta title/description → broad consulting
-- Hero headline + subheadline → "Build Smarter Business with AI & Automation"
-- Hero capability cards → AI/ML, Business Automation, SaaS Dev, Data Analytics
-- Dashboard mockup → domain changed to `akcelerate.in/dashboard`, metrics updated (AI Accuracy, Uptime, Defect Rate), chart title → "Business Performance – Last 7 Days"
-- Integration strip → SAP ERP, HubSpot, Google Analytics, Stripe, PostgreSQL, Salesforce, Azure, AWS
-- "About" section → broad consulting copy
-- Core Benefits header → updated
-- Case studies subheading → cross-industry impact copy
-- Case study 1 → Automotive Retail Chain with demand forecasting metrics (₹2.8Cr savings, 38% stock-out reduction, 22% fulfillment improvement)
-- Process steps → updated
-- Industries section → 13 industries
-- Team intro paragraph → broader multidisciplinary description
-- Dr. Shreya Mehta bio → "enterprise clients across industries"
-- Rahul Kulkarni bio → "LLM engineering, AI automation pipelines"
-- Priya Singh bio → "FMCG, Healthcare, Retail, Fintech sectors"
-- Knowledge Hub card → "production-grade ML models … business environments"
-- Contact info → all updated globally
-
-#### `public/solutions.html`
-- Full rewrite with 8 detailed solution area cards
-- 13 industries grid
-- All CTAs pointing to real pages
-
-#### `public/about.html`
-- Hero → "Built by Problem-Solvers, For Real Businesses"
-- What We Do section → 8 solution areas
-- Founder bio → updated
-- Team descriptions → updated
-- FAQ → 6 broad Q&As
-- Footer Solutions links → updated
-
-#### `public/services.html`
-- Hero → broad consulting hero
-- 4 capability cards → Data Integration, Advanced Analytics & AI, Operational Intelligence, Custom AI & MLOps
-- Process steps 1–5 → updated
-- Integration list + supported systems → updated
-- Footer → updated
-
-#### `public/founder.html`
-- Hero tagline → "AI, Data & Business Consulting practitioner … across 13+ industries"
-- Skill tags → Business Automation + Data Engineering (replaced Manufacturing Analytics + IoT & Industry 4.0)
-- Story paragraphs → broad Indian business narrative
-- Core Competency cards → cross-industry language (CRMs, ERPs, SaaS tools instead of SCADA/IoT)
-- Philosophy quote → "Indian businesses" (was "Indian manufacturers")
-- CTA → "Ready to Transform Your Business?" (was "Your Plant?")
-- Footer description → "AI, Data, Automation & Business Consulting for India"
-- Footer Solutions links → point to `solutions.html`
-
-#### `replit.md`
-- Title updated
-- Overview updated
-- Founder contact info updated
-- New "Brand Positioning" section added (8 solution areas, 13 industries)
-
-**GitHub Push**: Completed — 32 objects pushed to `main` at commit `4533d68`
-
----
-
-## Known Remaining Work (For Future Sessions)
-
-| Task | Priority | Notes |
-|---|---|---|
-| Update `case-studies.html` | High | May still have manufacturing-only case studies |
-| Update `careers.html` | Medium | Job descriptions may reference manufacturing |
-| Update `blog.html` + blog article pages | Medium | Titles/copy may reference old positioning |
-| Update 4 service sub-pages | Low | `predictive-maintenance.html`, `supply-chain-analytics.html`, `quality-analytics.html`, `energy-management.html` — these exist but are no longer linked from main nav |
-| Update `privacy.html` + `terms.html` | Low | Old contact info may appear in legal text |
-| Update `gallery.html` | Low | May have manufacturing dashboard screenshots |
-| Add new solution-specific landing pages | Future | Dedicated pages for each of the 8 solution areas |
-| SEO meta tags audit | Future | All pages need updated meta descriptions matching new positioning |
+### Session 5 — MD Files Updated & GitHub Pushed (March 2026)
+- **Task**: Commit all changes to GitHub and update MD files
+- **Changes**: Updated `replit.md` and `AGENT_MEMORY.md` with full current state
+- **GitHub Push**: Completed (this session)
 
 ---
 
@@ -204,8 +190,24 @@ Manufacturing, FMCG, Healthcare, Retail, FinTech, Education, Real Estate, Logist
 3. **Contact info to use everywhere**: Phone `+91 9529314215`, Email `officialkalpeshattarde@gmail.com`, WhatsApp `wa.me/919529314215`.
 4. **Nav font size is 14px (0.875rem)** — do not change it.
 5. **No dead links** — every `href` must point to a real page or anchor.
-6. **Manufacturing is ONE of 13 industries** — it can appear in industry lists but must not be the sole focus of any page.
+6. **Manufacturing is ONE of 13 industries** — not the sole focus of any page.
 7. **Push to GitHub** after every completed session using the push command above.
-8. **Update this file** at the end of every session — add a new session block under "Session Log".
+8. **Update this file + replit.md** at the end of every session.
 9. **Do not create placeholder/mock data** — all content must be real or realistic.
 10. **Tailwind CSS is loaded via CDN** — do not attempt to install it as a package.
+11. **Solution pages live in `public/solutions/`** — nav links from top-level pages use `solutions/xxx.html`, from subdirectory pages use `../solutions/xxx.html`.
+12. **Server routes**: All 8 solution pages have clean URL routes in `server/server.js`.
+
+---
+
+## Known Remaining Work
+
+| Task | Priority | Notes |
+|---|---|---|
+| Update `case-studies.html` | Medium | May still have manufacturing-only case studies |
+| Update `careers.html` | Low | Job descriptions may reference manufacturing |
+| Update blog articles | Low | Titles/copy may reference old positioning |
+| Update legacy service sub-pages | Low | predictive-maintenance.html etc. — old manufacturing content |
+| Update `privacy.html` + `terms.html` | Low | Contact info may be outdated |
+| SEO meta tags audit | Low | All pages need updated meta descriptions |
+| Add case study content for new solution areas | Future | Current case studies are manufacturing-focused |
