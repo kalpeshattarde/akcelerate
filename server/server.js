@@ -116,7 +116,10 @@ app.use((req, res) => {
   if (path.extname(req.path)) {
     return res.status(404).type('text/plain').send('Not found');
   }
-  res.status(404).sendFile(path.join(__dirname, '../public/index.html'));
+  if ((req.method === 'GET' || req.method === 'HEAD') && req.accepts('html')) {
+    return res.status(404).sendFile(path.join(__dirname, '../public/index.html'));
+  }
+  res.status(404).type('text/plain').send('Not found');
 });
 
 // ── Error Handler ─────────────────────────────────
