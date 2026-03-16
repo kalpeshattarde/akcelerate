@@ -874,6 +874,35 @@
     });
   }
 
+  /* ── shared: decorative frame overlay ── */
+  function drawVizFrame(ctx, W, H, title) {
+    /* corner accent — top-left */
+    var cl = 18, ct = 18, cs2 = 28;
+    ctx.strokeStyle = 'rgba(37,99,235,0.55)'; ctx.lineWidth = 2; ctx.lineCap = 'round';
+    ctx.beginPath(); ctx.moveTo(cl, ct + cs2); ctx.lineTo(cl, ct); ctx.lineTo(cl + cs2, ct); ctx.stroke();
+    /* corner accent — top-right */
+    ctx.strokeStyle = 'rgba(6,182,212,0.45)';
+    ctx.beginPath(); ctx.moveTo(W - cl - cs2, ct); ctx.lineTo(W - cl, ct); ctx.lineTo(W - cl, ct + cs2); ctx.stroke();
+    /* corner accent — bottom-left */
+    ctx.strokeStyle = 'rgba(6,182,212,0.35)';
+    ctx.beginPath(); ctx.moveTo(cl, H - ct - cs2); ctx.lineTo(cl, H - ct); ctx.lineTo(cl + cs2, H - ct); ctx.stroke();
+    /* corner accent — bottom-right */
+    ctx.strokeStyle = 'rgba(37,99,235,0.35)';
+    ctx.beginPath(); ctx.moveTo(W - cl - cs2, H - ct); ctx.lineTo(W - cl, H - ct); ctx.lineTo(W - cl, H - ct - cs2); ctx.stroke();
+    /* title badge */
+    if (title) {
+      ctx.font = '600 ' + Math.round(H * 0.038) + 'px Inter,sans-serif';
+      var tw = ctx.measureText(title).width;
+      var bx = W / 2 - tw / 2 - 10, by = H - Math.round(H * 0.1), bw2 = tw + 20, bh = Math.round(H * 0.072);
+      roundRectFill(ctx, bx, by, bw2, bh, 8, 'rgba(13,17,23,0.65)');
+      ctx.strokeStyle = 'rgba(37,99,235,0.3)'; ctx.lineWidth = 1;
+      roundRectStroke(ctx, bx, by, bw2, bh, 8);
+      ctx.fillStyle = 'rgba(148,163,184,0.8)'; ctx.textAlign = 'center';
+      ctx.fillText(title, W / 2, by + bh * 0.66);
+      ctx.textAlign = 'left';
+    }
+  }
+
   /* ── canvas helpers ── */
   function roundRect(ctx, x, y, w, h, r) {
     ctx.beginPath(); ctx.moveTo(x + r, y);
