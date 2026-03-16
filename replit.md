@@ -1,9 +1,15 @@
-# AKcelerate — $100M AI Manufacturing Analytics Platform
+# AKcelerate — Premium AI, Data, Automation & Business Consulting
 
 ## Overview
-Enterprise SaaS-style website for AKcelerate — AI-powered manufacturing analytics, predictive maintenance, supply chain intelligence, quality analytics, and energy management for India's industrial sector.
+Enterprise SaaS-style website for AKcelerate — a premium AI, Data, Automation and Business Consulting firm serving 13+ industries. Services span 8 solution areas: Business Automation, AI/ML Solutions, Business Consulting, Website & SaaS Development, Automated Analytics, Data Visualization, Cloud & DevOps, and MLOps.
 
-**Founder:** Kalpesh Attarde | +91 8208555380 | akcelerateindia@gmail.com | Mumbai, India
+**Founder:** Kalpesh Attarde | +91 9529314215 | officialkalpeshattarde@gmail.com | Mumbai, India
+
+## Brand Positioning
+- **Primary Pitch**: "Build Smarter Business with AI & Automation"
+- **8 Solution Areas**: Business Automation, AI/ML Solutions, Business Consulting, SaaS Dev, Automated Analytics, Data Visualization, Cloud & DevOps, MLOps
+- **13+ Industries**: Manufacturing, FMCG, Healthcare, Retail, FinTech, Education, Real Estate, Logistics, IT/Tech, E-commerce, Startups, SMBs, Enterprises
+- **Contact**: WhatsApp `wa.me/919529314215`
 
 ## Architecture
 - **Runtime**: Node.js 20 + Express 4
