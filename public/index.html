@@ -218,47 +218,78 @@
       <!-- Right – Dashboard Mockup -->
       <div class="hidden lg:block" data-aos="fade-left" data-aos-delay="200">
         <div class="float-anim dashboard-mockup-wrap">
-          <div class="dashboard-mockup">
+          <div class="dashboard-mockup" style="overflow:hidden;">
+            <!-- Header bar -->
             <div class="dashboard-header">
               <div class="dot" style="background:#EF4444"></div>
               <div class="dot" style="background:#F59E0B"></div>
               <div class="dot" style="background:#10B981"></div>
-              <span class="text-xs ml-3 font-mono" style="color:#9CA3AF">akcelerate.in/dashboard</span>
+              <span class="text-xs ml-3 font-mono" style="color:#9CA3AF">akcelerate.ai · intelligence hub</span>
+              <span class="ml-auto live-pulse" style="font-size:0.65rem;color:#10B981;font-weight:600;letter-spacing:0.05em;">LIVE</span>
             </div>
-            <div class="p-4">
-              <!-- Mini metric row -->
-              <div class="grid grid-cols-3 gap-3 mb-4">
-                <div style="background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.2);border-radius:10px;padding:0.75rem">
-                  <div class="text-xs mb-1" style="color:#9CA3AF">AI Accuracy</div>
-                  <div class="text-xl font-bold font-poppins gradient-text">94.7%</div>
-                  <div class="text-xs text-green-400 mt-1">↑ 4.2%</div>
-                </div>
-                <div style="background:rgba(6,182,212,0.1);border:1px solid rgba(6,182,212,0.2);border-radius:10px;padding:0.75rem">
-                  <div class="text-xs mb-1" style="color:#9CA3AF">Uptime</div>
-                  <div class="text-xl font-bold font-poppins" style="color:#06B6D4">96.8%</div>
-                  <div class="text-xs text-green-400 mt-1">↑ 2.1%</div>
-                </div>
-                <div style="background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2);border-radius:10px;padding:0.75rem">
-                  <div class="text-xs mb-1" style="color:#9CA3AF">Defect Rate</div>
-                  <div class="text-xl font-bold font-poppins" style="color:#10B981">0.8%</div>
-                  <div class="text-xs text-green-400 mt-1">↓ 0.3%</div>
-                </div>
+
+            <!-- Title row -->
+            <div class="flex items-center justify-between px-4 pt-3 pb-1">
+              <div>
+                <div class="font-poppins font-semibold text-sm" style="color:#F1F5F9">AI Intelligence Engine</div>
+                <div class="text-xs" style="color:#64748B">Real-time neural processing</div>
               </div>
-              <!-- Chart placeholder -->
-              <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:1rem">
-                <div class="flex justify-between items-center mb-3">
-                  <span class="text-xs font-medium" style="color:#D1D5DB">Business Performance – Last 7 Days</span>
-                  <span class="tag-pill live-pulse">Live</span>
-                </div>
-                <canvas id="heroChart" height="130"></canvas>
+              <div style="background:rgba(37,99,235,0.15);border:1px solid rgba(37,99,235,0.3);border-radius:6px;padding:0.25rem 0.6rem;font-size:0.65rem;color:#93C5FD;font-weight:600;">v2.4 · Active</div>
+            </div>
+
+            <!-- Neural network canvas -->
+            <div style="position:relative;height:170px;overflow:hidden;">
+              <canvas id="neuralCanvas" style="width:100%;height:170px;display:block;"></canvas>
+              <!-- Floating label overlays -->
+              <div style="position:absolute;top:12px;left:14px;background:rgba(37,99,235,0.15);border:1px solid rgba(37,99,235,0.3);border-radius:20px;padding:0.2rem 0.6rem;font-size:0.6rem;color:#93C5FD;font-weight:600;">Input Layer</div>
+              <div style="position:absolute;top:12px;left:50%;transform:translateX(-50%);background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.35);border-radius:20px;padding:0.2rem 0.6rem;font-size:0.6rem;color:#C4B5FD;font-weight:600;">Deep Learning</div>
+              <div style="position:absolute;top:12px;right:14px;background:rgba(6,182,212,0.15);border:1px solid rgba(6,182,212,0.3);border-radius:20px;padding:0.2rem 0.6rem;font-size:0.6rem;color:#67E8F9;font-weight:600;">Output</div>
+            </div>
+
+            <!-- Live metrics row -->
+            <div class="grid grid-cols-3 gap-2 px-4 pb-3">
+              <div style="background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.18);border-radius:9px;padding:0.6rem;text-align:center;">
+                <div class="text-xs mb-0.5" style="color:#64748B">ROI Delivered</div>
+                <div class="font-poppins font-bold text-base" style="background:linear-gradient(90deg,#2563EB,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;" id="aiMetric1">315%</div>
+                <div class="text-xs" style="color:#34D399">↑ avg client</div>
               </div>
-              <!-- Alert row -->
-              <div class="mt-3" style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.2);border-radius:10px;padding:0.75rem">
-                <div class="flex items-center gap-2">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-                  <span class="text-xs text-yellow-300 font-medium">AI Insight: 3 workflow bottlenecks detected — automation recommended</span>
-                </div>
+              <div style="background:rgba(139,92,246,0.08);border:1px solid rgba(139,92,246,0.18);border-radius:9px;padding:0.6rem;text-align:center;">
+                <div class="text-xs mb-0.5" style="color:#64748B">Automation</div>
+                <div class="font-poppins font-bold text-base" style="color:#A78BFA;" id="aiMetric2">58%</div>
+                <div class="text-xs" style="color:#34D399">time saved</div>
               </div>
+              <div style="background:rgba(6,182,212,0.08);border:1px solid rgba(6,182,212,0.18);border-radius:9px;padding:0.6rem;text-align:center;">
+                <div class="text-xs mb-0.5" style="color:#64748B">Accuracy</div>
+                <div class="font-poppins font-bold text-base" style="color:#06B6D4;" id="aiMetric3">94.7%</div>
+                <div class="text-xs" style="color:#34D399">AI models</div>
+              </div>
+            </div>
+
+            <!-- Animated pipeline bar -->
+            <div style="margin:0 1rem 0.85rem;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:0.65rem 0.85rem;">
+              <div class="flex items-center justify-between mb-2">
+                <span style="font-size:0.65rem;color:#94A3B8;font-weight:600;letter-spacing:0.06em;">AI PROCESSING PIPELINE</span>
+                <span id="pipelineStatus" style="font-size:0.6rem;color:#34D399;font-weight:600;">● Processing</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <div class="pipeline-step active-step" id="ps1">Data</div>
+                <div class="pipeline-arrow-icon">›</div>
+                <div class="pipeline-step" id="ps2">Clean</div>
+                <div class="pipeline-arrow-icon">›</div>
+                <div class="pipeline-step" id="ps3">Model</div>
+                <div class="pipeline-arrow-icon">›</div>
+                <div class="pipeline-step" id="ps4">Insight</div>
+                <div class="pipeline-arrow-icon">›</div>
+                <div class="pipeline-step" id="ps5">Action</div>
+              </div>
+              <div style="height:3px;background:rgba(255,255,255,0.06);border-radius:3px;margin-top:0.5rem;overflow:hidden;">
+                <div id="pipelineBar" style="height:100%;width:20%;background:linear-gradient(90deg,#2563EB,#06B6D4,#8B5CF6);border-radius:3px;transition:width 0.8s ease;box-shadow:0 0 8px rgba(6,182,212,0.6);"></div>
+              </div>
+            </div>
+
+            <!-- Typewriter AI log -->
+            <div style="margin:0 1rem 1rem;background:rgba(0,0,0,0.2);border:1px solid rgba(255,255,255,0.05);border-radius:8px;padding:0.6rem 0.85rem;min-height:2.4rem;">
+              <span style="font-size:0.62rem;color:#4ADE80;font-family:monospace;" id="aiTypewriter"></span><span class="typewriter-cursor" style="display:inline-block;width:2px;height:0.7rem;background:#4ADE80;margin-left:2px;vertical-align:middle;animation:blink-cursor 0.9s step-end infinite;"></span>
             </div>
           </div>
         </div>
@@ -1977,5 +2008,186 @@
 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script src="js/script.js"></script>
+
+<!-- ── AI Visualization: Neural Network + Pipeline + Typewriter ── -->
+<script>
+(function(){
+  /* ── 1. NEURAL NETWORK CANVAS ─────────────────────────────── */
+  const canvas = document.getElementById('neuralCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  function resizeCanvas() {
+    canvas.width  = canvas.offsetWidth  * window.devicePixelRatio;
+    canvas.height = canvas.offsetHeight * window.devicePixelRatio;
+    ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
+  const W = () => canvas.offsetWidth;
+  const H = () => canvas.offsetHeight;
+
+  // Create layered nodes: input (left), hidden x2 (middle), output (right)
+  const LAYERS = [5, 7, 7, 4];
+  let nodes = [];
+  LAYERS.forEach((count, li) => {
+    for (let i = 0; i < count; i++) {
+      const xPct = 0.1 + (li / (LAYERS.length - 1)) * 0.8;
+      const yPct = (i + 1) / (count + 1);
+      nodes.push({
+        xPct, yPct,
+        vx: (Math.random() - 0.5) * 0.0012,
+        vy: (Math.random() - 0.5) * 0.0012,
+        r: Math.random() * 1.5 + 2,
+        phase: Math.random() * Math.PI * 2,
+        layer: li,
+        pulseT: Math.random() * 100
+      });
+    }
+  });
+
+  // Signals travelling along edges
+  let signals = [];
+  function spawnSignal() {
+    const li = Math.floor(Math.random() * (LAYERS.length - 1));
+    const layerNodes    = nodes.filter(n => n.layer === li);
+    const nextLayerNodes = nodes.filter(n => n.layer === li + 1);
+    if (!layerNodes.length || !nextLayerNodes.length) return;
+    const from = layerNodes[Math.floor(Math.random() * layerNodes.length)];
+    const to   = nextLayerNodes[Math.floor(Math.random() * nextLayerNodes.length)];
+    signals.push({ from, to, t: 0, speed: 0.012 + Math.random() * 0.01,
+      color: li === 0 ? '#2563EB' : li === 1 ? '#8B5CF6' : '#06B6D4' });
+  }
+  setInterval(spawnSignal, 220);
+
+  let tick = 0;
+  function drawNeural() {
+    tick++;
+    const w = W(), h = H();
+    ctx.clearRect(0, 0, w, h);
+
+    // Draw edges (connections between adjacent layers)
+    nodes.forEach(n1 => {
+      nodes.forEach(n2 => {
+        if (n2.layer !== n1.layer + 1) return;
+        const x1 = n1.xPct * w + Math.sin(tick * 0.008 + n1.phase) * 3;
+        const y1 = n1.yPct * h + Math.cos(tick * 0.008 + n1.phase) * 3;
+        const x2 = n2.xPct * w + Math.sin(tick * 0.008 + n2.phase) * 3;
+        const y2 = n2.yPct * h + Math.cos(tick * 0.008 + n2.phase) * 3;
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.strokeStyle = n1.layer === 0 ? 'rgba(37,99,235,0.18)' :
+                          n1.layer === 1 ? 'rgba(139,92,246,0.16)' :
+                                           'rgba(6,182,212,0.18)';
+        ctx.lineWidth = 0.8;
+        ctx.stroke();
+      });
+    });
+
+    // Draw signals
+    signals = signals.filter(s => s.t <= 1);
+    signals.forEach(s => {
+      s.t += s.speed;
+      const fx = s.from.xPct * w + Math.sin(tick * 0.008 + s.from.phase) * 3;
+      const fy = s.from.yPct * h + Math.cos(tick * 0.008 + s.from.phase) * 3;
+      const tx = s.to.xPct   * w + Math.sin(tick * 0.008 + s.to.phase)   * 3;
+      const ty = s.to.yPct   * h + Math.cos(tick * 0.008 + s.to.phase)   * 3;
+      const sx = fx + (tx - fx) * s.t;
+      const sy = fy + (ty - fy) * s.t;
+      ctx.beginPath();
+      const grd = ctx.createRadialGradient(sx, sy, 0, sx, sy, 5);
+      grd.addColorStop(0, s.color);
+      grd.addColorStop(1, 'transparent');
+      ctx.fillStyle = grd;
+      ctx.arc(sx, sy, 5, 0, Math.PI * 2);
+      ctx.fill();
+    });
+
+    // Draw nodes
+    nodes.forEach(n => {
+      n.xPct += n.vx; n.yPct += n.vy;
+      if (n.xPct < 0.05 || n.xPct > 0.95) n.vx *= -1;
+      if (n.yPct < 0.05 || n.yPct > 0.95) n.vy *= -1;
+      const x = n.xPct * w + Math.sin(tick * 0.008 + n.phase) * 3;
+      const y = n.yPct * h + Math.cos(tick * 0.008 + n.phase) * 3;
+      const pulse = 0.6 + 0.4 * Math.sin(tick * 0.04 + n.phase);
+      const col = n.layer === 0 ? [37,99,235] : n.layer === 1 ? [99,102,241] : n.layer === 2 ? [139,92,246] : [6,182,212];
+      // Outer glow
+      const glow = ctx.createRadialGradient(x, y, 0, x, y, n.r * 4);
+      glow.addColorStop(0, `rgba(${col[0]},${col[1]},${col[2]},${0.35 * pulse})`);
+      glow.addColorStop(1, 'transparent');
+      ctx.beginPath(); ctx.arc(x, y, n.r * 4, 0, Math.PI * 2);
+      ctx.fillStyle = glow; ctx.fill();
+      // Core dot
+      ctx.beginPath(); ctx.arc(x, y, n.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${col[0]},${col[1]},${col[2]},${0.85 * pulse})`;
+      ctx.fill();
+    });
+
+    requestAnimationFrame(drawNeural);
+  }
+  drawNeural();
+
+  /* ── 2. PIPELINE STEP ANIMATION ──────────────────────────── */
+  const steps  = [1,2,3,4,5].map(i => document.getElementById('ps' + i));
+  const bar    = document.getElementById('pipelineBar');
+  const status = document.getElementById('pipelineStatus');
+  const labels = ['● Processing','● Cleaning','● Training','● Inferring','● Complete'];
+  let activeStep = 0;
+  function advancePipeline() {
+    steps.forEach(s => s && s.classList.remove('active-step'));
+    if (steps[activeStep]) steps[activeStep].classList.add('active-step');
+    if (bar) bar.style.width = ((activeStep + 1) / steps.length * 100) + '%';
+    if (status) status.textContent = labels[activeStep] || '● Complete';
+    activeStep = (activeStep + 1) % steps.length;
+  }
+  advancePipeline();
+  setInterval(advancePipeline, 1400);
+
+  /* ── 3. TYPEWRITER AI LOG ─────────────────────────────────── */
+  const tw = document.getElementById('aiTypewriter');
+  const messages = [
+    '> Scanning 1,847 business data points...',
+    '> Detected 3 automation opportunities',
+    '> AI model accuracy: 94.7% — optimal',
+    '> Pipeline efficiency improved by 42%',
+    '> Generating ROI forecast... 315% avg',
+    '> Workflow bottleneck resolved ✓',
+    '> Deploying model to production...',
+    '> AKcelerate AI engine ready ✓'
+  ];
+  let mIdx = 0, cIdx = 0, deleting = false;
+  function typewrite() {
+    if (!tw) return;
+    const msg = messages[mIdx];
+    if (!deleting) {
+      tw.textContent = msg.slice(0, ++cIdx);
+      if (cIdx >= msg.length) { deleting = true; setTimeout(typewrite, 1800); return; }
+    } else {
+      tw.textContent = msg.slice(0, --cIdx);
+      if (cIdx === 0) { deleting = false; mIdx = (mIdx + 1) % messages.length; setTimeout(typewrite, 400); return; }
+    }
+    setTimeout(typewrite, deleting ? 28 : 48);
+  }
+  setTimeout(typewrite, 800);
+
+  /* ── 4. LIVE METRIC FLICKER ──────────────────────────────── */
+  const roiVals  = ['312%','315%','318%','315%','321%'];
+  const autoVals = ['55%','58%','60%','58%','57%'];
+  const accVals  = ['94.3%','94.7%','95.1%','94.7%','95.4%'];
+  let mv = 0;
+  setInterval(() => {
+    mv = (mv + 1) % roiVals.length;
+    const m1 = document.getElementById('aiMetric1');
+    const m2 = document.getElementById('aiMetric2');
+    const m3 = document.getElementById('aiMetric3');
+    if (m1) m1.textContent = roiVals[mv];
+    if (m2) m2.textContent = autoVals[mv];
+    if (m3) m3.textContent = accVals[mv];
+  }, 2600);
+})();
+</script>
 </body>
 </html>
