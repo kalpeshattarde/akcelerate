@@ -302,6 +302,22 @@ Remote: `github.com/kalpeshattarde/AKcelerate` (branch: `main`)
 
 ## Change Log
 
+### March 2026 (Session 7b)
+- **Homepage service showcase panel made fully theme-aware**:
+  - `index.html` inline script: Added `getSvcColors()` helper + `_svcTC` module-level variable  
+  - `drawFrame()` now draws `#FFFFFF→#EFF6FF` background in light mode, `#0F172A→#1E293B` in dark mode on every frame
+  - All 8 service mode draw functions updated:
+    - Automation: flowchart node labels
+    - Analytics: month axis labels
+    - SaaS: inactive node backgrounds, connector lines, stage/progress labels
+    - DataViz: grid lines
+    - Cloud: server topology edges and server labels
+    - MLOps: wheel center background + all label colors
+    - Strategy: bar track backgrounds, phase labels, percentage values
+  - CSS additions: `.dashboard-mockup`, `.dashboard-header`, `.svc-tab`, `.svc-proc-step`, `#svcLabel`, `#svcStatus`, `.svc-terminal`, `[id^=ml]`/`[id^=ms]` — all with `[data-theme="light"]` overrides
+  - Terminal div: added `class="svc-terminal"` for CSS targeting
+  - Committed to GitHub as `c92240e`
+
 ### March 2026 (Session 7)
 - **All canvas animations made theme-aware** across the entire website:
   - `viz.js`: Added `getTC()` helper function that reads `data-theme` on every animation frame and returns a full color palette (bg1, bg2, text, textMid, textFaint, label, gridLabel, gridLine, panelBg, cardBg, terminalBg, inactiveBg, nodeBg, trackFill, orbitRing, etc.)
