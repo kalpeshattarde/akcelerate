@@ -21,6 +21,7 @@
   </script>
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
@@ -427,6 +428,90 @@
   </div>
 </section>
 
+
+<div class="section-divider"></div>
+
+<!-- SOLUTION CAPABILITIES INFOGRAPHIC -->
+<section class="section-light py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14" data-aos="fade-up">
+      <span class="section-label">Capabilities</span>
+      <h2 class="text-3xl lg:text-4xl font-bold mb-4">
+        What Each Solution <span class="gradient-text">Delivers</span>
+      </h2>
+      <p class="text-slate-500 max-w-2xl mx-auto">Every AKcelerate solution area has a distinct strength profile — see how they compare across key business dimensions.</p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-10 items-start">
+      <div class="chart-card" data-aos="fade-right">
+        <p class="font-poppins font-semibold text-slate-900 mb-1">Solution Strength by Business Dimension</p>
+        <p class="text-xs text-slate-500 mb-5">Composite score across 50+ engagements (1–100 scale)</p>
+        <div id="solutionCapBars">
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-header"><span class="skill-bar-label">Business Automation</span><span class="skill-bar-value">94</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="94"></div></div>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-header"><span class="skill-bar-label">AI / ML Solutions</span><span class="skill-bar-value">96</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="96"></div></div>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-header"><span class="skill-bar-label">Business Consulting</span><span class="skill-bar-value">89</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="89"></div></div>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-header"><span class="skill-bar-label">Website &amp; SaaS Development</span><span class="skill-bar-value">91</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="91"></div></div>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-header"><span class="skill-bar-label">Automated Analytics</span><span class="skill-bar-value">93</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="93"></div></div>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-header"><span class="skill-bar-label">Data Visualization</span><span class="skill-bar-value">90</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-header"><span class="skill-bar-label">Cloud &amp; DevOps</span><span class="skill-bar-value">88</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="88"></div></div>
+          </div>
+          <div class="skill-bar-wrap" style="margin-bottom:0">
+            <div class="skill-bar-header"><span class="skill-bar-label">MLOps</span><span class="skill-bar-value">87</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="87"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div data-aos="fade-left" data-aos-delay="100">
+        <p class="font-poppins font-semibold text-slate-900 mb-6">Our Technology Advantage</p>
+        <div class="grid grid-cols-2 gap-4 mb-8">
+          <div class="impact-stat" style="background:rgba(37,99,235,0.06);border-color:rgba(37,99,235,0.15)">
+            <div class="impact-stat-num">30+</div>
+            <div class="impact-stat-label">Technologies mastered</div>
+          </div>
+          <div class="impact-stat" style="background:rgba(6,182,212,0.06);border-color:rgba(6,182,212,0.15)">
+            <div class="impact-stat-num">8</div>
+            <div class="impact-stat-label">Solution domains covered</div>
+          </div>
+          <div class="impact-stat" style="background:rgba(16,185,129,0.06);border-color:rgba(16,185,129,0.15)">
+            <div class="impact-stat-num">100%</div>
+            <div class="impact-stat-label">In-house delivery, no outsourcing</div>
+          </div>
+          <div class="impact-stat" style="background:rgba(124,58,237,0.06);border-color:rgba(124,58,237,0.15)">
+            <div class="impact-stat-num">2–4 wk</div>
+            <div class="impact-stat-label">Time to first working prototype</div>
+          </div>
+        </div>
+        <div class="chart-card">
+          <p class="font-poppins font-semibold text-slate-900 mb-1">Full-Stack Technology Coverage</p>
+          <p class="text-xs text-slate-500 mb-4">Distribution across our solution portfolio</p>
+          <canvas id="solutionRadarChart" height="220"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <div class="section-divider"></div>
 
 <!-- CTA -->
@@ -520,6 +605,62 @@
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
 </button>
+
+
+<script>
+// ── Solutions: Radar Chart ──
+(function() {
+  var c = document.getElementById('solutionRadarChart');
+  if (!c) return;
+  new Chart(c.getContext('2d'), {
+    type: 'radar',
+    data: {
+      labels: ['AI/ML','Automation','Data','SaaS Dev','Cloud','MLOps','Analytics','Consulting'],
+      datasets: [{
+        label: 'Capability Score',
+        data: [96,94,93,91,88,87,93,89],
+        fill: true,
+        backgroundColor: 'rgba(37,99,235,0.12)',
+        borderColor: '#2563EB',
+        pointBackgroundColor: '#06B6D4',
+        pointBorderColor: '#fff',
+        pointHoverBackgroundColor: '#fff',
+        pointHoverBorderColor: '#2563EB'
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: { r: { beginAtZero: true, max: 100, ticks: { stepSize: 25, display: false }, grid: { color: 'rgba(37,99,235,0.08)' }, pointLabels: { font: { size: 11, family: "'Inter', sans-serif" }, color: '#475569' } } }
+    }
+  });
+})();
+</script>
+
+
+<script>
+// ── Animate skill bars & comparison bars on scroll ──
+(function() {
+  function animateBars(container) {
+    if (!container) return;
+    container.querySelectorAll('.skill-bar-fill[data-width]').forEach(function(el) {
+      el.style.width = el.getAttribute('data-width') + '%';
+    });
+    container.querySelectorAll('.comparison-bar-fill[data-width]').forEach(function(el) {
+      el.style.width = el.getAttribute('data-width') + '%';
+    });
+  }
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { animateBars(e.target); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.2 });
+  ['solutionCapBars','expertiseBars','resultsBeforeAfter','caseBeforeAfter','industryCompBars'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+})();
+</script>
 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script src="js/script.js"></script>

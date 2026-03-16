@@ -21,6 +21,7 @@
   </script>
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
@@ -261,7 +262,91 @@
   </div>
 </section>
 
+
 <div class="section-divider"></div>
+
+<!-- BEFORE/AFTER VISUALIZATION -->
+<section style="background:#F0F7FF;padding:6rem 0;">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14" data-aos="fade-up">
+      <span class="section-label">Impact Data</span>
+      <h2 class="text-3xl lg:text-4xl font-bold mb-4">
+        By the <span class="gradient-text">Numbers</span>
+      </h2>
+      <p class="text-slate-500 max-w-2xl mx-auto">Real metrics from real clients — measured before and after AKcelerate AI engagements across industries.</p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-10">
+      <div class="chart-card" data-aos="fade-right">
+        <p class="font-poppins font-semibold text-slate-900 mb-1">Client Performance — Before vs. After AI</p>
+        <p class="text-xs text-slate-500 mb-5">Average improvement across active client base</p>
+        <div id="caseBeforeAfter">
+          <div class="comparison-bar-wrap">
+            <div class="comparison-bar-label">Operational Efficiency</div>
+            <div class="comparison-bars">
+              <div class="comparison-bar-row"><span class="comparison-bar-tag before">Before</span><div class="comparison-bar-track"><div class="comparison-bar-fill before" data-width="32"></div></div><span class="comparison-bar-pct before">32%</span></div>
+              <div class="comparison-bar-row"><span class="comparison-bar-tag after">After</span><div class="comparison-bar-track"><div class="comparison-bar-fill after" data-width="79"></div></div><span class="comparison-bar-pct after">79%</span></div>
+            </div>
+          </div>
+          <div class="comparison-bar-wrap">
+            <div class="comparison-bar-label">Equipment Uptime</div>
+            <div class="comparison-bars">
+              <div class="comparison-bar-row"><span class="comparison-bar-tag before">Before</span><div class="comparison-bar-track"><div class="comparison-bar-fill before" data-width="58"></div></div><span class="comparison-bar-pct before">58%</span></div>
+              <div class="comparison-bar-row"><span class="comparison-bar-tag after">After</span><div class="comparison-bar-track"><div class="comparison-bar-fill after" data-width="93"></div></div><span class="comparison-bar-pct after">93%</span></div>
+            </div>
+          </div>
+          <div class="comparison-bar-wrap">
+            <div class="comparison-bar-label">Defect Detection Rate</div>
+            <div class="comparison-bars">
+              <div class="comparison-bar-row"><span class="comparison-bar-tag before">Before</span><div class="comparison-bar-track"><div class="comparison-bar-fill before" data-width="45"></div></div><span class="comparison-bar-pct before">45%</span></div>
+              <div class="comparison-bar-row"><span class="comparison-bar-tag after">After</span><div class="comparison-bar-track"><div class="comparison-bar-fill after" data-width="95"></div></div><span class="comparison-bar-pct after">95%</span></div>
+            </div>
+          </div>
+          <div class="comparison-bar-wrap">
+            <div class="comparison-bar-label">Inventory Accuracy</div>
+            <div class="comparison-bars">
+              <div class="comparison-bar-row"><span class="comparison-bar-tag before">Before</span><div class="comparison-bar-track"><div class="comparison-bar-fill before" data-width="50"></div></div><span class="comparison-bar-pct before">50%</span></div>
+              <div class="comparison-bar-row"><span class="comparison-bar-tag after">After</span><div class="comparison-bar-track"><div class="comparison-bar-fill after" data-width="88"></div></div><span class="comparison-bar-pct after">88%</span></div>
+            </div>
+          </div>
+          <div class="comparison-bar-wrap" style="margin-bottom:0">
+            <div class="comparison-bar-label">Revenue Forecast Accuracy</div>
+            <div class="comparison-bars">
+              <div class="comparison-bar-row"><span class="comparison-bar-tag before">Before</span><div class="comparison-bar-track"><div class="comparison-bar-fill before" data-width="28"></div></div><span class="comparison-bar-pct before">28%</span></div>
+              <div class="comparison-bar-row"><span class="comparison-bar-tag after">After</span><div class="comparison-bar-track"><div class="comparison-bar-fill after" data-width="82"></div></div><span class="comparison-bar-pct after">82%</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div data-aos="fade-left" data-aos-delay="100">
+        <div class="chart-card mb-6">
+          <p class="font-poppins font-semibold text-slate-900 mb-1">Solution Category Breakdown</p>
+          <p class="text-xs text-slate-500 mb-4">Projects delivered by solution type</p>
+          <canvas id="caseDonutChart" height="200"></canvas>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div class="impact-stat" style="background:rgba(37,99,235,0.06);border-color:rgba(37,99,235,0.15)">
+            <div class="impact-stat-num">38%</div>
+            <div class="impact-stat-label">Average stock-out reduction</div>
+          </div>
+          <div class="impact-stat" style="background:rgba(6,182,212,0.06);border-color:rgba(6,182,212,0.15)">
+            <div class="impact-stat-num">60%</div>
+            <div class="impact-stat-label">Faster inspection processes</div>
+          </div>
+          <div class="impact-stat" style="background:rgba(16,185,129,0.06);border-color:rgba(16,185,129,0.15)">
+            <div class="impact-stat-num">₹2.8Cr</div>
+            <div class="impact-stat-label">Annual savings per engagement</div>
+          </div>
+          <div class="impact-stat" style="background:rgba(124,58,237,0.06);border-color:rgba(124,58,237,0.15)">
+            <div class="impact-stat-num">315%</div>
+            <div class="impact-stat-label">Average 3-year ROI</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- RESOURCES -->
 <section class="py-20 lg:py-28" style="background:#F0F7FF">
@@ -412,6 +497,53 @@
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
 </button>
+
+
+<script>
+// ── Case Studies: Solution Donut ──
+(function() {
+  var c = document.getElementById('caseDonutChart');
+  if (!c) return;
+  new Chart(c.getContext('2d'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Predictive Maintenance','Computer Vision','Demand Forecasting','Process Automation','Analytics Dashboards'],
+      datasets: [{ data: [22,18,25,20,15],
+        backgroundColor: ['#2563EB','#06B6D4','#059669','#7C3AED','#D97706'],
+        borderWidth: 0, hoverOffset: 6 }]
+    },
+    options: {
+      cutout: '60%', responsive: true,
+      plugins: { legend: { position: 'bottom', labels: { font: { size: 11, family: "'Inter', sans-serif" }, padding: 8, boxWidth: 10 } } }
+    }
+  });
+})();
+</script>
+
+
+<script>
+// ── Animate skill bars & comparison bars on scroll ──
+(function() {
+  function animateBars(container) {
+    if (!container) return;
+    container.querySelectorAll('.skill-bar-fill[data-width]').forEach(function(el) {
+      el.style.width = el.getAttribute('data-width') + '%';
+    });
+    container.querySelectorAll('.comparison-bar-fill[data-width]').forEach(function(el) {
+      el.style.width = el.getAttribute('data-width') + '%';
+    });
+  }
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { animateBars(e.target); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.2 });
+  ['solutionCapBars','expertiseBars','resultsBeforeAfter','caseBeforeAfter','industryCompBars'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+})();
+</script>
 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script src="js/script.js"></script>
