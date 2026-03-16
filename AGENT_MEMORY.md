@@ -37,7 +37,15 @@
 8. MLOps
 
 ### 13+ Industries Served
-Manufacturing, FMCG, Healthcare, Retail, FinTech, Education, Real Estate, Logistics, IT/Tech, E-commerce, Startups, SMBs, Enterprises
+Manufacturing, Healthcare, Startups, MSME, Retail & Ecommerce, FinTech, Education, Logistics, Brands & Marketing, AdTech, Telecom, Automotive, Entertainment
+
+### New Pages Added (Session 6)
+- `public/industries.html` — 13 industry cards with 3 AI use cases each, stats bar, how-we-approach section, CTA
+- `public/insights.html` — Thought leadership hub with featured article, topic filter, 6 article cards, newsletter CTA
+- `public/robots.txt` — SEO robots file
+- `public/sitemap.xml` — Full XML sitemap with all 28+ URLs
+- Server routes added: `/industries`, `/insights`
+- Nav updated on ALL 30+ pages to include Industries and Insights links
 
 ---
 
