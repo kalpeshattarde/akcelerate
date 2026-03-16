@@ -283,7 +283,7 @@
             </div>
 
             <!-- Typewriter terminal -->
-            <div style="margin:0 0.6rem 0.6rem;background:rgba(0,0,0,0.22);border:1px solid rgba(255,255,255,0.06);border-radius:7px;padding:0.45rem 0.7rem;">
+            <div class="svc-terminal" style="margin:0 0.6rem 0.6rem;background:rgba(0,0,0,0.22);border:1px solid rgba(255,255,255,0.06);border-radius:7px;padding:0.45rem 0.7rem;">
               <span style="font-size:0.6rem;color:#4ADE80;font-family:monospace;" id="aiTypewriter"></span><span style="display:inline-block;width:2px;height:0.65rem;background:#4ADE80;margin-left:1px;vertical-align:middle;animation:blink-cursor 0.9s step-end infinite;"></span>
             </div>
           </div>
@@ -2379,6 +2379,25 @@ let twIdx = 0, twChar = 0, twDel = false;
 let rafId = null;
 let tick = 0;
 
+function getSvcColors() {
+  const light = document.documentElement.getAttribute('data-theme') === 'light';
+  return {
+    bg1:       light ? '#FFFFFF'              : '#0F172A',
+    bg2:       light ? '#EFF6FF'              : '#1E293B',
+    gridLine:  light ? 'rgba(203,213,225,0.6)': 'rgba(51,65,85,0.4)',
+    edgeLine:  light ? 'rgba(148,163,184,0.5)': 'rgba(51,65,85,0.6)',
+    nodeInact: light ? 'rgba(241,245,249,0.85)': 'rgba(30,41,59,0.5)',
+    connPend:  light ? 'rgba(148,163,184,0.45)': 'rgba(51,65,85,0.5)',
+    trackBg:   light ? 'rgba(203,213,225,0.4)': 'rgba(51,65,85,0.3)',
+    label:     light ? '#334155'              : '#94A3B8',
+    labelSub:  light ? '#475569'              : '#64748B',
+    textLight: light ? '#0F172A'              : '#F1F5F9',
+    mlCenter:  light ? 'rgba(248,250,252,0.96)': 'rgba(15,23,42,0.8)',
+    mlActive:  light ? '#0F172A'              : '#F1F5F9'
+  };
+}
+let _svcTC = getSvcColors();
+
 // ── Canvas setup ────────────────────────────────────────────────
 const canvas = document.getElementById('svcCanvas');
 if (!canvas) { console.warn('svcCanvas not found'); }
@@ -2472,6 +2491,10 @@ else {
     const w=W(), h=H();
     if(!w||!h){ rafId=requestAnimationFrame(drawFrame); return; }
     ctx.clearRect(0,0,w,h);
+    _svcTC = getSvcColors();
+    const _bg = ctx.createLinearGradient(0,0,w,h);
+    _bg.addColorStop(0,_svcTC.bg1); _bg.addColorStop(1,_svcTC.bg2);
+    ctx.fillStyle=_bg; ctx.fillRect(0,0,w,h);
     const svc = activeService;
     const col = AK_SERVICES[svc].color;
     const [r,g,b] = AK_SERVICES[svc].rgb.split(',').map(Number);
@@ -2512,7 +2535,7 @@ else {
       ctx.beginPath();ctx.roundRect(nx-28,ny-12,56,24,5);
       ctx.fillStyle=`rgba(${r},${g},${b},0.1)`;ctx.fill();
       ctx.strokeStyle=`rgba(${r},${g},${b},0.4)`;ctx.lineWidth=1;ctx.stroke();
-      ctx.fillStyle='#94A3B8';ctx.font='bold 8px Poppins,sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
+      ctx.fillStyle=_svcTC.label;ctx.font='bold 8px Poppins,sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
       ctx.fillText(n.label,nx,ny);
     });
   }
@@ -2567,7 +2590,7 @@ else {
       bg.addColorStop(0,`rgba(${r},${g},${b},0.8)`);
       bg.addColorStop(1,`rgba(${r},${g},${b},0.2)`);
       ctx.beginPath();ctx.roundRect(x,h-10-bh,bw,bh,3);ctx.fillStyle=bg;ctx.fill();
-      ctx.fillStyle='#475569';ctx.font='7px Poppins,sans-serif';ctx.textAlign='center';ctx.textBaseline='top';
+      ctx.fillStyle=_svcTC.labelSub;ctx.font='7px Poppins,sans-serif';ctx.textAlign='center';ctx.textBaseline='top';
       ctx.fillText(months[i],x+bw/2,h-8);
       ctx.fillStyle=`rgb(${r},${g},${b})`;ctx.font='bold 7px Poppins,sans-serif';ctx.textBaseline='bottom';
       ctx.fillText(Math.round(v)+'%',x+bw/2,h-12-bh);
@@ -2586,7 +2609,7 @@ else {
       const alpha=done?0.9:active?0.7:0.25;
       const col=done?`rgba(16,185,129,${alpha})`:active?`rgba(${r},${g},${b},${alpha})`:`rgba(100,116,139,${alpha})`;
       ctx.beginPath();ctx.arc(cx,cy,20,0,Math.PI*2);
-      ctx.fillStyle=done?'rgba(16,185,129,0.12)':active?`rgba(${r},${g},${b},0.12)`:'rgba(30,41,59,0.5)';
+      ctx.fillStyle=done?'rgba(16,185,129,0.12)':active?`rgba(${r},${g},${b},0.12)`:_svcTC.nodeInact;
       ctx.fill();
       ctx.strokeStyle=col;ctx.lineWidth=1.5;ctx.stroke();
       if(active){
@@ -2596,14 +2619,14 @@ else {
       }
       ctx.fillStyle='#D1D5DB';ctx.font='11px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
       ctx.fillText(icons[i],cx,cy-1);
-      ctx.fillStyle='#64748B';ctx.font='bold 7px Poppins,sans-serif';ctx.textBaseline='top';
+      ctx.fillStyle=_svcTC.labelSub;ctx.font='bold 7px Poppins,sans-serif';ctx.textBaseline='top';
       ctx.fillText(s,cx,cy+24);
       // Connector
       if(i<4){ctx.beginPath();ctx.moveTo(cx+20,cy);ctx.lineTo(cx+sw-20,cy);
-        ctx.strokeStyle=done?`rgba(16,185,129,0.4)`:'rgba(51,65,85,0.5)';ctx.lineWidth=1.5;ctx.stroke();}
+        ctx.strokeStyle=done?`rgba(16,185,129,0.4)`:_svcTC.connPend;ctx.lineWidth=1.5;ctx.stroke();}
     });
     // Active step progress label
-    ctx.fillStyle='#94A3B8';ctx.font='7px Poppins,sans-serif';ctx.textAlign='center';ctx.textBaseline='bottom';
+    ctx.fillStyle=_svcTC.label;ctx.font='7px Poppins,sans-serif';ctx.textAlign='center';ctx.textBaseline='bottom';
     const progPct=Math.round((buildStep/4*100+buildProg*25));
     ctx.fillText(`Pipeline: ${Math.min(progPct,100)}% complete`,w/2,h-8);
   }
@@ -2617,7 +2640,7 @@ else {
     for(let i=0;i<=4;i++){
       const y=pad+i*(ch/4);
       ctx.beginPath();ctx.moveTo(pad,y);ctx.lineTo(w-pad,y);
-      ctx.strokeStyle='rgba(51,65,85,0.4)';ctx.lineWidth=0.5;ctx.stroke();
+      ctx.strokeStyle=_svcTC.gridLine;ctx.lineWidth=0.5;ctx.stroke();
     }
     if(pts>1){
       ctx.beginPath();
@@ -2654,7 +2677,7 @@ else {
     serverEdges.forEach(([a,b2],ei)=>{
       const s1=servers[a],s2=servers[b2];
       ctx.beginPath();ctx.moveTo(s1.x*w,s1.y*h);ctx.lineTo(s2.x*w,s2.y*h);
-      ctx.strokeStyle='rgba(51,65,85,0.6)';ctx.lineWidth=1;ctx.stroke();
+      ctx.strokeStyle=_svcTC.edgeLine;ctx.lineWidth=1;ctx.stroke();
     });
     // Deploy packet
     if(deployPktState.active){
@@ -2677,9 +2700,9 @@ else {
       // Pulse ring
       ctx.beginPath();ctx.arc(sx,sy,18+pulse*5,0,Math.PI*2);
       ctx.strokeStyle=`rgba(${r},${g},${b},${pulse*.15})`;ctx.lineWidth=1;ctx.stroke();
-      ctx.fillStyle='#94A3B8';ctx.font='7px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
+      ctx.fillStyle=_svcTC.label;ctx.font='7px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
       ctx.fillText('🖥',sx,sy);
-      ctx.fillStyle='#64748B';ctx.font='bold 7px Poppins,sans-serif';ctx.textBaseline='top';
+      ctx.fillStyle=_svcTC.labelSub;ctx.font='bold 7px Poppins,sans-serif';ctx.textBaseline='top';
       ctx.fillText(s.label,sx,sy+22);
     });
   }
@@ -2700,16 +2723,16 @@ else {
       // Label
       const midA=(startA+endA)/2;
       const lx=cx+Math.cos(midA)*(rad*0.7);const ly=cy+Math.sin(midA)*(rad*0.7);
-      ctx.fillStyle=active?'#F1F5F9':'#64748B';
+      ctx.fillStyle=active?_svcTC.mlActive:_svcTC.labelSub;
       ctx.font=`bold ${active?8:7}px Poppins,sans-serif`;ctx.textAlign='center';ctx.textBaseline='middle';
       ctx.fillText(lbl,lx,ly);
     });
     // Center label
     ctx.beginPath();ctx.arc(cx,cy,rad*0.35,0,Math.PI*2);
-    ctx.fillStyle='rgba(15,23,42,0.8)';ctx.fill();
+    ctx.fillStyle=_svcTC.mlCenter;ctx.fill();
     ctx.strokeStyle=`rgba(${r},${g},${b},0.3)`;ctx.lineWidth=1;ctx.stroke();
-    ctx.fillStyle='#94A3B8';ctx.font='bold 8px Poppins,sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
-    ctx.fillText('MLOps',cx,cy-5);ctx.font='7px Poppins,sans-serif';ctx.fillStyle='#64748B';ctx.fillText('Lifecycle',cx,cy+6);
+    ctx.fillStyle=_svcTC.label;ctx.font='bold 8px Poppins,sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillText('MLOps',cx,cy-5);ctx.font='7px Poppins,sans-serif';ctx.fillStyle=_svcTC.labelSub;ctx.fillText('Lifecycle',cx,cy+6);
     // Rotating pointer
     const pA=wheelAngle%(Math.PI*2)-Math.PI/2;
     ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+Math.cos(pA)*rad,cy+Math.sin(pA)*rad);
@@ -2728,16 +2751,16 @@ else {
       const y=8+i*(bh+6),bw=(w-bx-16)*(v/100);
       // Track
       ctx.beginPath();ctx.roundRect(bx,y,w-bx-16,bh,3);
-      ctx.fillStyle='rgba(51,65,85,0.3)';ctx.fill();
+      ctx.fillStyle=_svcTC.trackBg;ctx.fill();
       // Bar
       const lg=ctx.createLinearGradient(bx,0,bx+bw,0);
       lg.addColorStop(0,colors[i]);lg.addColorStop(1,colors[i].replace('0.8','0.4'));
       ctx.beginPath();ctx.roundRect(bx,y,bw,bh,3);ctx.fillStyle=lg;ctx.fill();
       // Label
-      ctx.fillStyle='#94A3B8';ctx.font='bold 8px Poppins,sans-serif';ctx.textAlign='right';ctx.textBaseline='middle';
+      ctx.fillStyle=_svcTC.label;ctx.font='bold 8px Poppins,sans-serif';ctx.textAlign='right';ctx.textBaseline='middle';
       ctx.fillText(phases[i],bx-6,y+bh/2);
       // Percent
-      ctx.fillStyle='#F1F5F9';ctx.font='bold 7px Poppins,sans-serif';ctx.textAlign='left';
+      ctx.fillStyle=_svcTC.textLight;ctx.font='bold 7px Poppins,sans-serif';ctx.textAlign='left';
       ctx.fillText(Math.round(v)+'%',bx+bw+4,y+bh/2);
     });
   }
