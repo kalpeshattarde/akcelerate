@@ -2410,12 +2410,20 @@ a.ak-link-card:hover {
   box-shadow: 0 24px 80px rgba(0,0,0,0.25);
   position: relative;
 }
+[data-theme="light"] .ak-viz-panel {
+  background: linear-gradient(160deg,#FFFFFF,#EFF6FF);
+  border: 1px solid rgba(37,99,235,0.12);
+  box-shadow: 0 8px 40px rgba(37,99,235,0.10);
+}
 .ak-viz-panel-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0.75rem 1rem;
   border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+[data-theme="light"] .ak-viz-panel-header {
+  border-bottom: 1px solid rgba(37,99,235,0.08);
 }
 .ak-viz-dot {
   width: 8px; height: 8px; border-radius: 50%;
@@ -2429,6 +2437,9 @@ a.ak-link-card:hover {
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
   letter-spacing: 0.03em;
+}
+[data-theme="light"] .ak-viz-label {
+  color: rgba(15,23,42,0.65);
 }
 .ak-viz-live {
   font-size: 0.62rem;
@@ -2488,6 +2499,63 @@ a.ak-link-card:hover {
 /* ── How We Work visual diagram ── */
 .process-visual { margin-top: 3rem; position: relative; }
 .process-viz-canvas { width: 100%; border-radius: 16px; background: linear-gradient(160deg,#0F172A,#1E293B); display: block; }
+[data-theme="light"] .process-viz-canvas { background: linear-gradient(160deg,#FFFFFF,#EFF6FF); }
+
+/* ── Dark dashboard card (light-mode aware) ── */
+.ak-dark-card {
+  background: linear-gradient(160deg,#0F172A,#1E293B);
+  border-radius: 20px;
+  padding: 1.75rem;
+  border: 1px solid rgba(255,255,255,0.07);
+  box-shadow: 0 24px 80px rgba(0,0,0,0.2);
+}
+[data-theme="light"] .ak-dark-card {
+  background: linear-gradient(160deg,#FFFFFF,#EFF6FF);
+  border: 1px solid rgba(37,99,235,0.12);
+  box-shadow: 0 8px 40px rgba(37,99,235,0.10);
+}
+.ak-dark-card .ak-dc-title {
+  color: #FFFFFF;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+[data-theme="light"] .ak-dark-card .ak-dc-title {
+  color: #0F172A;
+}
+.ak-dark-card .ak-dc-sub {
+  color: rgba(255,255,255,0.45);
+  font-size: 0.75rem;
+}
+[data-theme="light"] .ak-dark-card .ak-dc-sub {
+  color: rgba(15,23,42,0.55);
+}
+.ak-dark-card .ak-dc-text {
+  color: rgba(255,255,255,0.65);
+}
+[data-theme="light"] .ak-dark-card .ak-dc-text {
+  color: rgba(15,23,42,0.70);
+}
+.ak-dark-card .ak-dc-muted {
+  color: rgba(148,163,184,0.6);
+}
+[data-theme="light"] .ak-dark-card .ak-dc-muted {
+  color: rgba(100,116,139,0.70);
+}
+.ak-dark-card .ak-dc-bar-track {
+  background: rgba(255,255,255,0.06);
+  border-radius: 4px;
+  overflow: hidden;
+}
+[data-theme="light"] .ak-dark-card .ak-dc-bar-track {
+  background: rgba(15,23,42,0.07);
+}
+.ak-dark-card .ak-dc-border-top {
+  border-top-color: rgba(255,255,255,0.06) !important;
+}
+[data-theme="light"] .ak-dark-card .ak-dc-border-top {
+  border-top-color: rgba(37,99,235,0.10) !important;
+}
 
 /* ── What We Do solution card visuals ── */
 .ak-sm-card {
