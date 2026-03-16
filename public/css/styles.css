@@ -377,6 +377,38 @@ h1,h2,h3,h4,h5,h6 {
 }
 .floating-whatsapp:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(37,211,102,0.45); }
 
+.floating-call {
+  position: fixed;
+  bottom: 10.5rem; right: 1.5rem;
+  z-index: 999;
+  width: 54px; height: 54px;
+  background: linear-gradient(135deg, #2563EB, #06B6D4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,99,235,0.35);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.floating-call:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(37,99,235,0.45); }
+
+.floating-email {
+  position: fixed;
+  bottom: 15.5rem; right: 1.5rem;
+  z-index: 999;
+  width: 54px; height: 54px;
+  background: linear-gradient(135deg, #7C3AED, #2563EB);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(124,58,237,0.35);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.floating-email:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(124,58,237,0.45); }
+
 .back-to-top {
   position: fixed;
   bottom: 1.5rem; right: 1.5rem;
