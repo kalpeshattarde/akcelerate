@@ -891,6 +891,617 @@
     roundRect(ctx, x, y, w, h, r); ctx.stroke();
   }
 
+  /* ─── casestudies mode — ROI results dashboard ─── */
+  function modeCaseStudies(c) {
+    var ctx = c.ctx;
+    var W = c.w, H = c.h;
+    var t = 0;
+    var cases = [
+      { label: 'Automotive', metric: '42%', sub: 'Downtime Cut', col: '#2563EB', pct: 0.42 },
+      { label: 'Pharma',     metric: '31%', sub: 'OEE Gain',    col: '#06B6D4', pct: 0.31 },
+      { label: 'FMCG',       metric: '5.2×', sub: 'ROI',        col: '#8B5CF6', pct: 0.72 },
+      { label: 'Logistics',  metric: '28%', sub: 'Cost Save',   col: '#22C55E', pct: 0.28 },
+      { label: 'Energy',     metric: '19%', sub: 'Efficiency',  col: '#F59E0B', pct: 0.19 }
+    ];
+    var active = 0, switchTimer = 0;
+    var particles = [];
+    for (var i = 0; i < 25; i++) {
+      particles.push({ x: rnd(0, W), y: rnd(0, H), r: rnd(1, 2.2), vy: rnd(-0.3, -0.1), opacity: rnd(0.2, 0.5) });
+    }
+    function frame() {
+      ctx.clearRect(0, 0, W, H);
+      t += 0.018;
+      switchTimer++;
+      if (switchTimer > 130) { active = (active + 1) % cases.length; switchTimer = 0; }
+
+      /* bg gradient */
+      var bg = ctx.createLinearGradient(0, 0, W, H);
+      bg.addColorStop(0, '#0F172A'); bg.addColorStop(1, '#1E293B');
+      ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H);
+
+      /* particles */
+      particles.forEach(function (p) {
+        p.y += p.vy;
+        if (p.y < -5) p.y = H + 5;
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(37,99,235,' + p.opacity + ')'; ctx.fill();
+      });
+
+      /* horizontal bar chart */
+      var bx = W * 0.05, bw = W * 0.45, barH = (H * 0.65) / cases.length, by0 = H * 0.12;
+      ctx.font = '500 ' + Math.round(H * 0.045) + 'px Poppins,sans-serif';
+      cases.forEach(function (cs, i) {
+        var y = by0 + i * (barH + H * 0.022);
+        var progress = Math.min(1, Math.max(0, (t - i * 0.3) * 0.8));
+        var isActive = i === active;
+        /* track */
+        roundRectFill(ctx, bx, y + barH * 0.35, bw, barH * 0.3, 3, 'rgba(255,255,255,0.06)');
+        /* fill */
+        var fillW = bw * cs.pct * progress;
+        var gr = ctx.createLinearGradient(bx, 0, bx + fillW, 0);
+        gr.addColorStop(0, cs.col + 'aa'); gr.addColorStop(1, cs.col);
+        roundRectFill(ctx, bx, y + barH * 0.35, fillW, barH * 0.3, 3, gr);
+        /* glow if active */
+        if (isActive) {
+          ctx.shadowColor = cs.col; ctx.shadowBlur = 12;
+          roundRectFill(ctx, bx, y + barH * 0.35, fillW, barH * 0.3, 3, gr);
+          ctx.shadowBlur = 0;
+        }
+        /* label */
+        ctx.fillStyle = isActive ? '#FFFFFF' : 'rgba(255,255,255,0.55)';
+        ctx.font = (isActive ? '600' : '400') + ' ' + Math.round(H * 0.042) + 'px Poppins,sans-serif';
+        ctx.fillText(cs.label, bx, y + barH * 0.28);
+        /* metric */
+        ctx.fillStyle = cs.col;
+        ctx.font = '700 ' + Math.round(H * 0.048) + 'px Poppins,sans-serif';
+        ctx.fillText(cs.metric, bx + bw + W * 0.025, y + barH * 0.6);
+        ctx.fillStyle = 'rgba(255,255,255,0.4)';
+        ctx.font = '400 ' + Math.round(H * 0.036) + 'px Inter,sans-serif';
+        ctx.fillText(cs.sub, bx + bw + W * 0.025, y + barH * 0.88);
+      });
+
+      /* headline panel */
+      var c2 = cases[active];
+      var px = W * 0.54, py = H * 0.12, pw = W * 0.42, ph = H * 0.58;
+      roundRectFill(ctx, px, py, pw, ph, 12, 'rgba(255,255,255,0.04)');
+      ctx.strokeStyle = c2.col + '44'; ctx.lineWidth = 1;
+      roundRectStroke(ctx, px, py, pw, ph, 12);
+
+      /* big number */
+      ctx.font = '800 ' + Math.round(H * 0.18) + 'px Poppins,sans-serif';
+      var gr2 = ctx.createLinearGradient(px, py, px + pw, py + ph);
+      gr2.addColorStop(0, c2.col); gr2.addColorStop(1, '#06B6D4');
+      ctx.fillStyle = gr2;
+      ctx.textAlign = 'center';
+      ctx.fillText(c2.metric, px + pw / 2, py + ph * 0.48);
+      ctx.fillStyle = 'rgba(255,255,255,0.75)';
+      ctx.font = '600 ' + Math.round(H * 0.058) + 'px Poppins,sans-serif';
+      ctx.fillText(c2.sub, px + pw / 2, py + ph * 0.65);
+      ctx.fillStyle = 'rgba(255,255,255,0.4)';
+      ctx.font = '400 ' + Math.round(H * 0.04) + 'px Inter,sans-serif';
+      ctx.fillText(c2.label + ' Industry', px + pw / 2, py + ph * 0.78);
+      ctx.textAlign = 'left';
+
+      drawVizFrame(ctx, W, H, 'Case Study Results');
+      requestAnimationFrame(frame);
+    }
+    frame();
+  }
+
+  /* ─── contact mode — globe / network connections ─── */
+  function modeContact(c) {
+    var ctx = c.ctx;
+    var W = c.w, H = c.h;
+    var t = 0;
+    var cx = W * 0.55, cy = H * 0.5, R = Math.min(W, H) * 0.32;
+    var nodes = [
+      { lbl: 'Mumbai', angle: 0,    dist: R * 0.0, col: '#2563EB', size: 10 },
+      { lbl: 'London', angle: 0.6,  dist: R * 0.85, col: '#06B6D4', size: 6 },
+      { lbl: 'Dubai',  angle: 1.8,  dist: R * 0.78, col: '#8B5CF6', size: 6 },
+      { lbl: 'Singapore', angle: 3.2, dist: R * 0.82, col: '#22C55E', size: 6 },
+      { lbl: 'NYC',    angle: 4.8,  dist: R * 0.88, col: '#F59E0B', size: 6 },
+      { lbl: 'Sydney', angle: 5.6,  dist: R * 0.75, col: '#EC4899', size: 6 }
+    ];
+    var pulses = [];
+    setInterval(function () {
+      var n = nodes[1 + Math.floor(Math.random() * (nodes.length - 1))];
+      pulses.push({ x: cx + n.dist * Math.cos(n.angle + t * 0.2), y: cy + n.dist * Math.sin(n.angle + t * 0.2), r: 0, col: n.col, max: 40 });
+    }, 900);
+
+    function nodePos(n) {
+      return { x: cx + n.dist * Math.cos(n.angle + t * 0.2), y: cy + n.dist * Math.sin(n.angle + t * 0.2) };
+    }
+
+    function frame() {
+      ctx.clearRect(0, 0, W, H);
+      t += 0.012;
+      var bg = ctx.createLinearGradient(0, 0, W, H);
+      bg.addColorStop(0, '#0F172A'); bg.addColorStop(1, '#1E293B');
+      ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H);
+
+      /* globe circle */
+      ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(37,99,235,0.15)'; ctx.lineWidth = 1; ctx.stroke();
+      /* lat/lon rings */
+      for (var i = 1; i <= 4; i++) {
+        ctx.beginPath(); ctx.arc(cx, cy, R * i / 4, 0, Math.PI * 2);
+        ctx.strokeStyle = 'rgba(37,99,235,0.08)'; ctx.lineWidth = 0.5; ctx.stroke();
+      }
+      for (var a = 0; a < Math.PI * 2; a += Math.PI / 4) {
+        ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx + R * Math.cos(a), cy + R * Math.sin(a));
+        ctx.strokeStyle = 'rgba(37,99,235,0.05)'; ctx.lineWidth = 0.5; ctx.stroke();
+      }
+
+      /* connections */
+      var hub = nodePos(nodes[0]);
+      nodes.slice(1).forEach(function (n) {
+        var p = nodePos(n);
+        ctx.beginPath(); ctx.moveTo(hub.x, hub.y); ctx.lineTo(p.x, p.y);
+        var gr = ctx.createLinearGradient(hub.x, hub.y, p.x, p.y);
+        gr.addColorStop(0, n.col + 'aa'); gr.addColorStop(1, 'rgba(37,99,235,0.1)');
+        ctx.strokeStyle = gr; ctx.lineWidth = 1; ctx.stroke();
+      });
+
+      /* pulses */
+      pulses = pulses.filter(function (p) { return p.r < p.max; });
+      pulses.forEach(function (p) {
+        p.r += 1.5;
+        var alpha = (1 - p.r / p.max) * 0.6;
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.strokeStyle = p.col + Math.round(alpha * 255).toString(16).padStart(2, '0');
+        ctx.lineWidth = 1.5; ctx.stroke();
+      });
+
+      /* nodes */
+      nodes.forEach(function (n, i) {
+        var p = nodePos(n);
+        /* glow */
+        ctx.beginPath(); ctx.arc(p.x, p.y, n.size * 2.5, 0, Math.PI * 2);
+        ctx.fillStyle = n.col + '22'; ctx.fill();
+        /* dot */
+        ctx.beginPath(); ctx.arc(p.x, p.y, n.size, 0, Math.PI * 2);
+        ctx.fillStyle = n.col; ctx.fill();
+        /* label */
+        if (i > 0) {
+          ctx.fillStyle = 'rgba(255,255,255,0.75)';
+          ctx.font = '500 ' + Math.round(H * 0.04) + 'px Inter,sans-serif';
+          ctx.fillText(n.lbl, p.x + n.size + 5, p.y + 4);
+        }
+      });
+
+      /* HQ label */
+      ctx.fillStyle = '#2563EB';
+      ctx.font = '700 ' + Math.round(H * 0.045) + 'px Poppins,sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('Mumbai HQ', hub.x, hub.y - 18);
+      ctx.textAlign = 'left';
+
+      /* info panel left */
+      var ix = W * 0.03, iy = H * 0.15;
+      ctx.fillStyle = 'rgba(255,255,255,0.04)';
+      roundRect(ctx, ix, iy, W * 0.36, H * 0.6, 10); ctx.fill();
+      var infos = [
+        { label: 'Response Time', val: '<2h',   col: '#2563EB' },
+        { label: 'Projects Live',  val: '37+',  col: '#06B6D4' },
+        { label: 'Industries',     val: '13+',  col: '#8B5CF6' },
+        { label: 'Satisfaction',   val: '98%',  col: '#22C55E' }
+      ];
+      infos.forEach(function (info, i2) {
+        var ry = iy + H * 0.1 + i2 * H * 0.12;
+        ctx.fillStyle = 'rgba(255,255,255,0.5)';
+        ctx.font = '400 ' + Math.round(H * 0.038) + 'px Inter,sans-serif';
+        ctx.fillText(info.label, ix + 14, ry);
+        ctx.fillStyle = info.col;
+        ctx.font = '700 ' + Math.round(H * 0.055) + 'px Poppins,sans-serif';
+        ctx.fillText(info.val, ix + 14, ry + H * 0.07);
+      });
+
+      drawVizFrame(ctx, W, H, 'Global Connections');
+      requestAnimationFrame(frame);
+    }
+    frame();
+  }
+
+  /* ─── services mode — radial service hub ─── */
+  function modeServices(c) {
+    var ctx = c.ctx;
+    var W = c.w, H = c.h;
+    var t = 0;
+    var cx = W * 0.38, cy = H * 0.5;
+    var R = Math.min(W * 0.32, H * 0.44);
+    var services = [
+      { lbl: 'AI & ML',       sub: 'Neural Networks', col: '#2563EB', icon: '🤖' },
+      { lbl: 'Automation',    sub: 'RPA & Workflows',  col: '#06B6D4', icon: '⚙️' },
+      { lbl: 'Analytics',     sub: 'BI & KPIs',       col: '#8B5CF6', icon: '📊' },
+      { lbl: 'Cloud',         sub: 'AWS / GCP',       col: '#22C55E', icon: '☁️' },
+      { lbl: 'SaaS Dev',      sub: 'Full-stack',      col: '#F59E0B', icon: '💻' },
+      { lbl: 'Consulting',    sub: 'Strategy',        col: '#EC4899', icon: '🎯' }
+    ];
+    var active = 0, switchT = 0;
+    var orbitPts = [];
+    for (var i = 0; i < 30; i++) {
+      orbitPts.push({ a: rnd(0, Math.PI * 2), r: rnd(R * 0.1, R * 0.9), speed: rnd(0.002, 0.008) });
+    }
+
+    function frame() {
+      ctx.clearRect(0, 0, W, H);
+      t += 0.015;
+      switchT++;
+      if (switchT > 100) { active = (active + 1) % services.length; switchT = 0; }
+
+      var bg = ctx.createLinearGradient(0, 0, W, H);
+      bg.addColorStop(0, '#0F172A'); bg.addColorStop(1, '#1E293B');
+      ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H);
+
+      /* orbit rings */
+      [R * 0.45, R * 0.75, R].forEach(function (r2) {
+        ctx.beginPath(); ctx.arc(cx, cy, r2, 0, Math.PI * 2);
+        ctx.strokeStyle = 'rgba(255,255,255,0.04)'; ctx.lineWidth = 1; ctx.stroke();
+      });
+
+      /* orbit particles */
+      orbitPts.forEach(function (p) {
+        p.a += p.speed;
+        var px = cx + p.r * Math.cos(p.a), py = cy + p.r * Math.sin(p.a);
+        ctx.beginPath(); ctx.arc(px, py, 1.2, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(37,99,235,0.35)'; ctx.fill();
+      });
+
+      /* service nodes */
+      services.forEach(function (svc, i) {
+        var angle = (i / services.length) * Math.PI * 2 - Math.PI / 2 + t * 0.08;
+        var px = cx + R * Math.cos(angle), py = cy + R * Math.sin(angle);
+        var isActive = i === active;
+        var nodeR = isActive ? 22 : 16;
+
+        /* connection line */
+        ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(px, py);
+        var gr = ctx.createLinearGradient(cx, cy, px, py);
+        gr.addColorStop(0, svc.col + '55'); gr.addColorStop(1, 'transparent');
+        ctx.strokeStyle = isActive ? svc.col + 'aa' : gr;
+        ctx.lineWidth = isActive ? 2 : 0.8; ctx.stroke();
+
+        /* node ring */
+        if (isActive) {
+          ctx.beginPath(); ctx.arc(px, py, nodeR + 8, 0, Math.PI * 2);
+          ctx.fillStyle = svc.col + '22'; ctx.fill();
+        }
+        ctx.beginPath(); ctx.arc(px, py, nodeR, 0, Math.PI * 2);
+        ctx.fillStyle = isActive ? svc.col : 'rgba(30,41,59,0.9)';
+        ctx.fill();
+        ctx.strokeStyle = svc.col; ctx.lineWidth = isActive ? 2 : 1.5; ctx.stroke();
+
+        /* label */
+        var textX = px + (px > cx ? 28 : -28), textY = py + 5;
+        ctx.textAlign = px > cx + 10 ? 'left' : px < cx - 10 ? 'right' : 'center';
+        ctx.fillStyle = isActive ? '#FFFFFF' : 'rgba(255,255,255,0.55)';
+        ctx.font = (isActive ? '600' : '400') + ' ' + Math.round(H * 0.042) + 'px Poppins,sans-serif';
+        ctx.fillText(svc.lbl, textX, textY - 4);
+        ctx.fillStyle = isActive ? svc.col : 'rgba(255,255,255,0.3)';
+        ctx.font = '400 ' + Math.round(H * 0.033) + 'px Inter,sans-serif';
+        ctx.fillText(svc.sub, textX, textY + 12);
+        ctx.textAlign = 'left';
+      });
+
+      /* center hub */
+      var hubR = R * 0.18;
+      ctx.beginPath(); ctx.arc(cx, cy, hubR + 6, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(37,99,235,0.1)'; ctx.fill();
+      ctx.beginPath(); ctx.arc(cx, cy, hubR, 0, Math.PI * 2);
+      var hubGr = ctx.createRadialGradient(cx, cy, 0, cx, cy, hubR);
+      hubGr.addColorStop(0, '#2563EB'); hubGr.addColorStop(1, '#0EA5E9');
+      ctx.fillStyle = hubGr; ctx.fill();
+      ctx.fillStyle = '#FFFFFF';
+      ctx.font = '800 ' + Math.round(H * 0.05) + 'px Poppins,sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('AK', cx, cy + Math.round(H * 0.02));
+      ctx.textAlign = 'left';
+
+      /* right info panel */
+      var c2 = services[active];
+      var px2 = W * 0.62, py2 = H * 0.15, pw = W * 0.34, ph = H * 0.6;
+      roundRectFill(ctx, px2, py2, pw, ph, 12, 'rgba(255,255,255,0.04)');
+      ctx.strokeStyle = c2.col + '44'; ctx.lineWidth = 1;
+      roundRectStroke(ctx, px2, py2, pw, ph, 12);
+      ctx.fillStyle = c2.col;
+      ctx.font = '700 ' + Math.round(H * 0.065) + 'px Poppins,sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(c2.lbl, px2 + pw / 2, py2 + ph * 0.3);
+      ctx.fillStyle = 'rgba(255,255,255,0.55)';
+      ctx.font = '400 ' + Math.round(H * 0.042) + 'px Inter,sans-serif';
+      ctx.fillText(c2.sub, px2 + pw / 2, py2 + ph * 0.48);
+      ctx.textAlign = 'left';
+
+      drawVizFrame(ctx, W, H, 'Service Hub');
+      requestAnimationFrame(frame);
+    }
+    frame();
+  }
+
+  /* ─── pricing mode — value radar + comparison ─── */
+  function modePricing(c) {
+    var ctx = c.ctx;
+    var W = c.w, H = c.h;
+    var t = 0;
+    var cx = W * 0.35, cy = H * 0.52, R = Math.min(W * 0.28, H * 0.38);
+    var dims = ['Scalability','AI Depth','Support','Custom','Speed','Value'];
+    var plans = [
+      { name: 'Starter',      col: '#64748B', vals: [0.4,0.3,0.4,0.2,0.5,0.5], lineWidth: 1.5 },
+      { name: 'Professional', col: '#2563EB', vals: [0.75,0.7,0.75,0.65,0.8,0.85], lineWidth: 2.5 },
+      { name: 'Enterprise',   col: '#06B6D4', vals: [1,0.95,1,1,0.95,1], lineWidth: 2 }
+    ];
+    var animate = 0;
+
+    function radarPt(i, val) {
+      var angle = (i / dims.length) * Math.PI * 2 - Math.PI / 2;
+      return { x: cx + R * val * Math.cos(angle), y: cy + R * val * Math.sin(angle) };
+    }
+
+    function frame() {
+      ctx.clearRect(0, 0, W, H);
+      t += 0.015;
+      animate = Math.min(1, animate + 0.015);
+
+      var bg = ctx.createLinearGradient(0, 0, W, H);
+      bg.addColorStop(0, '#0F172A'); bg.addColorStop(1, '#1E293B');
+      ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H);
+
+      /* radar grid */
+      for (var ring = 1; ring <= 4; ring++) {
+        ctx.beginPath();
+        dims.forEach(function (d, i) {
+          var pt = radarPt(i, ring / 4);
+          i === 0 ? ctx.moveTo(pt.x, pt.y) : ctx.lineTo(pt.x, pt.y);
+        });
+        ctx.closePath();
+        ctx.strokeStyle = 'rgba(255,255,255,0.06)'; ctx.lineWidth = 0.8; ctx.stroke();
+      }
+      dims.forEach(function (d, i) {
+        var pt = radarPt(i, 1);
+        ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(pt.x, pt.y);
+        ctx.strokeStyle = 'rgba(255,255,255,0.07)'; ctx.lineWidth = 0.8; ctx.stroke();
+        /* label */
+        var lx = cx + (R * 1.22) * Math.cos((i / dims.length) * Math.PI * 2 - Math.PI / 2);
+        var ly = cy + (R * 1.22) * Math.sin((i / dims.length) * Math.PI * 2 - Math.PI / 2);
+        ctx.fillStyle = 'rgba(255,255,255,0.5)';
+        ctx.font = '500 ' + Math.round(H * 0.04) + 'px Inter,sans-serif';
+        ctx.textAlign = lx < cx - 5 ? 'right' : lx > cx + 5 ? 'left' : 'center';
+        ctx.fillText(d, lx, ly + 4);
+      });
+      ctx.textAlign = 'left';
+
+      /* plan polygons */
+      plans.forEach(function (plan) {
+        ctx.beginPath();
+        plan.vals.forEach(function (v, i) {
+          var pt = radarPt(i, v * animate);
+          i === 0 ? ctx.moveTo(pt.x, pt.y) : ctx.lineTo(pt.x, pt.y);
+        });
+        ctx.closePath();
+        ctx.fillStyle = plan.col + '22';
+        ctx.fill();
+        ctx.strokeStyle = plan.col;
+        ctx.lineWidth = plan.lineWidth;
+        ctx.stroke();
+      });
+
+      /* legend right */
+      var lx2 = W * 0.62, ly2 = H * 0.18;
+      ctx.font = '600 ' + Math.round(H * 0.048) + 'px Poppins,sans-serif';
+      ctx.fillStyle = 'rgba(255,255,255,0.75)';
+      ctx.fillText('Plan Comparison', lx2, ly2);
+
+      plans.forEach(function (plan, i) {
+        var by = ly2 + H * 0.1 + i * H * 0.24;
+        /* box */
+        roundRectFill(ctx, lx2, by, W * 0.32, H * 0.18, 10, 'rgba(255,255,255,0.04)');
+        ctx.strokeStyle = plan.col + '55'; ctx.lineWidth = 1;
+        roundRectStroke(ctx, lx2, by, W * 0.32, H * 0.18, 10);
+        /* dot */
+        ctx.beginPath(); ctx.arc(lx2 + 16, by + H * 0.06, 5, 0, Math.PI * 2);
+        ctx.fillStyle = plan.col; ctx.fill();
+        ctx.fillStyle = '#FFFFFF';
+        ctx.font = '700 ' + Math.round(H * 0.045) + 'px Poppins,sans-serif';
+        ctx.fillText(plan.name, lx2 + 28, by + H * 0.072);
+        /* bar */
+        var avgScore = plan.vals.reduce(function (a, b) { return a + b; }, 0) / plan.vals.length;
+        roundRectFill(ctx, lx2 + 10, by + H * 0.11, W * 0.3 - 10, 5, 3, 'rgba(255,255,255,0.08)');
+        var fillW = (W * 0.3 - 10) * avgScore * animate;
+        var barGr = ctx.createLinearGradient(lx2 + 10, 0, lx2 + 10 + fillW, 0);
+        barGr.addColorStop(0, plan.col); barGr.addColorStop(1, '#06B6D4');
+        roundRectFill(ctx, lx2 + 10, by + H * 0.11, fillW, 5, 3, barGr);
+        ctx.fillStyle = plan.col;
+        ctx.font = '600 ' + Math.round(H * 0.038) + 'px Inter,sans-serif';
+        ctx.fillText(Math.round(avgScore * 100) + '%', lx2 + W * 0.3, by + H * 0.135);
+      });
+
+      drawVizFrame(ctx, W, H, 'Plan Value Radar');
+      requestAnimationFrame(frame);
+    }
+    frame();
+  }
+
+  /* ─── insights mode — reading & trends dashboard ─── */
+  function modeInsights(c) {
+    var ctx = c.ctx;
+    var W = c.w, H = c.h;
+    var t = 0;
+    var categories = ['AI Strategy','Automation','Data Ops','Cloud','MLOps'];
+    var colors = ['#2563EB','#06B6D4','#8B5CF6','#22C55E','#F59E0B'];
+    /* spark lines per category */
+    var sparks = categories.map(function () {
+      var pts = [];
+      for (var i = 0; i < 24; i++) pts.push(rnd(0.2, 0.9));
+      return pts;
+    });
+    var particles = [];
+    for (var i = 0; i < 30; i++) particles.push({ x: rnd(0, W), y: rnd(0, H), vx: rnd(-0.25, 0.25), vy: rnd(-0.4, -0.1), r: rnd(1, 2), col: colors[i % colors.length] });
+
+    function frame() {
+      ctx.clearRect(0, 0, W, H);
+      t += 0.016;
+      var bg = ctx.createLinearGradient(0, 0, W, H);
+      bg.addColorStop(0, '#0F172A'); bg.addColorStop(1, '#1E293B');
+      ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H);
+
+      /* particles */
+      particles.forEach(function (p) {
+        p.x += p.vx; p.y += p.vy;
+        if (p.y < -4) p.y = H + 4;
+        if (p.x < 0 || p.x > W) p.vx *= -1;
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = p.col + '55'; ctx.fill();
+      });
+
+      /* left: trend category bars */
+      var bx = W * 0.04, bw = W * 0.44;
+      categories.forEach(function (cat, i) {
+        var by = H * 0.12 + i * H * 0.15;
+        var heat = 0.3 + 0.5 * Math.abs(Math.sin(t * 0.3 + i));
+        roundRectFill(ctx, bx, by + H * 0.06, bw * heat, H * 0.06, 3, colors[i] + 'aa');
+        roundRectFill(ctx, bx, by + H * 0.06, bw, H * 0.06, 3, 'rgba(255,255,255,0.04)');
+        var fillW = bw * heat;
+        var gr = ctx.createLinearGradient(bx, 0, bx + fillW, 0);
+        gr.addColorStop(0, colors[i] + 'dd'); gr.addColorStop(1, colors[i]);
+        roundRectFill(ctx, bx, by + H * 0.06, fillW, H * 0.06, 3, gr);
+        ctx.fillStyle = 'rgba(255,255,255,0.7)';
+        ctx.font = '500 ' + Math.round(H * 0.042) + 'px Inter,sans-serif';
+        ctx.fillText(cat, bx, by + H * 0.045);
+        ctx.fillStyle = colors[i];
+        ctx.font = '700 ' + Math.round(H * 0.04) + 'px Poppins,sans-serif';
+        ctx.fillText(Math.round(heat * 100) + '%', bx + fillW + 6, by + H * 0.095);
+      });
+
+      /* right: sparklines */
+      var sx = W * 0.54, sw = W * 0.42, sheight = H * 0.58;
+      var sy = H * 0.16;
+      roundRectFill(ctx, sx, sy - 10, sw, sheight + 20, 12, 'rgba(255,255,255,0.03)');
+
+      ctx.fillStyle = 'rgba(255,255,255,0.5)';
+      ctx.font = '600 ' + Math.round(H * 0.043) + 'px Poppins,sans-serif';
+      ctx.fillText('Topic Trends', sx + 12, sy + 6);
+
+      categories.forEach(function (cat, i) {
+        var lineY = sy + H * 0.11 + i * H * 0.096;
+        var pts = sparks[i];
+        /* update last point */
+        pts.push(rnd(0.2, 0.9)); if (pts.length > 24) pts.shift();
+
+        ctx.beginPath();
+        pts.forEach(function (v, pi) {
+          var px2 = sx + 10 + pi * (sw - 20) / (pts.length - 1);
+          var py2 = lineY + H * 0.07 - v * H * 0.065;
+          pi === 0 ? ctx.moveTo(px2, py2) : ctx.lineTo(px2, py2);
+        });
+        ctx.strokeStyle = colors[i]; ctx.lineWidth = 1.5; ctx.stroke();
+
+        /* dot at latest */
+        var last = pts[pts.length - 1];
+        var lx = sx + 10 + (pts.length - 1) * (sw - 20) / (pts.length - 1);
+        var ly = lineY + H * 0.07 - last * H * 0.065;
+        ctx.beginPath(); ctx.arc(lx, ly, 3, 0, Math.PI * 2);
+        ctx.fillStyle = colors[i]; ctx.fill();
+        ctx.fillStyle = 'rgba(255,255,255,0.4)';
+        ctx.font = '400 ' + Math.round(H * 0.033) + 'px Inter,sans-serif';
+        ctx.fillText(cat, sx + 12, lineY + 6);
+      });
+
+      drawVizFrame(ctx, W, H, 'Content Intelligence');
+      requestAnimationFrame(frame);
+    }
+    frame();
+  }
+
+  /* ─── founder mode — personal brand visual ─── */
+  function modeFounder(c) {
+    var ctx = c.ctx;
+    var W = c.w, H = c.h;
+    var t = 0;
+    var cx = W * 0.38, cy = H * 0.5;
+    /* expertise rings */
+    var skills = [
+      { lbl: 'AI & Machine Learning', pct: 95, col: '#2563EB', r: H * 0.38 },
+      { lbl: 'Business Strategy',     pct: 90, col: '#06B6D4', r: H * 0.3 },
+      { lbl: 'Data Engineering',      pct: 92, col: '#8B5CF6', r: H * 0.22 },
+      { lbl: 'Product Dev',           pct: 85, col: '#22C55E', r: H * 0.14 }
+    ];
+    var orbitDots = [];
+    skills.forEach(function (s) {
+      for (var i = 0; i < 5; i++) orbitDots.push({ r: s.r, a: rnd(0, Math.PI * 2), speed: rnd(0.005, 0.015) * (Math.random() > 0.5 ? 1 : -1), col: s.col });
+    });
+
+    function frame() {
+      ctx.clearRect(0, 0, W, H);
+      t += 0.012;
+      var bg = ctx.createLinearGradient(0, 0, W, H);
+      bg.addColorStop(0, '#0F172A'); bg.addColorStop(1, '#1E293B');
+      ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H);
+
+      /* rings */
+      skills.forEach(function (s) {
+        var circ = 2 * Math.PI * s.r;
+        var dash = (s.pct / 100) * circ;
+        ctx.beginPath(); ctx.arc(cx, cy, s.r, -Math.PI / 2 + t * 0.04, -Math.PI / 2 + t * 0.04 + (Math.PI * 2 * (s.pct / 100)));
+        ctx.strokeStyle = s.col + '55'; ctx.lineWidth = 3; ctx.stroke();
+        ctx.beginPath(); ctx.arc(cx, cy, s.r, -Math.PI / 2, Math.PI * 2 - Math.PI / 2);
+        ctx.strokeStyle = 'rgba(255,255,255,0.04)'; ctx.lineWidth = 1; ctx.stroke();
+        /* label at angle */
+        var langle = -Math.PI / 2 + (s.pct / 100) * Math.PI * 2 / 2 + t * 0.04;
+        var lx = cx + s.r * Math.cos(langle), ly = cy + s.r * Math.sin(langle);
+        ctx.fillStyle = s.col;
+        ctx.font = '600 ' + Math.round(H * 0.042) + 'px Poppins,sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(s.pct + '%', lx, ly + 5);
+        ctx.textAlign = 'left';
+      });
+
+      /* orbit dots */
+      orbitDots.forEach(function (d) {
+        d.a += d.speed;
+        var px = cx + d.r * Math.cos(d.a), py = cy + d.r * Math.sin(d.a);
+        ctx.beginPath(); ctx.arc(px, py, 2.5, 0, Math.PI * 2);
+        ctx.fillStyle = d.col; ctx.fill();
+      });
+
+      /* center */
+      ctx.beginPath(); ctx.arc(cx, cy, 32, 0, Math.PI * 2);
+      var cGr = ctx.createRadialGradient(cx, cy, 0, cx, cy, 32);
+      cGr.addColorStop(0, '#2563EB'); cGr.addColorStop(1, '#0EA5E9');
+      ctx.fillStyle = cGr; ctx.fill();
+      ctx.fillStyle = '#FFFFFF';
+      ctx.font = '800 ' + Math.round(H * 0.06) + 'px Poppins,sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('K', cx, cy + Math.round(H * 0.023));
+      ctx.textAlign = 'left';
+
+      /* right side text */
+      var rx = W * 0.57, ry = H * 0.15;
+      ctx.fillStyle = '#FFFFFF';
+      ctx.font = '700 ' + Math.round(H * 0.065) + 'px Poppins,sans-serif';
+      ctx.fillText('Kalpesh', rx, ry);
+      ctx.fillText('Attarde', rx, ry + Math.round(H * 0.08));
+      ctx.fillStyle = '#2563EB';
+      ctx.font = '600 ' + Math.round(H * 0.042) + 'px Poppins,sans-serif';
+      ctx.fillText('Founder & CEO', rx, ry + Math.round(H * 0.165));
+      ctx.fillStyle = 'rgba(255,255,255,0.4)';
+      ctx.font = '400 ' + Math.round(H * 0.036) + 'px Inter,sans-serif';
+      ctx.fillText('AKcelerate', rx, ry + Math.round(H * 0.22));
+
+      skills.forEach(function (s, i) {
+        var sy = ry + H * 0.31 + i * H * 0.13;
+        ctx.beginPath(); ctx.arc(rx + 7, sy - 4, 4, 0, Math.PI * 2);
+        ctx.fillStyle = s.col; ctx.fill();
+        ctx.fillStyle = 'rgba(255,255,255,0.65)';
+        ctx.font = '400 ' + Math.round(H * 0.038) + 'px Inter,sans-serif';
+        ctx.fillText(s.lbl, rx + 18, sy);
+      });
+
+      drawVizFrame(ctx, W, H, 'Founder Profile');
+      requestAnimationFrame(frame);
+    }
+    frame();
+  }
+
   /* ── public API ── */
   AKviz.init = function (id, mode) {
     var c = setupCanvas(id);
@@ -899,7 +1510,9 @@
       neural: modeNeural, flow: modeFlow, analytics: modeAnalytics,
       dataviz: modeDataviz, cloud: modeCloud, mlops: modeMLops,
       saas: modeSaas, strategy: modeStrategy, industries: modeIndustries,
-      about: modeAbout
+      about: modeAbout, casestudies: modeCaseStudies, contact: modeContact,
+      services: modeServices, pricing: modePricing, insights: modeInsights,
+      founder: modeFounder
     };
     if (map[mode]) map[mode](c);
   };

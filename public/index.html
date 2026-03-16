@@ -50,6 +50,7 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/visual.js"></script>
 </head>
 <body>
 
@@ -2501,5 +2502,14 @@ else {
   // Init
   AKsvc(0);
 }
+</script>
+<script>
+  if(window.AKvisual){
+    AKvisual.countUp();
+    AKvisual.tiltCards();
+    AKvisual.buttonRipple();
+    AKvisual.scrollReveal();
+    AKvisual.floatingOrbs();
+  }
 </script>
 </body>

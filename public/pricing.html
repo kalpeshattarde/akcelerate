@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="css/styles.css">
+  <script src="js/viz.js"></script>
+  <script src="js/visual.js"></script>
 </head>
 <body>
 
@@ -85,17 +87,38 @@
 </nav>
 
 <!-- HERO -->
-<section style="padding:6rem 0 3.5rem;background:linear-gradient(160deg,#F0F7FF 0%,#FFFFFF 60%);">
-  <div class="max-w-3xl mx-auto px-4 text-center" data-aos="fade-up">
-    <div class="hero-badge mb-4" style="display:inline-flex;">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-      Simple, Transparent Pricing
-    </div>
-    <h1 class="text-5xl lg:text-6xl font-bold mb-5" style="font-family:'Poppins',sans-serif;color:#0F172A;">Plans That <span class="gradient-text">Scale With You</span></h1>
-    <p class="text-lg text-slate-500 leading-relaxed mb-10">Start with one AI module. Add more as you grow. No hidden fees, no lock-in. All plans include free implementation support and dedicated onboarding.</p>
-    <div class="pricing-toggle mb-6">
-      <button class="pricing-toggle-btn active" id="toggleMonthly" onclick="setPricingPeriod('monthly')">Monthly</button>
-      <button class="pricing-toggle-btn" id="toggleAnnual" onclick="setPricingPeriod('annual')">Annual <span class="pricing-badge">Save 33%</span></button>
+<section style="padding:5.5rem 0 3.5rem;background:linear-gradient(160deg,#EFF6FF 0%,#FFFFFF 60%);position:relative;overflow:hidden">
+  <canvas id="pricing_hero_bg" class="ak-hero-canvas"></canvas>
+  <div class="ak-orb-1"></div><div class="ak-orb-2"></div>
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(37,99,235,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,0.04) 1px,transparent 1px);background-size:50px 50px;z-index:1"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div data-aos="fade-right">
+        <div class="hero-badge mb-4" style="display:inline-flex;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          Simple, Transparent Pricing
+        </div>
+        <h1 class="text-4xl sm:text-5xl font-bold mb-5" style="font-family:'Poppins',sans-serif;color:#0F172A;">Plans That <span class="gradient-text">Scale With You</span></h1>
+        <p class="text-lg text-slate-500 leading-relaxed mb-8">Start with one AI module. Add more as you grow. No hidden fees, no lock-in. All plans include free implementation support and dedicated onboarding.</p>
+        <div class="pricing-toggle mb-4">
+          <button class="pricing-toggle-btn active" id="toggleMonthly" onclick="setPricingPeriod('monthly')">Monthly</button>
+          <button class="pricing-toggle-btn" id="toggleAnnual" onclick="setPricingPeriod('annual')">Annual <span class="pricing-badge">Save 33%</span></button>
+        </div>
+        <div class="grid grid-cols-3 gap-3 mt-6">
+          <div class="text-center"><div class="text-xl font-bold gradient-text font-poppins" data-count="315" data-suffix="%">315%</div><div class="text-xs text-slate-500 mt-1">Avg ROI</div></div>
+          <div class="text-center"><div class="text-xl font-bold gradient-text font-poppins" data-count="6" data-suffix="wk">6wk</div><div class="text-xs text-slate-500 mt-1">Onboarding</div></div>
+          <div class="text-center"><div class="text-xl font-bold gradient-text font-poppins" data-count="0" data-suffix=" Lock-in">0</div><div class="text-xs text-slate-500 mt-1">Lock-in</div></div>
+        </div>
+      </div>
+      <div data-aos="fade-left" data-aos-delay="150">
+        <div class="ak-viz-panel">
+          <div class="ak-viz-panel-header">
+            <div style="display:flex;align-items:center;gap:8px"><div class="ak-viz-dot"></div><span class="ak-viz-label">Plan Value Radar</span></div>
+            <div class="ak-viz-live">LIVE</div>
+          </div>
+          <canvas id="viz_pricing" width="580" height="360" style="display:block;width:100%"></canvas>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -373,6 +396,18 @@
     document.getElementById('proSaveBadge').textContent = p.proSave;
     document.getElementById('toggleMonthly').classList.toggle('active', period === 'monthly');
     document.getElementById('toggleAnnual').classList.toggle('active', period === 'annual');
+  }
+</script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="js/script.js"></script>
+<script>
+  if(window.AKviz) AKviz.init('viz_pricing','pricing');
+  if(window.AKvisual){
+    AKvisual.heroParticles('pricing_hero_bg');
+    AKvisual.countUp();
+    AKvisual.tiltCards();
+    AKvisual.buttonRipple();
+    AKvisual.scrollReveal();
   }
 </script>
 </body>

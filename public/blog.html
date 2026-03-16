@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="css/styles.css">
+  <script src="js/viz.js"></script>
+  <script src="js/visual.js"></script>
 </head>
 <body>
 
@@ -427,5 +429,13 @@
 </script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="js/script.js"></script>
+<script>
+  if(window.AKvisual){
+    AKvisual.countUp();
+    AKvisual.tiltCards();
+    AKvisual.buttonRipple();
+    AKvisual.scrollReveal();
+  }
+</script>
 </body>
 </html>

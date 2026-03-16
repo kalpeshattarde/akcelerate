@@ -38,6 +38,8 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/viz.js"></script>
+  <script src="js/visual.js"></script>
 </head>
 <body>
 
@@ -113,18 +115,34 @@
 
 
 <!-- HERO -->
-<section style="min-height:40vh;background:linear-gradient(135deg,#EFF6FF 0%,#F0FDFF 60%,#ECFEFF 100%);position:relative;display:flex;align-items:center;padding:6rem 0 4rem;overflow:hidden">
-  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(37,99,235,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,0.05) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse at 30% 40%,rgba(0,0,0,0.4) 0%,transparent 65%)"></div>
-  <div style="width:500px;height:500px;background:rgba(37,99,235,0.06);top:-150px;left:-150px;position:absolute;border-radius:50%;filter:blur(100px)"></div>
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 text-center">
-    <div data-aos="fade-down">
-      <span class="section-label">Get in Touch</span>
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-        Let's <span class="gradient-text">Transform</span> Your<br/>Manufacturing Together
-      </h1>
-      <p class="text-slate-600 text-lg max-w-2xl mx-auto">
-        Discuss how our AI analytics solutions can eliminate downtime, optimize production, and create measurable ROI for your manufacturing operations.
-      </p>
+<section style="background:linear-gradient(135deg,#EFF6FF 0%,#F0FDFF 60%,#ECFEFF 100%);position:relative;padding:5.5rem 0 3.5rem;overflow:hidden">
+  <canvas id="contact_hero_bg" class="ak-hero-canvas"></canvas>
+  <div class="ak-orb-1"></div><div class="ak-orb-3"></div>
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(37,99,235,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,0.04) 1px,transparent 1px);background-size:60px 60px;z-index:1"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid lg:grid-cols-2 gap-10 items-center">
+      <div data-aos="fade-right">
+        <span class="section-label">Get in Touch</span>
+        <h1 class="text-4xl sm:text-5xl font-bold mb-5 leading-tight">
+          Let's <span class="gradient-text">Transform</span><br/>Your Business Together
+        </h1>
+        <p class="text-slate-600 text-lg mb-8 max-w-lg">
+          Discuss how our AI and automation solutions can eliminate inefficiencies, unlock insights, and create measurable ROI for your business.
+        </p>
+        <div class="grid grid-cols-2 gap-4 mt-4">
+          <div class="glass-card p-4 text-center"><div class="text-xl font-bold gradient-text font-poppins" data-count="2" data-prefix="<" data-suffix="h">&lt;2h</div><div class="text-xs text-slate-500 mt-1">Response Time</div></div>
+          <div class="glass-card p-4 text-center"><div class="text-xl font-bold gradient-text font-poppins" data-count="98" data-suffix="%">98%</div><div class="text-xs text-slate-500 mt-1">Client Satisfaction</div></div>
+        </div>
+      </div>
+      <div data-aos="fade-left" data-aos-delay="150">
+        <div class="ak-viz-panel">
+          <div class="ak-viz-panel-header">
+            <div style="display:flex;align-items:center;gap:8px"><div class="ak-viz-dot"></div><span class="ak-viz-label">Global Connections</span></div>
+            <div class="ak-viz-live">LIVE</div>
+          </div>
+          <canvas id="viz_contact" width="580" height="360" style="display:block;width:100%"></canvas>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -426,5 +444,15 @@
 </script>
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script src="js/script.js"></script>
+<script>
+  if(window.AKviz) AKviz.init('viz_contact','contact');
+  if(window.AKvisual){
+    AKvisual.heroParticles('contact_hero_bg');
+    AKvisual.countUp();
+    AKvisual.tiltCards();
+    AKvisual.buttonRipple();
+    AKvisual.scrollReveal();
+  }
+</script>
 </body>
 </html>
