@@ -95,7 +95,7 @@
     <p class="text-lg text-slate-500 leading-relaxed mb-10">Start with one AI module. Add more as you grow. No hidden fees, no lock-in. All plans include free implementation support and dedicated onboarding.</p>
     <div class="pricing-toggle mb-6">
       <button class="pricing-toggle-btn active" id="toggleMonthly" onclick="setPricingPeriod('monthly')">Monthly</button>
-      <button class="pricing-toggle-btn" id="toggleAnnual" onclick="setPricingPeriod('annual')">Annual <span class="pricing-badge">Save 20%</span></button>
+      <button class="pricing-toggle-btn" id="toggleAnnual" onclick="setPricingPeriod('annual')">Annual <span class="pricing-badge">Save 33%</span></button>
     </div>
   </div>
 </section>
@@ -108,9 +108,16 @@
       <div class="pricing-card" data-aos="fade-up" data-aos-delay="0">
         <div class="mb-6">
           <div class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-2" style="font-family:'Poppins',sans-serif;">Starter</div>
-          <div class="flex items-end gap-1 mb-2">
-            <span class="text-4xl font-bold text-slate-900" style="font-family:'Poppins',sans-serif;" id="starterPrice">&#8377;49,999</span>
-            <span class="text-slate-400 text-sm mb-1.5" id="starterPeriod">/month</span>
+          <div class="mb-2">
+            <div class="flex items-center gap-2 mb-1">
+              <span id="starterOldPrice" style="text-decoration:line-through;color:#94a3b8;font-size:1rem;font-family:'Poppins',sans-serif;">$149</span>
+              <span id="starterSaveBadge" style="background:#FEF3C7;color:#D97706;font-size:0.68rem;font-weight:700;padding:2px 8px;border-radius:20px;letter-spacing:0.03em;">SAVE 16%</span>
+            </div>
+            <div class="flex items-end gap-1">
+              <span class="text-4xl font-bold text-slate-900" style="font-family:'Poppins',sans-serif;" id="starterPrice">$125</span>
+              <span class="text-slate-400 text-sm mb-1.5" id="starterPeriod">/month</span>
+            </div>
+            <div class="text-slate-400 text-xs mt-1" id="starterINR">≈ ₹10,499/month</div>
           </div>
           <p class="text-slate-500 text-sm">For single-site manufacturers getting started with AI analytics.</p>
         </div>
@@ -136,9 +143,16 @@
         </div>
         <div class="mb-6">
           <div class="text-sm font-semibold uppercase tracking-wider mb-2" style="font-family:'Poppins',sans-serif;color:#2563EB;">Professional</div>
-          <div class="flex items-end gap-1 mb-2">
-            <span class="text-4xl font-bold gradient-text" style="font-family:'Poppins',sans-serif;" id="proPrice">&#8377;1,49,999</span>
-            <span class="text-slate-400 text-sm mb-1.5" id="proPeriod">/month</span>
+          <div class="mb-2">
+            <div class="flex items-center gap-2 mb-1">
+              <span id="proOldPrice" style="text-decoration:line-through;color:#94a3b8;font-size:1rem;font-family:'Poppins',sans-serif;">$1,499</span>
+              <span id="proSaveBadge" style="background:#FEF3C7;color:#D97706;font-size:0.68rem;font-weight:700;padding:2px 8px;border-radius:20px;letter-spacing:0.03em;">SAVE 17%</span>
+            </div>
+            <div class="flex items-end gap-1">
+              <span class="text-4xl font-bold gradient-text" style="font-family:'Poppins',sans-serif;" id="proPrice">$1,249</span>
+              <span class="text-slate-400 text-sm mb-1.5" id="proPeriod">/month</span>
+            </div>
+            <div class="text-slate-400 text-xs mt-1" id="proINR">≈ ₹1,03,999/month</div>
           </div>
           <p class="text-slate-500 text-sm">For multi-line manufacturers scaling AI across operations.</p>
         </div>
@@ -317,14 +331,27 @@
 <script src="js/script.js"></script>
 <script>
   const prices = {
-    monthly: { starter: '\u20B949,999', starterP: '/month', pro: '\u20B91,49,999', proP: '/month' },
-    annual:  { starter: '\u20B939,999', starterP: '/month, billed annually', pro: '\u20B91,19,999', proP: '/month, billed annually' }
+    monthly: {
+      starterOld: '$149', starter: '$125', starterP: '/month', starterINR: '≈ ₹10,499/month', starterSave: 'SAVE 16%',
+      proOld: '$1,499',   pro: '$1,249',   proP: '/month',     proINR: '≈ ₹1,03,999/month',  proSave: 'SAVE 17%'
+    },
+    annual: {
+      starterOld: '$149', starter: '$99',  starterP: '/month, billed annually', starterINR: '≈ ₹8,249/month', starterSave: 'SAVE 34%',
+      proOld: '$1,499',   pro: '$999',     proP: '/month, billed annually',     proINR: '≈ ₹82,999/month',    proSave: 'SAVE 33%'
+    }
   };
   function setPricingPeriod(period) {
-    document.getElementById('starterPrice').innerHTML = prices[period].starter;
-    document.getElementById('starterPeriod').textContent = prices[period].starterP;
-    document.getElementById('proPrice').innerHTML = prices[period].pro;
-    document.getElementById('proPeriod').textContent = prices[period].proP;
+    var p = prices[period];
+    document.getElementById('starterOldPrice').textContent = p.starterOld;
+    document.getElementById('starterPrice').textContent = p.starter;
+    document.getElementById('starterPeriod').textContent = p.starterP;
+    document.getElementById('starterINR').textContent = p.starterINR;
+    document.getElementById('starterSaveBadge').textContent = p.starterSave;
+    document.getElementById('proOldPrice').textContent = p.proOld;
+    document.getElementById('proPrice').textContent = p.pro;
+    document.getElementById('proPeriod').textContent = p.proP;
+    document.getElementById('proINR').textContent = p.proINR;
+    document.getElementById('proSaveBadge').textContent = p.proSave;
     document.getElementById('toggleMonthly').classList.toggle('active', period === 'monthly');
     document.getElementById('toggleAnnual').classList.toggle('active', period === 'annual');
   }
