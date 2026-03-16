@@ -19,25 +19,25 @@
     return {
       bg1:          dark ? '#0F172A' : '#FFFFFF',
       bg2:          dark ? '#1E293B' : '#F0F7FF',
-      text:         dark ? 'rgba(255,255,255,0.80)' : 'rgba(15,23,42,0.85)',
-      textMid:      dark ? 'rgba(255,255,255,0.55)' : 'rgba(71,85,105,0.80)',
-      textFaint:    dark ? 'rgba(255,255,255,0.35)' : 'rgba(100,116,139,0.55)',
-      label:        dark ? '#E2E8F0' : '#1E293B',
-      gridLabel:    dark ? 'rgba(148,163,184,0.60)' : 'rgba(100,116,139,0.70)',
-      gridLine:     dark ? 'rgba(148,163,184,0.08)' : 'rgba(15,23,42,0.06)',
-      gridBright:   dark ? 'rgba(148,163,184,0.10)' : 'rgba(15,23,42,0.08)',
+      text:         dark ? 'rgba(255,255,255,0.80)' : 'rgba(15,23,42,0.95)',
+      textMid:      dark ? 'rgba(255,255,255,0.55)' : 'rgba(15,23,42,0.78)',
+      textFaint:    dark ? 'rgba(255,255,255,0.35)' : 'rgba(30,41,59,0.72)',
+      label:        dark ? '#E2E8F0' : '#0F172A',
+      gridLabel:    dark ? 'rgba(148,163,184,0.60)' : 'rgba(30,41,59,0.78)',
+      gridLine:     dark ? 'rgba(148,163,184,0.08)' : 'rgba(15,23,42,0.14)',
+      gridBright:   dark ? 'rgba(148,163,184,0.10)' : 'rgba(15,23,42,0.20)',
       panelBg:      dark ? 'rgba(255,255,255,0.04)' : 'rgba(37,99,235,0.05)',
       panelBgMid:   dark ? 'rgba(255,255,255,0.06)' : 'rgba(37,99,235,0.07)',
       panelBgFaint: dark ? 'rgba(255,255,255,0.03)' : 'rgba(37,99,235,0.03)',
       cardBg:       dark ? 'rgba(13,17,23,0.75)'    : 'rgba(255,255,255,0.92)',
       cardBgMid:    dark ? 'rgba(13,17,23,0.65)'    : 'rgba(255,255,255,0.85)',
       terminalBg:   dark ? 'rgba(13,17,23,0.85)'    : 'rgba(15,23,42,0.90)',
-      inactiveBg:   dark ? 'rgba(30,40,60,0.60)'    : 'rgba(226,232,240,0.70)',
-      progressTrk:  dark ? 'rgba(30,40,60,0.40)'    : 'rgba(226,232,240,0.50)',
+      inactiveBg:   dark ? 'rgba(30,40,60,0.60)'    : 'rgba(203,213,225,0.80)',
+      progressTrk:  dark ? 'rgba(30,40,60,0.40)'    : 'rgba(203,213,225,0.65)',
       nodeBg:       dark ? 'rgba(30,41,59,0.90)'    : 'rgba(248,250,252,0.92)',
-      inactiveFg:   dark ? 'rgba(148,163,184,0.30)' : 'rgba(100,116,139,0.45)',
-      trackFill:    dark ? 'rgba(255,255,255,0.06)' : 'rgba(15,23,42,0.07)',
-      orbitRing:    dark ? 'rgba(255,255,255,0.04)' : 'rgba(37,99,235,0.06)',
+      inactiveFg:   dark ? 'rgba(148,163,184,0.30)' : 'rgba(71,85,105,0.70)',
+      trackFill:    dark ? 'rgba(255,255,255,0.06)' : 'rgba(15,23,42,0.10)',
+      orbitRing:    dark ? 'rgba(255,255,255,0.04)' : 'rgba(37,99,235,0.10)',
     };
   }
 
@@ -386,7 +386,7 @@
       });
       // donut hole
       ctx.beginPath(); ctx.arc(cx, cy, r * 0.48, 0, Math.PI * 2);
-      ctx.fillStyle = '#0D1117'; ctx.fill();
+      ctx.fillStyle = tc.bg1; ctx.fill();
       ctx.font = 'bold 12px Inter,sans-serif'; ctx.fillStyle = '#F59E0B'; ctx.textAlign = 'center';
       ctx.fillText('Live', cx, cy - 7);
       ctx.font = '9px Inter,sans-serif'; ctx.fillStyle = tc.gridLabel;
@@ -567,12 +567,12 @@
       });
       // center
       ctx.beginPath(); ctx.arc(cx, cy, R * 0.3, 0, Math.PI * 2);
-      ctx.fillStyle = '#0D1117'; ctx.fill();
+      ctx.fillStyle = tc.bg1; ctx.fill();
       ctx.strokeStyle = stages[active].color; ctx.lineWidth = 2; ctx.stroke();
       ctx.font = 'bold 11px Inter,sans-serif';
       ctx.fillStyle = stages[active].color; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
       ctx.fillText('MLOps', cx, cy - 8);
-      ctx.font = '9px Inter,sans-serif'; ctx.fillStyle = '#94A3B8';
+      ctx.font = '9px Inter,sans-serif'; ctx.fillStyle = tc.gridLabel;
       ctx.fillText(stages[active].label, cx, cy + 8);
       ctx.textBaseline = 'alphabetic';
       // pipeline on right
@@ -580,8 +580,8 @@
       pstages.forEach((ps, i) => {
         const py = H * 0.18 + i * H * 0.15;
         const isAct = i === active % pstages.length;
-        ctx.fillStyle = isAct ? '#2563EB22' : 'rgba(30,40,60,0.5)';
-        ctx.strokeStyle = isAct ? '#2563EB' : 'rgba(99,102,241,0.25)';
+        ctx.fillStyle = isAct ? '#2563EB22' : tc.inactiveBg;
+        ctx.strokeStyle = isAct ? '#2563EB' : tc.inactiveFg;
         ctx.lineWidth = 1;
         roundRectFill(ctx, px - 55, py - 14, 110, 28, 8, ctx.fillStyle);
         roundRectStroke(ctx, px - 55, py - 14, 110, 28, 8);
@@ -719,7 +719,7 @@
         const cx = W * (0.14 + i * 0.24), cy = H * 0.32, r = H * 0.18;
         // track
         ctx.beginPath(); ctx.arc(cx, cy, r, Math.PI * 0.8, Math.PI * 2.2);
-        ctx.strokeStyle = 'rgba(30,40,60,0.6)'; ctx.lineWidth = 8; ctx.lineCap = 'round';
+        ctx.strokeStyle = tc.progressTrk; ctx.lineWidth = 8; ctx.lineCap = 'round';
         ctx.stroke();
         // fill
         const sweep = (Math.PI * 1.4) * vals[i];
