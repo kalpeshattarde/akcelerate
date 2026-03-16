@@ -130,7 +130,9 @@ Enterprise SaaS-style website for AKcelerate — a premium AI, Data, Automation 
 │   ├── css/styles.css            # Main stylesheet (~1880+ lines, light + dark themes)
 │   └── js/
 │       ├── main.js               # Theme toggle, AOS, charts, FAQ, counters (newer pages)
-│       └── script.js             # Identical to main.js (older pages)
+│       ├── script.js             # Identical to main.js (older pages)
+│       ├── viz.js                # Canvas animation library (10 modes: neural, flow, analytics, dataviz, cloud, mlops, saas, strategy, industries, about)
+│       └── visual.js             # Visual utilities (heroParticles, countUp, tiltCards)
 ├── design-system/                # Design token library
 │   ├── index.css
 │   └── tokens/ (colors, typography, spacing, shadows, radius)
@@ -209,7 +211,7 @@ Three fixed-position circular buttons stacked bottom-right:
 - Call → `tel:+919529314215`
 - WhatsApp → `https://wa.me/919529314215`
 
-## Key CSS Classes (styles.css ~1880 lines)
+## Key CSS Classes (styles.css ~2500+ lines)
 | Class | Purpose |
 |-------|---------|
 | `.gradient-text` | Blue→cyan gradient on text |
@@ -224,6 +226,51 @@ Three fixed-position circular buttons stacked bottom-right:
 | `.faq-item`, `.faq-answer.open` | Accordion FAQ |
 | `.tag-pill` | Small grey badge |
 | `.form-input`, `.form-label`, `.form-error` | Form field styles |
+| `.tech-logo-pill` | Branded tech badge with Simple Icons CDN logo + name (inline-flex, white bg, hover lift) |
+| `.tech-cat-card`, `.tech-cat-header` | Technology category card with colored header strip |
+| `.industry-img-card` | Industry card container (replaces old `<img>` tags) |
+| `.industry-img-body` | Gradient panel (120px height) inside industry card |
+| `.industry-img-name`, `.industry-img-sub` | Industry card title + subtitle |
+| `.benefit-mini-chart`, `.benefit-bar`, `.benefit-bar-track` | Mini bar charts in Core Benefits section |
+| `.sparkline-svg` | Inline SVG sparkline mini charts |
+| `.process-viz-canvas` | Project Delivery Dashboard canvas wrapper |
+| `.ak-viz-panel` | Canvas animation panel (width:100%; max-width:100%; overflow:hidden) |
+
+## Tech Logo Pills — Simple Icons CDN Pattern
+```html
+<span class="tech-logo-pill">
+  <img src="https://cdn.simpleicons.org/{slug}/{hexcolor}" alt="" loading="lazy"
+       style="width:14px;height:14px;flex-shrink:0" onerror="this.style.display='none'">
+  TechName
+</span>
+```
+**Known working slugs**: tensorflow, pytorch, scikitlearn, keras, langchain, opencv,
+pandas, numpy, apacheairflow, apachespark, apachekafka, snowflake, postgresql, mongodb,
+databricks, looker, metabase, grafana, streamlit, zapier, n8n, python, hubspot, salesforce,
+jira, notion, slack, googlecloud, terraform, docker, kubernetes, githubactions, jenkins,
+prometheus, datadog, react, nextdotjs, vuedotjs, typescript, tailwindcss, nodedotjs, fastapi,
+django, redis, vercel, stripe, auth0, twilio, sendgrid, d3 (not d3dotjs!), chartdotjs,
+argo, ansible, cloudflare, digitalocean, onnx, influxdb, googlesearchconsole, segment
+
+**Badge fallbacks** (no Simple Icons slug): AWS (#FF9900), Azure (#0078D4), OpenAI (#412991),
+Power BI (#F2C811), Tableau (#E97627), dbt (#FF694B — was "dbtlabs", use badge),
+D3.js — use slug `d3`, Fivetran (#0073FF — use badge)
+
+## Industry Cards — Gradient SVG Panels (index.html L885-1095)
+All 10 industry cards use CSS gradient divs + inline SVG instead of external images.
+Color scheme per industry:
+| Industry | Gradient | Icon |
+|----------|----------|------|
+| Manufacturing | `#1e3a5f→#2563EB` | Factory SVG |
+| Healthcare | `#065f46→#059669` | ECG line SVG |
+| Startups | `#3b0764→#7c3aed` | Star burst SVG |
+| MSME | `#78350f→#d97706` | Storefront SVG |
+| Retail | `#7f1d1d→#ef4444` | Shopping cart SVG |
+| Brands | `#0f2044→#1e40af` | Network nodes SVG |
+| FinTech | `#0c1a3a→#1d4ed8` | Coin stack SVG |
+| Logistics | `#064e3b→#047857` | Truck SVG |
+| Education | `#451a03→#b45309` | Mortarboard SVG |
+| Entertainment | `#4c0519→#e11d48` | Play button SVG |
 
 ## JavaScript (main.js / script.js — identical)
 - Sticky navbar scroll shadow
@@ -254,6 +301,24 @@ Remote: `github.com/kalpeshattarde/AKcelerate` (branch: `main`)
 - `express-rate-limit` limits `/api/*` to 100 requests/15min/IP
 
 ## Change Log
+
+### March 2026 (Session 6)
+- **Homepage visual overhaul** — 4 major sections upgraded on `index.html`:
+  1. **Tech Stack section**: 24 tech-logo-pills with Simple Icons CDN logos (real brand colors); 7 inline colored badge fallbacks for AWS, Azure, OpenAI, Power BI, Tableau, dbt, D3.js
+  2. **Core Benefits section**: each benefit card now has an inline SVG sparkline or mini bar chart visualization
+  3. **How We Work section**: replaced static text with animated Project Delivery Dashboard canvas (phases: Planning→Dev→Test→Deploy, with live bar chart)
+  4. **What We Do section**: 8 solution cards each have a unique inline SVG illustration (robot, circuit, chart, cloud, gears, graph, server, strategy)
+- **Industry cards** (`index.html` L885–1095): all 10 broken Unsplash `<img>` tags replaced with self-contained CSS gradient panels + inline SVG icons — no external image dependencies
+- **Tech logo pills sitewide** — 292 plain `tech-pill` spans upgraded to `tech-logo-pill` across 15 pages:
+  - 8 solution pages: ai-ml, automated-analytics, business-automation, business-consulting, cloud-devops, data-visualization, mlops, saas-dev
+  - 2 main service pages: services.html, services-new.html
+  - 4 service subpages: predictive-maintenance, quality-analytics, supply-chain-analytics, energy-management
+  - 1 founder page: founder.html
+- **Fixed 3 icon CDN 404s**: `d3dotjs` → `d3`, `dbtlabs` → badge, `fivetran` → badge
+- **Canvas sizing CSS fix** in `styles.css`: `.ak-viz-panel { width:100%; max-width:100%; box-sizing:border-box; overflow:hidden; }`
+- **`public/js/viz.js`**: canvas animation library (drawVizFrame, setupCanvas)
+- **`public/js/visual.js`**: visual utilities (heroParticles, countUp, tiltCards)
+- Committed and pushed to GitHub (`kalpeshattarde/AKcelerate`, branch: `main`, commits: `4b88ae2`, `c8fbab7`, `4a64f8a`, `bee9085`)
 
 ### March 2026 (Session 5)
 - **viz.js created** (`public/js/viz.js`): Comprehensive canvas animation library with 10 modes — `neural`, `flow`, `analytics`, `dataviz`, `cloud`, `mlops`, `saas`, `strategy`, `industries`, `about`
