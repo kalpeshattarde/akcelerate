@@ -255,6 +255,14 @@ Remote: `github.com/kalpeshattarde/AKcelerate` (branch: `main`)
 
 ## Change Log
 
+### March 2026 (Session 5)
+- **viz.js created** (`public/js/viz.js`): Comprehensive canvas animation library with 10 modes — `neural`, `flow`, `analytics`, `dataviz`, `cloud`, `mlops`, `saas`, `strategy`, `industries`, `about`
+- **8 solution page hero images replaced** with animated canvas visualizations: AI/ML (neural network), Business Automation (flow diagram), Data Visualization (pie+line combo), Automated Analytics (bar+trend chart), Cloud & DevOps (architecture topology), MLOps (circular pipeline), SaaS Dev (development pipeline + terminal), Business Consulting (strategy gauges + milestones)
+- **Industries section images replaced** on all 8 solution pages with `industries` mode canvas
+- **Root fix**: `<script src="../js/viz.js">` tag added to `<head>` of all 8 solution pages (was missing, causing empty canvas)
+- All animations include live metric cards and LIVE badge indicator
+- Committed and pushed to GitHub (`kalpeshattarde/AKcelerate`, branch: `main`)
+
 ### March 2026 (Session 4)
 - **Social media icons added** to all 37 page footers: LinkedIn, X/Twitter, Instagram — appear after copyright line with hover animations
 - **LinkedIn URL fixed** sitewide: old incorrect `linkedin.com/company/akcelerate` replaced with correct `linkedin.com/company/akceleratehq/`
