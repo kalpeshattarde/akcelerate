@@ -113,6 +113,9 @@ app.post('/api/contact', apiLimiter, (req, res) => {
 
 // ── 404 Handler ───────────────────────────────────
 app.use((req, res) => {
+  if (path.extname(req.path)) {
+    return res.status(404).type('text/plain').send('Not found');
+  }
   res.status(404).sendFile(path.join(__dirname, '../public/index.html'));
 });
 
