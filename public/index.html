@@ -152,19 +152,31 @@
   <div class="hero-grid-bg"></div>
   <div class="hero-glow hero-glow-1"></div>
   <div class="hero-glow hero-glow-2"></div>
+  <div class="hero-glow-3"></div>
+  <!-- Floating particles -->
+  <div class="hero-particle" style="width:4px;height:4px;background:rgba(37,99,235,0.7);left:12%;top:75%;animation-duration:6s;animation-delay:0s;"></div>
+  <div class="hero-particle" style="width:3px;height:3px;background:rgba(6,182,212,0.8);left:22%;top:80%;animation-duration:8s;animation-delay:1.2s;"></div>
+  <div class="hero-particle" style="width:5px;height:5px;background:rgba(139,92,246,0.6);left:35%;top:85%;animation-duration:7s;animation-delay:0.5s;"></div>
+  <div class="hero-particle" style="width:3px;height:3px;background:rgba(37,99,235,0.6);left:55%;top:78%;animation-duration:9s;animation-delay:2s;"></div>
+  <div class="hero-particle" style="width:4px;height:4px;background:rgba(6,182,212,0.7);left:68%;top:82%;animation-duration:6.5s;animation-delay:0.8s;"></div>
+  <div class="hero-particle" style="width:3px;height:3px;background:rgba(139,92,246,0.7);left:78%;top:76%;animation-duration:7.5s;animation-delay:1.8s;"></div>
+  <div class="hero-particle" style="width:4px;height:4px;background:rgba(37,99,235,0.5);left:88%;top:88%;animation-duration:5.5s;animation-delay:3s;"></div>
+  <div class="hero-particle" style="width:3px;height:3px;background:rgba(6,182,212,0.6);left:5%;top:88%;animation-duration:8.5s;animation-delay:4s;"></div>
+  <div class="hero-particle" style="width:5px;height:5px;background:rgba(37,99,235,0.4);left:45%;top:90%;animation-duration:6s;animation-delay:2.5s;"></div>
+  <div class="hero-particle" style="width:3px;height:3px;background:rgba(139,92,246,0.8);left:92%;top:70%;animation-duration:9.5s;animation-delay:1s;"></div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
     <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
       <!-- Left -->
       <div>
         <div class="hero-badge" data-aos="fade-down" data-aos-duration="600">
-          <span class="w-2 h-2 rounded-full bg-accent inline-block"></span>
+          <span class="badge-dot-wrap"><span class="w-2 h-2 rounded-full bg-accent inline-block"></span></span>
           AI · Data · Automation · Consulting
         </div>
 
         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6" data-aos="fade-up" data-aos-delay="100">
           Build Smarter Business<br/>with
-          <span class="gradient-text">AI & Automation</span>
+          <span class="hero-anim-gradient">AI & Automation</span>
         </h1>
 
         <p class="text-slate-600 text-lg leading-relaxed mb-8 max-w-xl" data-aos="fade-up" data-aos-delay="200">
@@ -205,7 +217,7 @@
 
       <!-- Right – Dashboard Mockup -->
       <div class="hidden lg:block" data-aos="fade-left" data-aos-delay="200">
-        <div class="float-anim">
+        <div class="float-anim dashboard-mockup-wrap">
           <div class="dashboard-mockup">
             <div class="dashboard-header">
               <div class="dot" style="background:#EF4444"></div>
@@ -236,7 +248,7 @@
               <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:1rem">
                 <div class="flex justify-between items-center mb-3">
                   <span class="text-xs font-medium" style="color:#D1D5DB">Business Performance – Last 7 Days</span>
-                  <span class="tag-pill">Live</span>
+                  <span class="tag-pill live-pulse">Live</span>
                 </div>
                 <canvas id="heroChart" height="130"></canvas>
               </div>
@@ -292,6 +304,11 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- Scroll cue -->
+  <div class="scroll-cue hidden lg:flex" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
   </div>
 </section>
 
