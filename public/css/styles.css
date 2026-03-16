@@ -2140,3 +2140,56 @@ a.ak-link-card:hover {
   0%,100% { opacity: 1; }
   50%      { opacity: 0; }
 }
+
+/* ════════════════════════════════════════════════
+   SERVICE SHOWCASE TABS + PROCESS STEPS
+   ════════════════════════════════════════════════ */
+.svc-tab {
+  font-size: 0.55rem;
+  font-weight: 600;
+  padding: 0.28rem 0.2rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.07);
+  background: rgba(255,255,255,0.03);
+  color: #64748B;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.22s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.01em;
+}
+.svc-tab:hover {
+  background: rgba(255,255,255,0.07);
+  color: #94A3B8;
+  border-color: rgba(255,255,255,0.15);
+}
+.svc-tab.active {
+  background: rgba(37,99,235,0.18);
+  border-color: rgba(37,99,235,0.45);
+  color: #93C5FD;
+  box-shadow: 0 0 10px rgba(37,99,235,0.2);
+}
+.svc-proc-step {
+  flex: 1;
+  text-align: center;
+  font-size: 0.55rem;
+  font-weight: 700;
+  padding: 0.22rem 0.1rem;
+  border-radius: 5px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  color: #475569;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  transition: all 0.35s ease;
+  white-space: nowrap;
+}
+.svc-proc-step.active-proc {
+  background: rgba(37,99,235,0.2);
+  border-color: rgba(37,99,235,0.5);
+  color: #93C5FD;
+  box-shadow: 0 0 8px rgba(37,99,235,0.25);
+}

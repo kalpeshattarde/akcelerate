@@ -224,72 +224,66 @@
               <div class="dot" style="background:#EF4444"></div>
               <div class="dot" style="background:#F59E0B"></div>
               <div class="dot" style="background:#10B981"></div>
-              <span class="text-xs ml-3 font-mono" style="color:#9CA3AF">akcelerate.ai · intelligence hub</span>
-              <span class="ml-auto live-pulse" style="font-size:0.65rem;color:#10B981;font-weight:600;letter-spacing:0.05em;">LIVE</span>
+              <span class="text-xs ml-3 font-mono" style="color:#9CA3AF">akcelerate.ai · services</span>
+              <span class="ml-auto live-pulse" style="font-size:0.62rem;color:#10B981;font-weight:700;letter-spacing:0.06em;">LIVE</span>
             </div>
 
-            <!-- Title row -->
-            <div class="flex items-center justify-between px-4 pt-3 pb-1">
-              <div>
-                <div class="font-poppins font-semibold text-sm" style="color:#F1F5F9">AI Intelligence Engine</div>
-                <div class="text-xs" style="color:#64748B">Real-time neural processing</div>
-              </div>
-              <div style="background:rgba(37,99,235,0.15);border:1px solid rgba(37,99,235,0.3);border-radius:6px;padding:0.25rem 0.6rem;font-size:0.65rem;color:#93C5FD;font-weight:600;">v2.4 · Active</div>
+            <!-- Service tab buttons: 2 × 4 grid -->
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:3px;padding:0.5rem 0.6rem 0.3rem;">
+              <button class="svc-tab active" data-svc="0" onclick="AKsvc(0)">🤖 Automation</button>
+              <button class="svc-tab" data-svc="1" onclick="AKsvc(1)">🧠 AI / ML</button>
+              <button class="svc-tab" data-svc="2" onclick="AKsvc(2)">📊 Analytics</button>
+              <button class="svc-tab" data-svc="3" onclick="AKsvc(3)">💻 SaaS Dev</button>
+              <button class="svc-tab" data-svc="4" onclick="AKsvc(4)">📈 Data Viz</button>
+              <button class="svc-tab" data-svc="5" onclick="AKsvc(5)">☁️ Cloud</button>
+              <button class="svc-tab" data-svc="6" onclick="AKsvc(6)">🔄 MLOps</button>
+              <button class="svc-tab" data-svc="7" onclick="AKsvc(7)">🎯 Strategy</button>
             </div>
 
-            <!-- Neural network canvas -->
-            <div style="position:relative;height:170px;overflow:hidden;">
-              <canvas id="neuralCanvas" style="width:100%;height:170px;display:block;"></canvas>
-              <!-- Floating label overlays -->
-              <div style="position:absolute;top:12px;left:14px;background:rgba(37,99,235,0.15);border:1px solid rgba(37,99,235,0.3);border-radius:20px;padding:0.2rem 0.6rem;font-size:0.6rem;color:#93C5FD;font-weight:600;">Input Layer</div>
-              <div style="position:absolute;top:12px;left:50%;transform:translateX(-50%);background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.35);border-radius:20px;padding:0.2rem 0.6rem;font-size:0.6rem;color:#C4B5FD;font-weight:600;">Deep Learning</div>
-              <div style="position:absolute;top:12px;right:14px;background:rgba(6,182,212,0.15);border:1px solid rgba(6,182,212,0.3);border-radius:20px;padding:0.2rem 0.6rem;font-size:0.6rem;color:#67E8F9;font-weight:600;">Output</div>
+            <!-- Active service label + status -->
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:0.15rem 0.75rem 0.15rem;">
+              <span id="svcLabel" style="font-size:0.7rem;font-weight:700;color:#F1F5F9;font-family:'Poppins',sans-serif;">Business Automation</span>
+              <span id="svcStatus" style="font-size:0.58rem;color:#34D399;font-weight:600;background:rgba(52,211,153,0.1);border:1px solid rgba(52,211,153,0.25);border-radius:10px;padding:0.15rem 0.5rem;">● Active</span>
             </div>
 
-            <!-- Live metrics row -->
-            <div class="grid grid-cols-3 gap-2 px-4 pb-3">
-              <div style="background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.18);border-radius:9px;padding:0.6rem;text-align:center;">
-                <div class="text-xs mb-0.5" style="color:#64748B">ROI Delivered</div>
-                <div class="font-poppins font-bold text-base" style="background:linear-gradient(90deg,#2563EB,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;" id="aiMetric1">315%</div>
-                <div class="text-xs" style="color:#34D399">↑ avg client</div>
-              </div>
-              <div style="background:rgba(139,92,246,0.08);border:1px solid rgba(139,92,246,0.18);border-radius:9px;padding:0.6rem;text-align:center;">
-                <div class="text-xs mb-0.5" style="color:#64748B">Automation</div>
-                <div class="font-poppins font-bold text-base" style="color:#A78BFA;" id="aiMetric2">58%</div>
-                <div class="text-xs" style="color:#34D399">time saved</div>
-              </div>
-              <div style="background:rgba(6,182,212,0.08);border:1px solid rgba(6,182,212,0.18);border-radius:9px;padding:0.6rem;text-align:center;">
-                <div class="text-xs mb-0.5" style="color:#64748B">Accuracy</div>
-                <div class="font-poppins font-bold text-base" style="color:#06B6D4;" id="aiMetric3">94.7%</div>
-                <div class="text-xs" style="color:#34D399">AI models</div>
-              </div>
+            <!-- Canvas animation area -->
+            <canvas id="svcCanvas" style="width:100%;height:148px;display:block;"></canvas>
+
+            <!-- Process steps (4 steps specific to active service) -->
+            <div style="display:flex;align-items:center;gap:2px;padding:0.3rem 0.6rem;overflow:hidden;">
+              <div class="svc-proc-step active-proc" id="proc0">Step 1</div>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#334155" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+              <div class="svc-proc-step" id="proc1">Step 2</div>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#334155" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+              <div class="svc-proc-step" id="proc2">Step 3</div>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#334155" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+              <div class="svc-proc-step" id="proc3">Step 4</div>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#334155" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+              <div class="svc-proc-step" id="proc4">Step 5</div>
             </div>
 
-            <!-- Animated pipeline bar -->
-            <div style="margin:0 1rem 0.85rem;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:0.65rem 0.85rem;">
-              <div class="flex items-center justify-between mb-2">
-                <span style="font-size:0.65rem;color:#94A3B8;font-weight:600;letter-spacing:0.06em;">AI PROCESSING PIPELINE</span>
-                <span id="pipelineStatus" style="font-size:0.6rem;color:#34D399;font-weight:600;">● Processing</span>
+            <!-- 3 live metric cards -->
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding:0 0.6rem 0.4rem;">
+              <div style="background:rgba(37,99,235,0.07);border:1px solid rgba(37,99,235,0.15);border-radius:8px;padding:0.45rem;text-align:center;">
+                <div style="font-size:0.58rem;color:#64748B;margin-bottom:1px;" id="ml1">ROI</div>
+                <div style="font-family:'Poppins',sans-serif;font-weight:700;font-size:0.9rem;background:linear-gradient(90deg,#2563EB,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;" id="mv1">315%</div>
+                <div style="font-size:0.55rem;color:#34D399;" id="ms1">↑ avg client</div>
               </div>
-              <div class="flex items-center gap-1.5">
-                <div class="pipeline-step active-step" id="ps1">Data</div>
-                <div class="pipeline-arrow-icon">›</div>
-                <div class="pipeline-step" id="ps2">Clean</div>
-                <div class="pipeline-arrow-icon">›</div>
-                <div class="pipeline-step" id="ps3">Model</div>
-                <div class="pipeline-arrow-icon">›</div>
-                <div class="pipeline-step" id="ps4">Insight</div>
-                <div class="pipeline-arrow-icon">›</div>
-                <div class="pipeline-step" id="ps5">Action</div>
+              <div style="background:rgba(139,92,246,0.07);border:1px solid rgba(139,92,246,0.15);border-radius:8px;padding:0.45rem;text-align:center;">
+                <div style="font-size:0.58rem;color:#64748B;margin-bottom:1px;" id="ml2">Automation</div>
+                <div style="font-family:'Poppins',sans-serif;font-weight:700;font-size:0.9rem;color:#A78BFA;" id="mv2">58%</div>
+                <div style="font-size:0.55rem;color:#34D399;" id="ms2">time saved</div>
               </div>
-              <div style="height:3px;background:rgba(255,255,255,0.06);border-radius:3px;margin-top:0.5rem;overflow:hidden;">
-                <div id="pipelineBar" style="height:100%;width:20%;background:linear-gradient(90deg,#2563EB,#06B6D4,#8B5CF6);border-radius:3px;transition:width 0.8s ease;box-shadow:0 0 8px rgba(6,182,212,0.6);"></div>
+              <div style="background:rgba(6,182,212,0.07);border:1px solid rgba(6,182,212,0.15);border-radius:8px;padding:0.45rem;text-align:center;">
+                <div style="font-size:0.58rem;color:#64748B;margin-bottom:1px;" id="ml3">Accuracy</div>
+                <div style="font-family:'Poppins',sans-serif;font-weight:700;font-size:0.9rem;color:#06B6D4;" id="mv3">94.7%</div>
+                <div style="font-size:0.55rem;color:#34D399;" id="ms3">AI models</div>
               </div>
             </div>
 
-            <!-- Typewriter AI log -->
-            <div style="margin:0 1rem 1rem;background:rgba(0,0,0,0.2);border:1px solid rgba(255,255,255,0.05);border-radius:8px;padding:0.6rem 0.85rem;min-height:2.4rem;">
-              <span style="font-size:0.62rem;color:#4ADE80;font-family:monospace;" id="aiTypewriter"></span><span class="typewriter-cursor" style="display:inline-block;width:2px;height:0.7rem;background:#4ADE80;margin-left:2px;vertical-align:middle;animation:blink-cursor 0.9s step-end infinite;"></span>
+            <!-- Typewriter terminal -->
+            <div style="margin:0 0.6rem 0.6rem;background:rgba(0,0,0,0.22);border:1px solid rgba(255,255,255,0.06);border-radius:7px;padding:0.45rem 0.7rem;">
+              <span style="font-size:0.6rem;color:#4ADE80;font-family:monospace;" id="aiTypewriter"></span><span style="display:inline-block;width:2px;height:0.65rem;background:#4ADE80;margin-left:1px;vertical-align:middle;animation:blink-cursor 0.9s step-end infinite;"></span>
             </div>
           </div>
         </div>
@@ -2009,185 +2003,503 @@
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script src="js/script.js"></script>
 
-<!-- ── AI Visualization: Neural Network + Pipeline + Typewriter ── -->
+<!-- ── AKcelerate Service Showcase: Interactive Tabs + Canvas Animations ── -->
 <script>
-(function(){
-  /* ── 1. NEURAL NETWORK CANVAS ─────────────────────────────── */
-  const canvas = document.getElementById('neuralCanvas');
-  if (!canvas) return;
+/* ═══════════════════════════════════════════════════════════════════
+   AKcelerate Service Showcase Panel
+   8 services × unique canvas animation + process steps + metrics
+   ═══════════════════════════════════════════════════════════════════ */
+
+const AK_SERVICES = [
+  {
+    id:0, label:'Business Automation', color:'#2563EB', rgb:'37,99,235',
+    steps:['Identify','Design','Automate','Test','Monitor'],
+    m1:['ROI Gain','315%','↑ avg client'], m2:['Hrs Saved','40h+','/week'], m3:['Deploy','3-4wks','to launch'],
+    msgs:['> Scanning 847 manual tasks for automation...','> RPA workflow deployed: 12 tasks automated','> Manual effort reduced by 62% ✓','> Bot is running 24/7 — no human needed']
+  },
+  {
+    id:1, label:'AI / ML Solutions', color:'#8B5CF6', rgb:'139,92,246',
+    steps:['Data Prep','Feature Eng','Train','Validate','Deploy'],
+    m1:['Accuracy','94.7%','AI models'], m2:['ROI','315%','avg client'], m3:['Speed','48ms','inference'],
+    msgs:['> Training custom model on 50K samples...','> Epoch 47/50 — val_accuracy: 94.7%','> Model deployed to production endpoint ✓','> Real-time prediction latency: 48ms avg']
+  },
+  {
+    id:2, label:'Automated Analytics', color:'#06B6D4', rgb:'6,182,212',
+    steps:['Connect','Clean','Analyze','Report','Alert'],
+    m1:['Sources','500+','integrated'], m2:['Refresh','30s','real-time'], m3:['Reports','100%','automated'],
+    msgs:['> Connecting 14 data sources...','> Processing 1,847 records — 0 errors','> Anomaly detected in Q3 metrics ⚠','> Dashboard updated — sharing with team']
+  },
+  {
+    id:3, label:'SaaS Development', color:'#10B981', rgb:'16,185,129',
+    steps:['Spec','Prototype','Build','Test','Launch'],
+    m1:['MVP','2-4wks','delivery'], m2:['Uptime','99.9%','SLA'], m3:['Tests','100%','passing'],
+    msgs:['> Scaffolding React + Node.js project...','> Building authentication module...','> Unit tests: 94/94 passing ✓','> Deploying to production — v1.0 live!']
+  },
+  {
+    id:4, label:'Data Visualization', color:'#F59E0B', rgb:'245,158,11',
+    steps:['Audit','Design','Build','Review','Deliver'],
+    m1:['Tools','BI/D3','& more'], m2:['Charts','50+','custom'], m3:['Views','1.2K+','/week'],
+    msgs:['> Connecting Power BI to data warehouse...','> Rendering 12 custom chart types','> Executive dashboard ready for review ✓','> 1,240 dashboard views this week']
+  },
+  {
+    id:5, label:'Cloud & DevOps', color:'#3B82F6', rgb:'59,130,246',
+    steps:['Assess','Migrate','CI/CD','Secure','Scale'],
+    m1:['Clouds','AWS+Azure','& GCP'], m2:['Uptime','99.95%','SLA'], m3:['Cost Cut','40%','avg'],
+    msgs:['> Provisioning Kubernetes cluster (3 nodes)...','> CI/CD pipeline: 4 stages configured','> Auto-scaling triggered: +2 nodes ✓','> Infrastructure cost reduced by 40%']
+  },
+  {
+    id:6, label:'MLOps', color:'#EC4899', rgb:'236,72,153',
+    steps:['Track','Version','Package','Deploy','Monitor'],
+    m1:['Platform','MLflow','& Feast'], m2:['Latency','<50ms','p99'], m3:['Retrain','Auto','on drift'],
+    msgs:['> MLflow experiment #47 — run started','> Model drift detected: 2.3% above threshold','> Retraining pipeline triggered automatically ✓','> New model v2.1 deployed to production']
+  },
+  {
+    id:7, label:'Business Strategy', color:'#F97316', rgb:'249,115,22',
+    steps:['Assess','Diagnose','Roadmap','Execute','Review'],
+    m1:['Audit','60min','free'], m2:['ROI','315%','avg client'], m3:['IP','100%','yours'],
+    msgs:['> Analyzing digital maturity score...','> 7 transformation opportunities identified','> 90-day AI roadmap ready for review ✓','> Week 1: Quick wins deployed — results visible']
+  }
+];
+
+let activeService = 0;
+let procStep = 0;
+let procInterval = null;
+let twTimer = null;
+let twIdx = 0, twChar = 0, twDel = false;
+let rafId = null;
+let tick = 0;
+
+// ── Canvas setup ────────────────────────────────────────────────
+const canvas = document.getElementById('svcCanvas');
+if (!canvas) { console.warn('svcCanvas not found'); }
+else {
   const ctx = canvas.getContext('2d');
 
-  function resizeCanvas() {
-    canvas.width  = canvas.offsetWidth  * window.devicePixelRatio;
-    canvas.height = canvas.offsetHeight * window.devicePixelRatio;
-    ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+  function resizeC() {
+    canvas.width  = canvas.offsetWidth  * (window.devicePixelRatio||1);
+    canvas.height = canvas.offsetHeight * (window.devicePixelRatio||1);
+    ctx.scale(window.devicePixelRatio||1, window.devicePixelRatio||1);
   }
-  resizeCanvas();
-  window.addEventListener('resize', resizeCanvas);
+  resizeC();
+  window.addEventListener('resize', resizeC);
 
-  const W = () => canvas.offsetWidth;
-  const H = () => canvas.offsetHeight;
+  const W = ()=>canvas.offsetWidth, H = ()=>canvas.offsetHeight;
 
-  // Create layered nodes: input (left), hidden x2 (middle), output (right)
-  const LAYERS = [5, 7, 7, 4];
-  let nodes = [];
-  LAYERS.forEach((count, li) => {
-    for (let i = 0; i < count; i++) {
-      const xPct = 0.1 + (li / (LAYERS.length - 1)) * 0.8;
-      const yPct = (i + 1) / (count + 1);
-      nodes.push({
-        xPct, yPct,
-        vx: (Math.random() - 0.5) * 0.0012,
-        vy: (Math.random() - 0.5) * 0.0012,
-        r: Math.random() * 1.5 + 2,
-        phase: Math.random() * Math.PI * 2,
-        layer: li,
-        pulseT: Math.random() * 100
-      });
-    }
-  });
+  // ── Shared state for each mode ───────────────────────────────
+  // Mode 0: Automation — flowchart + token
+  let flowToken = {x:0, y:0, tx:0, ty:0, p:0, path:0, active:false};
+  // Mode 1: AI/ML — neural net
+  let nnNodes = [], nnSigs = [];
+  // Mode 2: Analytics — bar chart
+  let bars = [0,0,0,0,0,0], barTargets = [72,88,65,94,79,97];
+  // Mode 3: SaaS — build pipeline
+  let buildStep = 0, buildProg = 0;
+  // Mode 4: Data Viz — line chart
+  let linePoints = [], lineT = 0;
+  // Mode 5: Cloud — server nodes + deploy
+  let deployPkt = {t:0, from:0, to:1, active:false};
+  // Mode 6: MLOps — lifecycle wheel
+  let wheelAngle = 0;
+  // Mode 7: Strategy — roadmap bars
+  let roadmapBars = [0,0,0,0], roadmapTargets = [85,60,92,75];
 
-  // Signals travelling along edges
-  let signals = [];
-  function spawnSignal() {
-    const li = Math.floor(Math.random() * (LAYERS.length - 1));
-    const layerNodes    = nodes.filter(n => n.layer === li);
-    const nextLayerNodes = nodes.filter(n => n.layer === li + 1);
-    if (!layerNodes.length || !nextLayerNodes.length) return;
-    const from = layerNodes[Math.floor(Math.random() * layerNodes.length)];
-    const to   = nextLayerNodes[Math.floor(Math.random() * nextLayerNodes.length)];
-    signals.push({ from, to, t: 0, speed: 0.012 + Math.random() * 0.01,
-      color: li === 0 ? '#2563EB' : li === 1 ? '#8B5CF6' : '#06B6D4' });
-  }
-  setInterval(spawnSignal, 220);
-
-  let tick = 0;
-  function drawNeural() {
-    tick++;
-    const w = W(), h = H();
-    ctx.clearRect(0, 0, w, h);
-
-    // Draw edges (connections between adjacent layers)
-    nodes.forEach(n1 => {
-      nodes.forEach(n2 => {
-        if (n2.layer !== n1.layer + 1) return;
-        const x1 = n1.xPct * w + Math.sin(tick * 0.008 + n1.phase) * 3;
-        const y1 = n1.yPct * h + Math.cos(tick * 0.008 + n1.phase) * 3;
-        const x2 = n2.xPct * w + Math.sin(tick * 0.008 + n2.phase) * 3;
-        const y2 = n2.yPct * h + Math.cos(tick * 0.008 + n2.phase) * 3;
-        ctx.beginPath();
-        ctx.moveTo(x1, y1);
-        ctx.lineTo(x2, y2);
-        ctx.strokeStyle = n1.layer === 0 ? 'rgba(37,99,235,0.18)' :
-                          n1.layer === 1 ? 'rgba(139,92,246,0.16)' :
-                                           'rgba(6,182,212,0.18)';
-        ctx.lineWidth = 0.8;
-        ctx.stroke();
-      });
+  // Init neural net nodes
+  function initNN() {
+    nnNodes = [];
+    const LAYERS = [4,6,6,3];
+    LAYERS.forEach((cnt,li)=>{
+      for(let i=0;i<cnt;i++){
+        nnNodes.push({
+          xPct: 0.1+(li/(LAYERS.length-1))*0.8,
+          yPct: (i+1)/(cnt+1),
+          vx:(Math.random()-0.5)*0.001, vy:(Math.random()-0.5)*0.001,
+          r:Math.random()*1.2+2, phase:Math.random()*Math.PI*2, layer:li
+        });
+      }
     });
-
-    // Draw signals
-    signals = signals.filter(s => s.t <= 1);
-    signals.forEach(s => {
-      s.t += s.speed;
-      const fx = s.from.xPct * w + Math.sin(tick * 0.008 + s.from.phase) * 3;
-      const fy = s.from.yPct * h + Math.cos(tick * 0.008 + s.from.phase) * 3;
-      const tx = s.to.xPct   * w + Math.sin(tick * 0.008 + s.to.phase)   * 3;
-      const ty = s.to.yPct   * h + Math.cos(tick * 0.008 + s.to.phase)   * 3;
-      const sx = fx + (tx - fx) * s.t;
-      const sy = fy + (ty - fy) * s.t;
-      ctx.beginPath();
-      const grd = ctx.createRadialGradient(sx, sy, 0, sx, sy, 5);
-      grd.addColorStop(0, s.color);
-      grd.addColorStop(1, 'transparent');
-      ctx.fillStyle = grd;
-      ctx.arc(sx, sy, 5, 0, Math.PI * 2);
-      ctx.fill();
-    });
-
-    // Draw nodes
-    nodes.forEach(n => {
-      n.xPct += n.vx; n.yPct += n.vy;
-      if (n.xPct < 0.05 || n.xPct > 0.95) n.vx *= -1;
-      if (n.yPct < 0.05 || n.yPct > 0.95) n.vy *= -1;
-      const x = n.xPct * w + Math.sin(tick * 0.008 + n.phase) * 3;
-      const y = n.yPct * h + Math.cos(tick * 0.008 + n.phase) * 3;
-      const pulse = 0.6 + 0.4 * Math.sin(tick * 0.04 + n.phase);
-      const col = n.layer === 0 ? [37,99,235] : n.layer === 1 ? [99,102,241] : n.layer === 2 ? [139,92,246] : [6,182,212];
-      // Outer glow
-      const glow = ctx.createRadialGradient(x, y, 0, x, y, n.r * 4);
-      glow.addColorStop(0, `rgba(${col[0]},${col[1]},${col[2]},${0.35 * pulse})`);
-      glow.addColorStop(1, 'transparent');
-      ctx.beginPath(); ctx.arc(x, y, n.r * 4, 0, Math.PI * 2);
-      ctx.fillStyle = glow; ctx.fill();
-      // Core dot
-      ctx.beginPath(); ctx.arc(x, y, n.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${col[0]},${col[1]},${col[2]},${0.85 * pulse})`;
-      ctx.fill();
-    });
-
-    requestAnimationFrame(drawNeural);
   }
-  drawNeural();
+  initNN();
+  setInterval(()=>{
+    const li = Math.floor(Math.random()*3);
+    const from = nnNodes.filter(n=>n.layer===li);
+    const to   = nnNodes.filter(n=>n.layer===li+1);
+    if(from.length&&to.length) nnSigs.push({from:from[Math.floor(Math.random()*from.length)],to:to[Math.floor(Math.random()*to.length)],t:0,spd:0.015+Math.random()*0.012,col:li===0?'#2563EB':li===1?'#8B5CF6':'#06B6D4'});
+  },300);
 
-  /* ── 2. PIPELINE STEP ANIMATION ──────────────────────────── */
-  const steps  = [1,2,3,4,5].map(i => document.getElementById('ps' + i));
-  const bar    = document.getElementById('pipelineBar');
-  const status = document.getElementById('pipelineStatus');
-  const labels = ['● Processing','● Cleaning','● Training','● Inferring','● Complete'];
-  let activeStep = 0;
-  function advancePipeline() {
-    steps.forEach(s => s && s.classList.remove('active-step'));
-    if (steps[activeStep]) steps[activeStep].classList.add('active-step');
-    if (bar) bar.style.width = ((activeStep + 1) / steps.length * 100) + '%';
-    if (status) status.textContent = labels[activeStep] || '● Complete';
-    activeStep = (activeStep + 1) % steps.length;
-  }
-  advancePipeline();
-  setInterval(advancePipeline, 1400);
-
-  /* ── 3. TYPEWRITER AI LOG ─────────────────────────────────── */
-  const tw = document.getElementById('aiTypewriter');
-  const messages = [
-    '> Scanning 1,847 business data points...',
-    '> Detected 3 automation opportunities',
-    '> AI model accuracy: 94.7% — optimal',
-    '> Pipeline efficiency improved by 42%',
-    '> Generating ROI forecast... 315% avg',
-    '> Workflow bottleneck resolved ✓',
-    '> Deploying model to production...',
-    '> AKcelerate AI engine ready ✓'
+  // Flowchart nodes (Automation)
+  const flowNodes = [
+    {x:0.08, y:0.5, label:'Trigger'},
+    {x:0.28, y:0.5, label:'Filter'},
+    {x:0.5,  y:0.25,label:'Action A'},
+    {x:0.5,  y:0.75,label:'Action B'},
+    {x:0.72, y:0.5, label:'Notify'},
+    {x:0.92, y:0.5, label:'Done'}
   ];
-  let mIdx = 0, cIdx = 0, deleting = false;
-  function typewrite() {
-    if (!tw) return;
-    const msg = messages[mIdx];
-    if (!deleting) {
-      tw.textContent = msg.slice(0, ++cIdx);
-      if (cIdx >= msg.length) { deleting = true; setTimeout(typewrite, 1800); return; }
-    } else {
-      tw.textContent = msg.slice(0, --cIdx);
-      if (cIdx === 0) { deleting = false; mIdx = (mIdx + 1) % messages.length; setTimeout(typewrite, 400); return; }
-    }
-    setTimeout(typewrite, deleting ? 28 : 48);
-  }
-  setTimeout(typewrite, 800);
+  const flowEdges = [[0,1],[1,2],[1,3],[2,4],[3,4],[4,5]];
+  let tokenT = 0, tokenEdge = 0;
 
-  /* ── 4. LIVE METRIC FLICKER ──────────────────────────────── */
-  const roiVals  = ['312%','315%','318%','315%','321%'];
-  const autoVals = ['55%','58%','60%','58%','57%'];
-  const accVals  = ['94.3%','94.7%','95.1%','94.7%','95.4%'];
-  let mv = 0;
-  setInterval(() => {
-    mv = (mv + 1) % roiVals.length;
-    const m1 = document.getElementById('aiMetric1');
-    const m2 = document.getElementById('aiMetric2');
-    const m3 = document.getElementById('aiMetric3');
-    if (m1) m1.textContent = roiVals[mv];
-    if (m2) m2.textContent = autoVals[mv];
-    if (m3) m3.textContent = accVals[mv];
-  }, 2600);
-})();
+  // Line chart data
+  function makeLineData(){ return Array.from({length:20},(_,i)=>Math.sin(i*0.4+Math.random()*0.5)*30+60); }
+  let lineData = makeLineData();
+
+  // Cloud server positions
+  const servers = [
+    {x:0.15,y:0.5,label:'Dev',color:'#06B6D4'},
+    {x:0.5, y:0.25,label:'Staging',color:'#8B5CF6'},
+    {x:0.5, y:0.75,label:'DB',color:'#F59E0B'},
+    {x:0.85,y:0.5,label:'Prod',color:'#10B981'}
+  ];
+  const serverEdges = [[0,1],[0,2],[1,3],[2,3]];
+  let deployPktState = {t:0,ei:0,active:false};
+  setInterval(()=>{ deployPktState = {t:0,ei:Math.floor(Math.random()*serverEdges.length),active:true}; },1200);
+
+  // MLOps wheel labels
+  const wheelLabels = ['Data','Train','Eval','Deploy','Monitor','Retrain'];
+
+  // ── Main draw function ────────────────────────────────────────
+  function drawFrame() {
+    tick++;
+    const w=W(), h=H();
+    if(!w||!h){ rafId=requestAnimationFrame(drawFrame); return; }
+    ctx.clearRect(0,0,w,h);
+    const svc = activeService;
+    const col = AK_SERVICES[svc].color;
+    const [r,g,b] = AK_SERVICES[svc].rgb.split(',').map(Number);
+
+    if(svc===0) drawAutomation(w,h,r,g,b);
+    else if(svc===1) drawAIML(w,h,r,g,b);
+    else if(svc===2) drawAnalytics(w,h,r,g,b);
+    else if(svc===3) drawSaaS(w,h,r,g,b);
+    else if(svc===4) drawDataViz(w,h,r,g,b);
+    else if(svc===5) drawCloud(w,h,r,g,b);
+    else if(svc===6) drawMLOps(w,h,r,g,b);
+    else drawStrategy(w,h,r,g,b);
+
+    rafId = requestAnimationFrame(drawFrame);
+  }
+
+  /* 0 ─ AUTOMATION: animated flowchart */
+  function drawAutomation(w,h,r,g,b) {
+    tokenT += 0.018;
+    if(tokenT>1){tokenT=0;tokenEdge=(tokenEdge+1)%flowEdges.length;}
+    // Draw edges
+    flowEdges.forEach(([a,b2])=>{
+      const n1=flowNodes[a],n2=flowNodes[b2];
+      ctx.beginPath();ctx.moveTo(n1.x*w,n1.y*h);ctx.lineTo(n2.x*w,n2.y*h);
+      ctx.strokeStyle=`rgba(${r},${g},${b},0.2)`;ctx.lineWidth=1.5;ctx.stroke();
+    });
+    // Token glow
+    const [ta,tb]=flowEdges[tokenEdge];
+    const tx=flowNodes[ta].x*w+(flowNodes[tb].x-flowNodes[ta].x)*w*tokenT;
+    const ty=flowNodes[ta].y*h+(flowNodes[tb].y-flowNodes[ta].y)*h*tokenT;
+    const tg=ctx.createRadialGradient(tx,ty,0,tx,ty,10);
+    tg.addColorStop(0,`rgba(${r},${g},${b},0.9)`);tg.addColorStop(1,'transparent');
+    ctx.beginPath();ctx.arc(tx,ty,10,0,Math.PI*2);ctx.fillStyle=tg;ctx.fill();
+    ctx.beginPath();ctx.arc(tx,ty,3,0,Math.PI*2);ctx.fillStyle=`rgb(${r},${g},${b})`;ctx.fill();
+    // Draw nodes
+    flowNodes.forEach(n=>{
+      const nx=n.x*w,ny=n.y*h;
+      ctx.beginPath();ctx.roundRect(nx-28,ny-12,56,24,5);
+      ctx.fillStyle=`rgba(${r},${g},${b},0.1)`;ctx.fill();
+      ctx.strokeStyle=`rgba(${r},${g},${b},0.4)`;ctx.lineWidth=1;ctx.stroke();
+      ctx.fillStyle='#94A3B8';ctx.font='bold 8px Poppins,sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
+      ctx.fillText(n.label,nx,ny);
+    });
+  }
+
+  /* 1 ─ AI/ML: neural network */
+  function drawAIML(w,h,r,g,b) {
+    nnNodes.forEach(n1=>{
+      nnNodes.forEach(n2=>{
+        if(n2.layer!==n1.layer+1)return;
+        const x1=n1.xPct*w+Math.sin(tick*.007+n1.phase)*2;
+        const y1=n1.yPct*h+Math.cos(tick*.007+n1.phase)*2;
+        const x2=n2.xPct*w+Math.sin(tick*.007+n2.phase)*2;
+        const y2=n2.yPct*h+Math.cos(tick*.007+n2.phase)*2;
+        ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);
+        ctx.strokeStyle=`rgba(${r},${g},${b},0.15)`;ctx.lineWidth=0.8;ctx.stroke();
+      });
+    });
+    nnSigs=nnSigs.filter(s=>s.t<=1);
+    nnSigs.forEach(s=>{
+      s.t+=s.spd;
+      const fx=s.from.xPct*w,fy=s.from.yPct*h,tx2=s.to.xPct*w,ty2=s.to.yPct*h;
+      const sx=fx+(tx2-fx)*s.t,sy=fy+(ty2-fy)*s.t;
+      const sg=ctx.createRadialGradient(sx,sy,0,sx,sy,6);
+      sg.addColorStop(0,s.col);sg.addColorStop(1,'transparent');
+      ctx.beginPath();ctx.arc(sx,sy,6,0,Math.PI*2);ctx.fillStyle=sg;ctx.fill();
+    });
+    nnNodes.forEach(n=>{
+      n.xPct+=n.vx;n.yPct+=n.vy;
+      if(n.xPct<0.05||n.xPct>0.95)n.vx*=-1;
+      if(n.yPct<0.05||n.yPct>0.95)n.vy*=-1;
+      const nx=n.xPct*w+Math.sin(tick*.007+n.phase)*2;
+      const ny=n.yPct*h+Math.cos(tick*.007+n.phase)*2;
+      const pulse=0.6+0.4*Math.sin(tick*.05+n.phase);
+      const cols=n.layer===0?[r,g,b]:n.layer===1?[99,102,241]:n.layer===2?[139,92,246]:[6,182,212];
+      const ng=ctx.createRadialGradient(nx,ny,0,nx,ny,n.r*3.5);
+      ng.addColorStop(0,`rgba(${cols[0]},${cols[1]},${cols[2]},${.4*pulse})`);ng.addColorStop(1,'transparent');
+      ctx.beginPath();ctx.arc(nx,ny,n.r*3.5,0,Math.PI*2);ctx.fillStyle=ng;ctx.fill();
+      ctx.beginPath();ctx.arc(nx,ny,n.r,0,Math.PI*2);ctx.fillStyle=`rgba(${cols[0]},${cols[1]},${cols[2]},${.85*pulse})`;ctx.fill();
+    });
+  }
+
+  /* 2 ─ ANALYTICS: animated bar chart */
+  function drawAnalytics(w,h,r,g,b) {
+    bars=bars.map((v,i)=>v+(barTargets[i]-v)*0.04);
+    const months=['Jan','Feb','Mar','Apr','May','Jun'];
+    const bw=(w-40)/6-6,bx=20;
+    bars.forEach((v,i)=>{
+      const bh=(v/100)*(h-30);
+      const x=bx+i*(bw+6);
+      // Bar glow
+      const bg=ctx.createLinearGradient(x,h-10,x,h-10-bh);
+      bg.addColorStop(0,`rgba(${r},${g},${b},0.8)`);
+      bg.addColorStop(1,`rgba(${r},${g},${b},0.2)`);
+      ctx.beginPath();ctx.roundRect(x,h-10-bh,bw,bh,3);ctx.fillStyle=bg;ctx.fill();
+      ctx.fillStyle='#475569';ctx.font='7px Poppins,sans-serif';ctx.textAlign='center';ctx.textBaseline='top';
+      ctx.fillText(months[i],x+bw/2,h-8);
+      ctx.fillStyle=`rgb(${r},${g},${b})`;ctx.font='bold 7px Poppins,sans-serif';ctx.textBaseline='bottom';
+      ctx.fillText(Math.round(v)+'%',x+bw/2,h-12-bh);
+    });
+  }
+
+  /* 3 ─ SaaS: build pipeline */
+  function drawSaaS(w,h,r,g,b) {
+    buildProg+=0.008;if(buildProg>1){buildProg=0;buildStep=(buildStep+1)%5;}
+    const stages=['Spec','Code','Test','Build','Deploy'];
+    const icons=['📋','💻','✅','📦','🚀'];
+    const sw=w/5;
+    stages.forEach((s,i)=>{
+      const cx=sw*i+sw/2,cy=h/2;
+      const done=i<buildStep,active=i===buildStep;
+      const alpha=done?0.9:active?0.7:0.25;
+      const col=done?`rgba(16,185,129,${alpha})`:active?`rgba(${r},${g},${b},${alpha})`:`rgba(100,116,139,${alpha})`;
+      ctx.beginPath();ctx.arc(cx,cy,20,0,Math.PI*2);
+      ctx.fillStyle=done?'rgba(16,185,129,0.12)':active?`rgba(${r},${g},${b},0.12)`:'rgba(30,41,59,0.5)';
+      ctx.fill();
+      ctx.strokeStyle=col;ctx.lineWidth=1.5;ctx.stroke();
+      if(active){
+        const pulse=0.5+0.5*Math.sin(tick*.1);
+        ctx.beginPath();ctx.arc(cx,cy,20+pulse*6,0,Math.PI*2);
+        ctx.strokeStyle=`rgba(${r},${g},${b},${pulse*.3})`;ctx.lineWidth=1;ctx.stroke();
+      }
+      ctx.fillStyle='#D1D5DB';ctx.font='11px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
+      ctx.fillText(icons[i],cx,cy-1);
+      ctx.fillStyle='#64748B';ctx.font='bold 7px Poppins,sans-serif';ctx.textBaseline='top';
+      ctx.fillText(s,cx,cy+24);
+      // Connector
+      if(i<4){ctx.beginPath();ctx.moveTo(cx+20,cy);ctx.lineTo(cx+sw-20,cy);
+        ctx.strokeStyle=done?`rgba(16,185,129,0.4)`:'rgba(51,65,85,0.5)';ctx.lineWidth=1.5;ctx.stroke();}
+    });
+    // Active step progress label
+    ctx.fillStyle='#94A3B8';ctx.font='7px Poppins,sans-serif';ctx.textAlign='center';ctx.textBaseline='bottom';
+    const progPct=Math.round((buildStep/4*100+buildProg*25));
+    ctx.fillText(`Pipeline: ${Math.min(progPct,100)}% complete`,w/2,h-8);
+  }
+
+  /* 4 ─ DATA VIZ: animated line chart */
+  function drawDataViz(w,h,r,g,b) {
+    lineT+=0.012;if(lineT>1){lineT=0;lineData=makeLineData();}
+    const pts=Math.floor(lineT*lineData.length);
+    const pad=16,cw=w-pad*2,ch=h-pad*2-10;
+    // Grid
+    for(let i=0;i<=4;i++){
+      const y=pad+i*(ch/4);
+      ctx.beginPath();ctx.moveTo(pad,y);ctx.lineTo(w-pad,y);
+      ctx.strokeStyle='rgba(51,65,85,0.4)';ctx.lineWidth=0.5;ctx.stroke();
+    }
+    if(pts>1){
+      ctx.beginPath();
+      lineData.slice(0,pts).forEach((v,i)=>{
+        const x=pad+i*(cw/(lineData.length-1));
+        const y=pad+(1-v/120)*ch;
+        i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+      });
+      const lg=ctx.createLinearGradient(0,pad,0,pad+ch);
+      lg.addColorStop(0,`rgba(${r},${g},${b},0.6)`);lg.addColorStop(1,`rgba(${r},${g},${b},0.05)`);
+      const lastX=pad+(pts-1)*(cw/(lineData.length-1));
+      const lastY=pad+(1-lineData[pts-1]/120)*ch;
+      ctx.lineTo(lastX,pad+ch);ctx.lineTo(pad,pad+ch);ctx.closePath();
+      ctx.fillStyle=lg;ctx.fill();
+      // Line
+      ctx.beginPath();
+      lineData.slice(0,pts).forEach((v,i)=>{
+        const x=pad+i*(cw/(lineData.length-1));const y=pad+(1-v/120)*ch;
+        i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+      });
+      ctx.strokeStyle=`rgb(${r},${g},${b})`;ctx.lineWidth=2;ctx.stroke();
+      // Moving dot
+      const dg=ctx.createRadialGradient(lastX,lastY,0,lastX,lastY,8);
+      dg.addColorStop(0,`rgba(${r},${g},${b},0.9)`);dg.addColorStop(1,'transparent');
+      ctx.beginPath();ctx.arc(lastX,lastY,8,0,Math.PI*2);ctx.fillStyle=dg;ctx.fill();
+      ctx.beginPath();ctx.arc(lastX,lastY,3,0,Math.PI*2);ctx.fillStyle=`rgb(${r},${g},${b})`;ctx.fill();
+    }
+  }
+
+  /* 5 ─ CLOUD: server topology */
+  function drawCloud(w,h,r,g,b) {
+    if(deployPktState.active){deployPktState.t+=0.02;if(deployPktState.t>1)deployPktState.active=false;}
+    // Draw edges
+    serverEdges.forEach(([a,b2],ei)=>{
+      const s1=servers[a],s2=servers[b2];
+      ctx.beginPath();ctx.moveTo(s1.x*w,s1.y*h);ctx.lineTo(s2.x*w,s2.y*h);
+      ctx.strokeStyle='rgba(51,65,85,0.6)';ctx.lineWidth=1;ctx.stroke();
+    });
+    // Deploy packet
+    if(deployPktState.active){
+      const [ea,eb]=serverEdges[deployPktState.ei];
+      const s1=servers[ea],s2=servers[eb];
+      const px=s1.x*w+(s2.x-s1.x)*w*deployPktState.t;
+      const py=s1.y*h+(s2.y-s1.y)*h*deployPktState.t;
+      const dpg=ctx.createRadialGradient(px,py,0,px,py,8);
+      dpg.addColorStop(0,`rgba(${r},${g},${b},0.9)`);dpg.addColorStop(1,'transparent');
+      ctx.beginPath();ctx.arc(px,py,8,0,Math.PI*2);ctx.fillStyle=dpg;ctx.fill();
+      ctx.beginPath();ctx.arc(px,py,3,0,Math.PI*2);ctx.fillStyle=`rgb(${r},${g},${b})`;ctx.fill();
+    }
+    // Draw server nodes
+    servers.forEach(s=>{
+      const sx=s.x*w,sy=s.y*h;
+      const pulse=0.7+0.3*Math.sin(tick*.06+sx);
+      ctx.beginPath();ctx.arc(sx,sy,18,0,Math.PI*2);
+      ctx.fillStyle=`rgba(${r},${g},${b},0.08)`;ctx.fill();
+      ctx.strokeStyle=s.color;ctx.lineWidth=1.5;ctx.stroke();
+      // Pulse ring
+      ctx.beginPath();ctx.arc(sx,sy,18+pulse*5,0,Math.PI*2);
+      ctx.strokeStyle=`rgba(${r},${g},${b},${pulse*.15})`;ctx.lineWidth=1;ctx.stroke();
+      ctx.fillStyle='#94A3B8';ctx.font='7px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
+      ctx.fillText('🖥',sx,sy);
+      ctx.fillStyle='#64748B';ctx.font='bold 7px Poppins,sans-serif';ctx.textBaseline='top';
+      ctx.fillText(s.label,sx,sy+22);
+    });
+  }
+
+  /* 6 ─ MLOPS: lifecycle wheel */
+  function drawMLOps(w,h,r,g,b) {
+    wheelAngle+=0.012;
+    const cx=w/2,cy=h/2,rad=Math.min(w,h)*0.35;
+    const n=wheelLabels.length;
+    // Draw segments
+    wheelLabels.forEach((lbl,i)=>{
+      const startA=(i/n)*Math.PI*2-Math.PI/2;
+      const endA=((i+1)/n)*Math.PI*2-Math.PI/2;
+      const active=Math.floor(wheelAngle%(Math.PI*2)/(Math.PI*2)*n)===i;
+      ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,rad,startA,endA);ctx.closePath();
+      ctx.fillStyle=active?`rgba(${r},${g},${b},0.25)`:`rgba(${r},${g},${b},0.06)`;ctx.fill();
+      ctx.strokeStyle=active?`rgba(${r},${g},${b},0.7)`:`rgba(${r},${g},${b},0.2)`;ctx.lineWidth=1;ctx.stroke();
+      // Label
+      const midA=(startA+endA)/2;
+      const lx=cx+Math.cos(midA)*(rad*0.7);const ly=cy+Math.sin(midA)*(rad*0.7);
+      ctx.fillStyle=active?'#F1F5F9':'#64748B';
+      ctx.font=`bold ${active?8:7}px Poppins,sans-serif`;ctx.textAlign='center';ctx.textBaseline='middle';
+      ctx.fillText(lbl,lx,ly);
+    });
+    // Center label
+    ctx.beginPath();ctx.arc(cx,cy,rad*0.35,0,Math.PI*2);
+    ctx.fillStyle='rgba(15,23,42,0.8)';ctx.fill();
+    ctx.strokeStyle=`rgba(${r},${g},${b},0.3)`;ctx.lineWidth=1;ctx.stroke();
+    ctx.fillStyle='#94A3B8';ctx.font='bold 8px Poppins,sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillText('MLOps',cx,cy-5);ctx.font='7px Poppins,sans-serif';ctx.fillStyle='#64748B';ctx.fillText('Lifecycle',cx,cy+6);
+    // Rotating pointer
+    const pA=wheelAngle%(Math.PI*2)-Math.PI/2;
+    ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+Math.cos(pA)*rad,cy+Math.sin(pA)*rad);
+    ctx.strokeStyle=`rgba(${r},${g},${b},0.6)`;ctx.lineWidth=2;ctx.stroke();
+    const px2=cx+Math.cos(pA)*rad;const py2=cy+Math.sin(pA)*rad;
+    ctx.beginPath();ctx.arc(px2,py2,4,0,Math.PI*2);ctx.fillStyle=`rgb(${r},${g},${b})`;ctx.fill();
+  }
+
+  /* 7 ─ STRATEGY: roadmap bars */
+  function drawStrategy(w,h,r,g,b) {
+    roadmapBars=roadmapBars.map((v,i)=>v+(roadmapTargets[i]-v)*0.04);
+    const phases=['Assess','Roadmap','Execute','Scale'];
+    const colors=[`rgba(${r},${g},${b},0.8)`,'rgba(139,92,246,0.8)','rgba(16,185,129,0.8)','rgba(6,182,212,0.8)'];
+    const bh=(h-30)/4-6,bx=70;
+    roadmapBars.forEach((v,i)=>{
+      const y=8+i*(bh+6),bw=(w-bx-16)*(v/100);
+      // Track
+      ctx.beginPath();ctx.roundRect(bx,y,w-bx-16,bh,3);
+      ctx.fillStyle='rgba(51,65,85,0.3)';ctx.fill();
+      // Bar
+      const lg=ctx.createLinearGradient(bx,0,bx+bw,0);
+      lg.addColorStop(0,colors[i]);lg.addColorStop(1,colors[i].replace('0.8','0.4'));
+      ctx.beginPath();ctx.roundRect(bx,y,bw,bh,3);ctx.fillStyle=lg;ctx.fill();
+      // Label
+      ctx.fillStyle='#94A3B8';ctx.font='bold 8px Poppins,sans-serif';ctx.textAlign='right';ctx.textBaseline='middle';
+      ctx.fillText(phases[i],bx-6,y+bh/2);
+      // Percent
+      ctx.fillStyle='#F1F5F9';ctx.font='bold 7px Poppins,sans-serif';ctx.textAlign='left';
+      ctx.fillText(Math.round(v)+'%',bx+bw+4,y+bh/2);
+    });
+  }
+
+  drawFrame();
+
+  // ── Service switching ───────────────────────────────────────
+  window.AKsvc = function(idx) {
+    activeService = idx;
+    const svc = AK_SERVICES[idx];
+    // Update tab styles
+    document.querySelectorAll('.svc-tab').forEach((btn,i)=>{
+      btn.classList.toggle('active', i===idx);
+      btn.style.borderColor = i===idx ? `rgba(${svc.rgb},0.45)` : '';
+      btn.style.background  = i===idx ? `rgba(${svc.rgb},0.18)` : '';
+      btn.style.color       = i===idx ? '#93C5FD' : '';
+    });
+    // Update label
+    const lbl=document.getElementById('svcLabel');
+    if(lbl) lbl.textContent=svc.label;
+    // Update process steps
+    ['proc0','proc1','proc2','proc3','proc4'].forEach((id,i)=>{
+      const el=document.getElementById(id);
+      if(el){ el.textContent=svc.steps[i]||'—'; el.classList.toggle('active-proc',i===0); }
+    });
+    // Update metrics
+    [['ml1','mv1','ms1'],['ml2','mv2','ms2'],['ml3','mv3','ms3']].forEach(([l,v,s],i)=>{
+      const mi=[svc.m1,svc.m2,svc.m3][i];
+      const le=document.getElementById(l),ve=document.getElementById(v),se=document.getElementById(s);
+      if(le)le.textContent=mi[0]; if(ve)ve.textContent=mi[1]; if(se)se.textContent=mi[2];
+    });
+    // Reset typewriter
+    twIdx=0; twChar=0; twDel=false;
+    clearTimeout(twTimer);
+    startTypewriter(svc.msgs);
+    // Reset process step cycling
+    clearInterval(procInterval);
+    procStep=0;
+    procInterval=setInterval(()=>{
+      procStep=(procStep+1)%svc.steps.length;
+      ['proc0','proc1','proc2','proc3','proc4'].forEach((id,i)=>{
+        const el=document.getElementById(id);
+        if(el) el.classList.toggle('active-proc',i===procStep);
+      });
+    },1200);
+  };
+
+  // ── Typewriter ──────────────────────────────────────────────
+  function startTypewriter(msgs) {
+    const tw=document.getElementById('aiTypewriter');
+    if(!tw)return;
+    function type(){
+      const msg=msgs[twIdx];
+      if(!msg)return;
+      if(!twDel){
+        tw.textContent=msg.slice(0,++twChar);
+        if(twChar>=msg.length){twDel=true;twTimer=setTimeout(type,1600);return;}
+      } else {
+        tw.textContent=msg.slice(0,--twChar);
+        if(twChar<=0){twDel=false;twIdx=(twIdx+1)%msgs.length;twTimer=setTimeout(type,350);return;}
+      }
+      twTimer=setTimeout(type,twDel?22:42);
+    }
+    type();
+  }
+
+  // ── Auto-rotate services ────────────────────────────────────
+  let autoRotate=setInterval(()=>{ AKsvc((activeService+1)%8); }, 6000);
+  document.getElementById('svcCanvas').addEventListener('click',()=>clearInterval(autoRotate));
+
+  // Init
+  AKsvc(0);
+}
 </script>
 </body>
-</html>
