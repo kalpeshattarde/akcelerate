@@ -219,3 +219,32 @@ Full list: business-automation, ai-ml, business-consulting, saas-dev, automated-
 | Update `privacy.html` + `terms.html` | Low | Contact info may be outdated |
 | SEO meta tags audit | Low | All pages need updated meta descriptions |
 | Add case study content for new solution areas | Future | Current case studies are manufacturing-focused |
+
+---
+
+## Session Log — 2026-03-16 (Spacing Fix Session)
+
+### Changes Made
+1. **server.js** — Added `redirect: false` to `express.static` to prevent `/solutions` URL from being hijacked by the `solutions/` directory (was causing CSS 404 and completely broken page layout on /solutions route)
+2. **styles.css** — Added `GLOBAL SPACING NORMALIZATION` block at end of file:
+   - `.page-hero` class (5.5rem top, 2.5rem bottom padding for inner page heroes)
+   - Mobile hero-section override: reduced from 7rem to 5.5rem top
+   - Mobile responsive reductions for `.py-12`, `.py-16`, `.gap-*`, `.space-y-*`, `.mb-*`, `.mt-*`
+   - Tablet responsive normalization
+   - Short-viewport fix for hero sections
+3. **All HTML files (batch sed)**:
+   - `py-20 lg:py-28` → `py-14 lg:py-20` (then further → `py-12 lg:py-16`)
+   - `padding:8rem 0 4rem` → `padding:5.5rem 0 2.5rem` (contact hero)
+   - `padding-top:7rem;padding-bottom:4rem` → `padding-top:5.5rem;padding-bottom:2rem` (about, solutions, services, case-studies heroes)
+   - `padding:7rem 0 3.5rem` → `padding:5.5rem 0 2rem` (careers, blog heroes)
+   - `padding:7rem 0 3rem` → `padding:5.5rem 0 2rem` (pricing hero)
+   - `min-height:55vh;padding:7rem 0 4rem` → `min-height:50vh;padding:5.5rem 0 2.5rem` (insights hero)
+   - `min-height:60vh;padding:7rem 0 4rem` → `min-height:50vh;padding:5.5rem 0 2.5rem` (industries hero)
+   - `padding:5rem 0` → `padding:4rem 0` in industries.html and insights.html
+
+### Key Fixes
+- `/solutions` page now renders with full CSS (no more redirect loop to `/solutions/`)
+- Contact page: large gap between hero and form eliminated
+- About page: hero flows directly into "WHAT WE DO" section
+- All inner page heroes: consistent compact padding (5.5rem top, 2-2.5rem bottom)
+- Mobile: all oversized gaps and padding reduced by ~30-40%

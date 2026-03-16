@@ -30,8 +30,8 @@ app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 
 // ── Static files ──────────────────────────────────
-app.use(express.static(path.join(__dirname, '../public')));
-app.use('/design-system', express.static(path.join(__dirname, '../design-system')));
+app.use(express.static(path.join(__dirname, '../public'), { redirect: false }));
+app.use('/design-system', express.static(path.join(__dirname, '../design-system'), { redirect: false }));
 
 // ── Main Pages ────────────────────────────────────
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, '../public/index.html')));
