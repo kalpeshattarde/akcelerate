@@ -205,6 +205,25 @@ Full list: business-automation, ai-ml, business-consulting, saas-dev, automated-
 10. **Tailwind CSS is loaded via CDN** — do not attempt to install it as a package.
 11. **Solution pages live in `public/solutions/`** — nav links from top-level pages use `solutions/xxx.html`, from subdirectory pages use `../solutions/xxx.html`.
 12. **Server routes**: All 8 solution pages have clean URL routes in `server/server.js`.
+13. **No HTML entities in `<script>` blocks** — use JS Unicode escapes (e.g. `\u20B9` for ₹) instead of `&#8377;` etc.
+14. **404 handler** — use the three-tier strategy in `server/server.js`: file extension → plain 404; extensionless + Accept:html → SPA fallback; other → plain 404.
+
+---
+
+### Session 7 — JavaScript SyntaxError Fix (2026-03-16)
+- **Task**: Fix `SyntaxError: Invalid or unexpected token` crashing the browser console
+- **Root cause 1**: `server/server.js` 404 handler returned `index.html` (HTML content) for ALL unmatched routes including missing `.js`/`.css` files — browser tried to parse HTML as JS and crashed.
+- **Root cause 2**: `public/pricing.html` inline `<script>` block had HTML entities (`&#8377;`) inside JS string literals — invalid per HTML5 raw-text rules.
+- **Changes**:
+  - `server/server.js`: Replaced blanket `sendFile(index.html)` 404 handler with a three-tier strategy:
+    1. Paths with a file extension → `404 text/plain "Not found"` (blocks HTML being served as JS/CSS)
+    2. Extensionless `GET`/`HEAD` with `Accept: text/html` → `404 + index.html` (SPA fallback)
+    3. All other requests → `404 text/plain "Not found"`
+  - `public/pricing.html`: Replaced `&#8377;` with `\u20B9` (JS Unicode escape) in the `prices` object of the inline script
+- **Rules added**:
+  - Never use HTML entities inside `<script>` blocks — use JS Unicode escapes (`\u20B9`) instead
+  - 404 handler must check `Accept` header and file extension to avoid serving HTML as static assets
+- **GitHub Push**: Completed (this session)
 
 ---
 
