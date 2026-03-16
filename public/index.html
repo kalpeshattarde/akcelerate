@@ -1618,6 +1618,93 @@
 <!-- ══════════════════════════════════════════
      FOOTER
 ══════════════════════════════════════════ -->
+
+<!-- PRICING PREVIEW -->
+<section style="background:#F8FAFF;padding:5rem 0;" id="pricing-preview">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-10" data-aos="fade-up">
+      <span class="section-label">Pricing</span>
+      <h2 class="text-3xl lg:text-4xl font-bold mb-4" style="font-family:'Poppins',sans-serif;">Simple, <span class="gradient-text">Transparent Pricing</span></h2>
+      <p class="text-slate-500 max-w-xl mx-auto mb-6">Start with one AI module and scale as you grow. No hidden fees, no lock-in.</p>
+      <div class="pricing-toggle">
+        <button class="pricing-toggle-btn active" id="ppToggleM" onclick="ppToggle('monthly')">Monthly</button>
+        <button class="pricing-toggle-btn" id="ppToggleA" onclick="ppToggle('annual')">Annual <span class="pricing-badge">Save 33%</span></button>
+      </div>
+    </div>
+    <div class="grid lg:grid-cols-3 gap-7 max-w-5xl mx-auto">
+      <div class="pricing-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="mb-5">
+          <div class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-3" style="font-family:'Poppins',sans-serif;">Starter</div>
+          <div class="flex items-center gap-2 mb-1">
+            <span id="ppStarterOld" style="text-decoration:line-through;color:#94a3b8;font-size:0.95rem;font-family:'Poppins',sans-serif;">$149</span>
+            <span id="ppStarterBadge" style="background:#FEF3C7;color:#D97706;font-size:0.65rem;font-weight:700;padding:2px 7px;border-radius:20px;">SAVE 16%</span>
+          </div>
+          <div class="flex items-end gap-1 mb-1">
+            <span class="text-4xl font-bold text-slate-900" style="font-family:'Poppins',sans-serif;" id="ppStarterPrice">$125</span>
+            <span class="text-slate-400 text-sm mb-1" id="ppStarterPeriod">/month</span>
+          </div>
+          <div class="text-slate-400 text-xs mb-4" id="ppStarterINR">&#8776; &#8377;10,499/month</div>
+          <p class="text-slate-500 text-sm">For single-site manufacturers getting started with AI analytics.</p>
+        </div>
+        <a href="pricing.html" class="btn-secondary w-full justify-center" style="display:flex;">Get Started</a>
+      </div>
+      <div class="pricing-card featured" data-aos="fade-up" data-aos-delay="100" style="position:relative;">
+        <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);"><span class="pricing-badge" style="font-size:0.7rem;padding:0.3rem 1rem;">Most Popular</span></div>
+        <div class="mb-5">
+          <div class="text-sm font-semibold uppercase tracking-wider mb-3" style="font-family:'Poppins',sans-serif;color:#2563EB;">Professional</div>
+          <div class="flex items-center gap-2 mb-1">
+            <span id="ppProOld" style="text-decoration:line-through;color:#94a3b8;font-size:0.95rem;font-family:'Poppins',sans-serif;">$1,499</span>
+            <span id="ppProBadge" style="background:#FEF3C7;color:#D97706;font-size:0.65rem;font-weight:700;padding:2px 7px;border-radius:20px;">SAVE 17%</span>
+          </div>
+          <div class="flex items-end gap-1 mb-1">
+            <span class="text-4xl font-bold gradient-text" style="font-family:'Poppins',sans-serif;" id="ppProPrice">$1,249</span>
+            <span class="text-slate-400 text-sm mb-1" id="ppProPeriod">/month</span>
+          </div>
+          <div class="text-slate-400 text-xs mb-4" id="ppProINR">&#8776; &#8377;1,03,999/month</div>
+          <p class="text-slate-500 text-sm">For multi-line manufacturers scaling AI across operations.</p>
+        </div>
+        <a href="pricing.html" class="btn-primary w-full justify-center" style="display:flex;">Start Free Trial</a>
+      </div>
+      <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="mb-5">
+          <div class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-3" style="font-family:'Poppins',sans-serif;">Enterprise</div>
+          <div class="flex items-end gap-1 mb-1">
+            <span class="text-4xl font-bold text-slate-900" style="font-family:'Poppins',sans-serif;">Custom</span>
+          </div>
+          <div class="text-slate-400 text-xs mb-4">Tailored pricing for large manufacturers</div>
+          <p class="text-slate-500 text-sm">For large manufacturers, multi-plant groups, and OEMs requiring bespoke AI solutions.</p>
+        </div>
+        <a href="contact.html" class="btn-secondary w-full justify-center" style="display:flex;">Contact Sales</a>
+      </div>
+    </div>
+    <div class="text-center mt-8" data-aos="fade-up">
+      <a href="pricing.html" class="text-blue-600 font-medium hover:underline">View full pricing &amp; features &#8594;</a>
+    </div>
+  </div>
+</section>
+<script>
+(function(){
+  var pp={
+    monthly:{sO:'$149',s:'$125',sP:'/month',sI:'\u2248 \u20B910,499/month',sB:'SAVE 16%',pO:'$1,499',p:'$1,249',pP:'/month',pI:'\u2248 \u20B91,03,999/month',pB:'SAVE 17%'},
+    annual: {sO:'$149',s:'$99', sP:'/month, billed annually',sI:'\u2248 \u20B98,249/month',sB:'SAVE 34%',pO:'$1,499',p:'$999', pP:'/month, billed annually',pI:'\u2248 \u20B982,999/month',pB:'SAVE 33%'}
+  };
+  window.ppToggle=function(period){
+    var d=pp[period];
+    document.getElementById('ppStarterOld').textContent=d.sO;
+    document.getElementById('ppStarterPrice').textContent=d.s;
+    document.getElementById('ppStarterPeriod').textContent=d.sP;
+    document.getElementById('ppStarterINR').textContent=d.sI;
+    document.getElementById('ppStarterBadge').textContent=d.sB;
+    document.getElementById('ppProOld').textContent=d.pO;
+    document.getElementById('ppProPrice').textContent=d.p;
+    document.getElementById('ppProPeriod').textContent=d.pP;
+    document.getElementById('ppProINR').textContent=d.pI;
+    document.getElementById('ppProBadge').textContent=d.pB;
+    document.getElementById('ppToggleM').classList.toggle('active',period==='monthly');
+    document.getElementById('ppToggleA').classList.toggle('active',period==='annual');
+  };
+})();
+</script>
 <footer class="footer-gradient py-16">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
