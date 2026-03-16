@@ -10,6 +10,7 @@ Enterprise SaaS-style website for AKcelerate — a premium AI, Data, Automation 
 - **8 Solution Areas**: Business Automation, AI/ML Solutions, Business Consulting, SaaS Dev, Automated Analytics, Data Visualization, Cloud & DevOps, MLOps
 - **13+ Industries**: Manufacturing, FMCG, Healthcare, Retail, FinTech, Education, Real Estate, Logistics, IT/Tech, E-commerce, Startups, SMBs, Enterprises
 - **Contact**: Phone `+91 9529314215` | Email `officialkalpeshattarde@gmail.com` | WhatsApp `wa.me/919529314215`
+- **Social Media**: LinkedIn `https://www.linkedin.com/company/akceleratehq/` | X `https://x.com/akcelerateHQ` | Instagram `https://www.instagram.com/akceleratehq/`
 
 ## Architecture
 - **Runtime**: Node.js 20 + Express 4
@@ -253,6 +254,13 @@ Remote: `github.com/kalpeshattarde/AKcelerate` (branch: `main`)
 - `express-rate-limit` limits `/api/*` to 100 requests/15min/IP
 
 ## Change Log
+
+### March 2026 (Session 4)
+- **Social media icons added** to all 37 page footers: LinkedIn, X/Twitter, Instagram — appear after copyright line with hover animations
+- **LinkedIn URL fixed** sitewide: old incorrect `linkedin.com/company/akcelerate` replaced with correct `linkedin.com/company/akceleratehq/`
+- **X (Twitter)** `x.com/akcelerateHQ` added to all footers (was missing completely)
+- **Instagram** `instagram.com/akceleratehq/` added to all footers (was missing completely)
+- Committed and pushed to GitHub (`kalpeshattarde/AKcelerate`, branch: `main`)
 
 ### March 2026 (Session 3)
 - **Free Audit page** (`free-audit.html`): Full dedicated booking page with 7 sections, booking form with validation, Chart.js bar chart, FAQ accordion
