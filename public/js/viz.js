@@ -88,11 +88,12 @@
     function build() {
       nodes = []; edges = [];
       const W = c.w, H = c.h;
-      const colX = layers.map((_, i) => W * 0.12 + (W * 0.76) * i / (layers.length - 1));
+      const colX = layers.map((_, i) => W * 0.10 + (W * 0.80) * i / (layers.length - 1));
+      const vSpacing = Math.min(Math.round(H * 0.175), 65);
       layers.forEach((n, li) => {
-        const startY = H / 2 - (n - 1) * 38;
+        const startY = H * 0.46 - (n - 1) * vSpacing / 2;
         for (let ni = 0; ni < n; ni++) {
-          nodes.push({ x: colX[li], y: startY + ni * 38, layer: li, pulse: Math.random() });
+          nodes.push({ x: colX[li], y: startY + ni * vSpacing, layer: li, pulse: Math.random() });
         }
       });
       let base = 0;
@@ -157,7 +158,7 @@
       });
       // layer labels
       const lbls = ['Input', 'Hidden 1', 'Hidden 2', 'Output', 'Predict'];
-      const cols = layers.map((_, i) => c.w * 0.12 + (c.w * 0.76) * i / (layers.length - 1));
+      const cols = layers.map((_, i) => c.w * 0.10 + (c.w * 0.80) * i / (layers.length - 1));
       ctx.font = '10px Inter,sans-serif'; ctx.fillStyle = tc.gridLabel; ctx.textAlign = 'center';
       lbls.forEach((l, i) => ctx.fillText(l, cols[i], H - 10));
       // floating metrics
@@ -176,16 +177,16 @@
   ════════════════════════════════════════════════════════════ */
   function modeFlow(c) {
     const nodes = [
-      { id: 'T', label: 'Trigger', x: 0.12, y: 0.38, w: 100, h: 36, color: '#2563EB' },
-      { id: 'F', label: 'Filter', x: 0.30, y: 0.38, w: 90, h: 36, color: '#0891B2' },
-      { id: 'A', label: 'Action A', x: 0.52, y: 0.22, w: 100, h: 36, color: '#059669' },
-      { id: 'B', label: 'Action B', x: 0.52, y: 0.56, w: 100, h: 36, color: '#7C3AED' },
-      { id: 'N', label: 'Notify', x: 0.74, y: 0.22, w: 90, h: 36, color: '#D97706' },
-      { id: 'D', label: 'Done ✓', x: 0.74, y: 0.56, w: 90, h: 36, color: '#10B981' }
+      { id: 'T', label: 'Trigger',  x: 0.08, y: 0.50, w: 100, h: 38, color: '#2563EB' },
+      { id: 'F', label: 'Filter',   x: 0.27, y: 0.50, w: 90,  h: 38, color: '#0891B2' },
+      { id: 'A', label: 'Action A', x: 0.50, y: 0.20, w: 100, h: 38, color: '#059669' },
+      { id: 'B', label: 'Action B', x: 0.50, y: 0.80, w: 100, h: 38, color: '#7C3AED' },
+      { id: 'N', label: 'Notify',   x: 0.74, y: 0.20, w: 90,  h: 38, color: '#D97706' },
+      { id: 'D', label: 'Done ✓',   x: 0.90, y: 0.50, w: 90,  h: 38, color: '#10B981' }
     ];
     const edges = [
       { from: 'T', to: 'F' }, { from: 'F', to: 'A' }, { from: 'F', to: 'B' },
-      { from: 'A', to: 'N' }, { from: 'B', to: 'D' }
+      { from: 'A', to: 'N' }, { from: 'N', to: 'D' }, { from: 'B', to: 'D' }
     ];
     let pulses = [], t = 0;
     function getNode(id) { return nodes.find(n => n.id === id); }
@@ -441,11 +442,11 @@
   ════════════════════════════════════════════════════════════ */
   function modeCloud(c) {
     const servers = [
-      { label: 'Dev', icon: '⚙', x: 0.18, y: 0.30, color: '#2563EB' },
-      { label: 'Staging', icon: '🔵', x: 0.42, y: 0.20, color: '#06B6D4' },
-      { label: 'DB', icon: '🗄', x: 0.42, y: 0.65, color: '#8B5CF6' },
-      { label: 'Prod', icon: '✅', x: 0.72, y: 0.30, color: '#10B981' },
-      { label: 'CDN', icon: '🌐', x: 0.72, y: 0.65, color: '#F59E0B' },
+      { label: 'Dev',     icon: '⚙',  x: 0.12, y: 0.28, color: '#2563EB' },
+      { label: 'Staging', icon: '🔵', x: 0.40, y: 0.14, color: '#06B6D4' },
+      { label: 'DB',      icon: '🗄',  x: 0.40, y: 0.72, color: '#8B5CF6' },
+      { label: 'Prod',    icon: '✅',  x: 0.70, y: 0.28, color: '#10B981' },
+      { label: 'CDN',     icon: '🌐',  x: 0.70, y: 0.72, color: '#F59E0B' },
       { label: 'Monitor', icon: '📊', x: 0.88, y: 0.48, color: '#EC4899' }
     ];
     const links = [[0,1],[0,2],[1,3],[2,3],[1,2],[3,4],[3,5],[4,5]];
@@ -630,7 +631,7 @@
       t += 0.016; progress += 0.008;
       if (progress >= 1) { progress = 0; active = (active + 1) % stages.length; lineIdx = (lineIdx + 1) % lines.length; }
       // pipeline bar
-      const barY = H * 0.35, bw = (W * 0.82) / stages.length, gap = (W * 0.82 - bw * stages.length) / (stages.length + 1);
+      const barY = H * 0.26, bw = (W * 0.82) / stages.length, gap = (W * 0.82 - bw * stages.length) / (stages.length + 1);
       stages.forEach((s, i) => {
         const bx = W * 0.08 + gap + i * (bw + gap);
         const isDone = i < active;
@@ -666,7 +667,7 @@
         }
       });
       // terminal output
-      const tx = W * 0.08, ty = H * 0.58, tw = W * 0.84, th = H * 0.28;
+      const tx = W * 0.08, ty = H * 0.48, tw = W * 0.84, th = H * 0.32;
       ctx.fillStyle = 'rgba(13,17,23,0.8)';
       roundRectFill(ctx, tx, ty, tw, th, 10, 'rgba(13,17,23,0.8)');
       ctx.strokeStyle = 'rgba(99,102,241,0.2)'; ctx.lineWidth = 1;
@@ -715,8 +716,9 @@
       if (milestoneT > 2.2) { activeMilestone = (activeMilestone + 1) % milestones.length; milestoneT = 0; }
       vals = vals.map((v, i) => lerp(v, kpis[i].target, 0.03));
       // ── KPI gauges top ──
+      const gaugeR = Math.min(H * 0.20, W * 0.10);
       kpis.forEach((k, i) => {
-        const cx = W * (0.14 + i * 0.24), cy = H * 0.32, r = H * 0.18;
+        const cx = W * (0.15 + i * 0.235), cy = H * 0.34, r = gaugeR;
         // track
         ctx.beginPath(); ctx.arc(cx, cy, r, Math.PI * 0.8, Math.PI * 2.2);
         ctx.strokeStyle = tc.progressTrk; ctx.lineWidth = 8; ctx.lineCap = 'round';
@@ -735,7 +737,7 @@
         ctx.fillText(k.label, cx, cy + r + 16);
       });
       // ── milestone timeline ──
-      const tx = W * 0.06, ty = H * 0.67, tw = W * 0.88;
+      const tx = W * 0.06, ty = H * 0.76, tw = W * 0.88;
       const step = tw / (milestones.length - 1);
       milestones.forEach((m, i) => {
         const mx = tx + i * step;
