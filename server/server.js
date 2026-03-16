@@ -74,6 +74,24 @@ app.get('/services/quality-analytics', (req, res) =>
 app.get('/services/energy-management', (req, res) =>
   res.sendFile(path.join(__dirname, '../public/services/energy-management.html')));
 
+// ── Individual Solution Pages ─────────────────────
+app.get('/solutions/business-automation', (req, res) =>
+  res.sendFile(path.join(__dirname, '../public/solutions/business-automation.html')));
+app.get('/solutions/ai-ml', (req, res) =>
+  res.sendFile(path.join(__dirname, '../public/solutions/ai-ml.html')));
+app.get('/solutions/business-consulting', (req, res) =>
+  res.sendFile(path.join(__dirname, '../public/solutions/business-consulting.html')));
+app.get('/solutions/saas-dev', (req, res) =>
+  res.sendFile(path.join(__dirname, '../public/solutions/saas-dev.html')));
+app.get('/solutions/automated-analytics', (req, res) =>
+  res.sendFile(path.join(__dirname, '../public/solutions/automated-analytics.html')));
+app.get('/solutions/data-visualization', (req, res) =>
+  res.sendFile(path.join(__dirname, '../public/solutions/data-visualization.html')));
+app.get('/solutions/cloud-devops', (req, res) =>
+  res.sendFile(path.join(__dirname, '../public/solutions/cloud-devops.html')));
+app.get('/solutions/mlops', (req, res) =>
+  res.sendFile(path.join(__dirname, '../public/solutions/mlops.html')));
+
 // ── API Endpoints ─────────────────────────────────
 app.post('/api/contact', apiLimiter, (req, res) => {
   const { name, email, company, message } = req.body;

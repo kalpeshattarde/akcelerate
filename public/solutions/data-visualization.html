@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>(function(){var t=localStorage.getItem('ak-theme');if(t)document.documentElement.setAttribute('data-theme',t);})()</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Visualization — AKcelerate</title>
+  <meta name="description" content="Executive dashboards, BI platforms, Power BI, Tableau, Looker Studio, and custom reporting systems by AKcelerate.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<!-- NAV -->
+<nav class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="../index.html" class="flex items-center gap-2.5 text-decoration-none">
+        <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#2563EB,#06B6D4);display:flex;align-items:center;justify-content:center;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <span class="font-poppins font-bold text-xl text-slate-900 tracking-tight">AK<span class="gradient-text">celerate</span></span>
+      </a>
+      <div class="hidden lg:flex items-center gap-8">
+        <a href="../index.html" class="nav-link">Home</a>
+        <div class="nav-dropdown">
+          <a href="../solutions.html" class="nav-link nav-dropdown-trigger" style="color:#2563EB;font-weight:600">Solutions <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="nav-dropdown-menu" style="min-width:320px;">
+            <a href="../solutions.html" class="nav-dropdown-item"><div class="nav-dropdown-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div><div><div class="nav-dropdown-title">All Solutions</div><div class="nav-dropdown-desc">Overview of all 8 areas</div></div></a>
+            <div class="nav-dropdown-divider"></div>
+            <a href="business-automation.html" class="nav-dropdown-item"><div class="nav-dropdown-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><div><div class="nav-dropdown-title">Business Automation</div><div class="nav-dropdown-desc">RPA, workflows & sales pipelines</div></div></a>
+            <a href="ai-ml.html" class="nav-dropdown-item"><div class="nav-dropdown-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div><div class="nav-dropdown-title">AI / ML Solutions</div><div class="nav-dropdown-desc">ML models, NLP & generative AI</div></div></a>
+            <a href="business-consulting.html" class="nav-dropdown-item"><div class="nav-dropdown-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></div><div><div class="nav-dropdown-title">Business Consulting</div><div class="nav-dropdown-desc">AI strategy & digital transformation</div></div></a>
+            <a href="saas-dev.html" class="nav-dropdown-item"><div class="nav-dropdown-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><div><div class="nav-dropdown-title">Website & SaaS Dev</div><div class="nav-dropdown-desc">Custom apps, MVPs & dashboards</div></div></a>
+            <a href="automated-analytics.html" class="nav-dropdown-item"><div class="nav-dropdown-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><div><div class="nav-dropdown-title">Automated Analytics</div><div class="nav-dropdown-desc">Real-time reporting & KPI tracking</div></div></a>
+            <a href="data-visualization.html" class="nav-dropdown-item"><div class="nav-dropdown-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg></div><div><div class="nav-dropdown-title">Data Visualization</div><div class="nav-dropdown-desc">Power BI, Tableau & BI dashboards</div></div></a>
+            <a href="cloud-devops.html" class="nav-dropdown-item"><div class="nav-dropdown-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></div><div><div class="nav-dropdown-title">Cloud & DevOps</div><div class="nav-dropdown-desc">AWS, Azure, GCP & CI/CD pipelines</div></div></a>
+            <a href="mlops.html" class="nav-dropdown-item"><div class="nav-dropdown-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div><div><div class="nav-dropdown-title">MLOps</div><div class="nav-dropdown-desc">Model deployment, monitoring & MLflow</div></div></a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="../services.html" class="nav-link nav-dropdown-trigger">Services <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="nav-dropdown-menu">
+            <a href="../services.html" class="nav-dropdown-item"><div class="nav-dropdown-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></div><div><div class="nav-dropdown-title">All Services</div><div class="nav-dropdown-desc">Implementation & consulting</div></div></a>
+            <div class="nav-dropdown-divider"></div>
+            <a href="../pricing.html" class="nav-dropdown-item"><div class="nav-dropdown-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div><div class="nav-dropdown-title">Pricing Plans</div><div class="nav-dropdown-desc">Starter to Enterprise</div></div></a>
+            <a href="../case-studies.html" class="nav-dropdown-item"><div class="nav-dropdown-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><div><div class="nav-dropdown-title">Case Studies</div><div class="nav-dropdown-desc">Real-world results</div></div></a>
+          </div>
+        </div>
+        <a href="../case-studies.html" class="nav-link">Case Studies</a>
+        <a href="../about.html" class="nav-link">About</a>
+        <a href="../contact.html" class="nav-link">Contact</a>
+      </div>
+      <div class="hidden lg:flex items-center gap-4">
+        <button class="theme-toggle-btn" title="Toggle theme"><svg class="moon-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="sun-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/></svg></button>
+        <a href="../contact.html" class="btn-primary">Request Demo</a>
+      </div>
+      <button id="menu-toggle" class="lg:hidden p-2 text-gray-500"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    </div>
+  </div>
+  <!-- MOBILE MENU -->
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-100 bg-white px-4 py-4">
+    <div class="flex flex-col gap-1">
+      <a href="../index.html" class="block py-2.5 px-4 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all">Home</a>
+      <a href="../solutions.html" class="block py-2.5 px-4 text-blue-600 font-semibold hover:bg-blue-50 rounded-lg transition-all">Solutions</a>
+      <a href="../services.html" class="block py-2.5 px-4 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all">Services</a>
+      <a href="../case-studies.html" class="block py-2.5 px-4 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all">Case Studies</a>
+      <a href="../about.html" class="block py-2.5 px-4 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all">About</a>
+      <a href="../contact.html" class="block py-2.5 px-4 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all">Contact</a>
+      <div class="pt-2"><a href="../contact.html" class="btn-primary w-full justify-center">Request Demo</a></div>
+      <div class="mobile-theme-row"><span class="mobile-theme-label">Toggle Theme</span><button class="theme-toggle-btn"><svg class="moon-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="sun-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/></svg></button></div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero-section" style="min-height:80vh;padding:7rem 0 4rem;position:relative;overflow:hidden;">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow hero-glow-1"></div>
+  <div class="hero-glow hero-glow-2"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div data-aos="fade-up">
+        <div class="hero-badge mb-5">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          Data Visualization
+        </div>
+        <h1 class="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-6" style="font-family:'Poppins',sans-serif;color:#0F172A;">
+          Data That Speaks.<br><span class="gradient-text">Decisions That Win.</span>
+        </h1>
+        <p class="text-lg text-slate-500 mb-8 leading-relaxed">
+          Turn raw numbers into clear, compelling, interactive visuals. We design executive dashboards, BI platforms, and custom charts that make your data impossible to ignore — and your decisions impossible to get wrong.
+        </p>
+        <div class="flex flex-wrap gap-4 mb-8">
+          <a href="../contact.html" class="btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.86-.86a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Get a Free Consultation
+          </a>
+          <a href="../case-studies.html" class="btn-secondary">View Case Studies →</a>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <span class="tag-pill">Executive Dashboards</span><span class="tag-pill">Power BI</span><span class="tag-pill">Tableau</span><span class="tag-pill">Looker Studio</span><span class="tag-pill">Custom Charts</span><span class="tag-pill">Infographics</span>
+        </div>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="150" class="hidden lg:block">
+        <div style="border-radius:24px;overflow:hidden;box-shadow:0 32px 80px rgba(37,99,235,0.15);border:1px solid rgba(37,99,235,0.12);">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=80&fit=crop" alt="Data Visualization" style="width:100%;height:420px;object-fit:cover;display:block;">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section style="background:#F8FAFF;padding:2.5rem 0;border-top:1px solid #E2E8F0;border-bottom:1px solid #E2E8F0;">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+      <div data-aos="fade-up" data-aos-delay="0"><div class="stat-number text-4xl mb-1">500+</div><div class="text-slate-500 text-sm">Dashboards Delivered</div></div><div data-aos="fade-up" data-aos-delay="80"><div class="stat-number text-4xl mb-1">3×</div><div class="text-slate-500 text-sm">Faster Decision Making</div></div><div data-aos="fade-up" data-aos-delay="160"><div class="stat-number text-4xl mb-1">90%</div><div class="text-slate-500 text-sm">Executive Adoption Rate</div></div><div data-aos="fade-up" data-aos-delay="240"><div class="stat-number text-4xl mb-1">4 Hrs</div><div class="text-slate-500 text-sm">Avg Time Saved Per Report</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE OFFER -->
+<section style="background:#FFFFFF;padding:5rem 0;">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12" data-aos="fade-up">
+      <span class="section-label">What We Offer</span>
+      <h2 class="text-3xl lg:text-4xl font-bold mb-4">Our <span class="gradient-text">Data Visualization</span> Services</h2>
+      <p class="text-slate-500 max-w-2xl mx-auto">Comprehensive, end-to-end solutions tailored to your business needs — from strategy to deployment.</p>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div data-aos="fade-up" data-aos-delay="0" style="background:#F8FAFF;border:1px solid #E2E8F0;border-radius:16px;padding:1.75rem;transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(37,99,235,0.3)';this.style.background='#FFFFFF';this.style.boxShadow='0 12px 32px rgba(37,99,235,0.08)'" onmouseout="this.style.borderColor='#E2E8F0';this.style.background='#F8FAFF';this.style.boxShadow='none'">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background:linear-gradient(135deg,rgba(8,145,178,0.12),rgba(37,99,235,0.05));border:1px solid rgba(8,145,178,0.25)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0891B2" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <h3 class="font-poppins font-semibold text-lg text-slate-900 mb-2">Executive Dashboards</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">Board-level dashboards with the right KPIs — revenue, growth, operations, and risk — presented clearly, updated automatically, and accessible anywhere.</p>
+      </div><div data-aos="fade-up" data-aos-delay="60" style="background:#F8FAFF;border:1px solid #E2E8F0;border-radius:16px;padding:1.75rem;transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(37,99,235,0.3)';this.style.background='#FFFFFF';this.style.boxShadow='0 12px 32px rgba(37,99,235,0.08)'" onmouseout="this.style.borderColor='#E2E8F0';this.style.background='#F8FAFF';this.style.boxShadow='none'">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background:linear-gradient(135deg,rgba(37,99,235,0.12),rgba(6,182,212,0.05));border:1px solid rgba(37,99,235,0.2)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3 class="font-poppins font-semibold text-lg text-slate-900 mb-2">Power BI Development</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">End-to-end Power BI implementations — from data modelling and DAX measures to published workspaces, RLS security, and embedded reports.</p>
+      </div><div data-aos="fade-up" data-aos-delay="120" style="background:#F8FAFF;border:1px solid #E2E8F0;border-radius:16px;padding:1.75rem;transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(37,99,235,0.3)';this.style.background='#FFFFFF';this.style.boxShadow='0 12px 32px rgba(37,99,235,0.08)'" onmouseout="this.style.borderColor='#E2E8F0';this.style.background='#F8FAFF';this.style.boxShadow='none'">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background:linear-gradient(135deg,rgba(217,119,6,0.1),rgba(245,158,11,0.05));border:1px solid rgba(217,119,6,0.2)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </div>
+        <h3 class="font-poppins font-semibold text-lg text-slate-900 mb-2">Tableau Solutions</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">Stunning Tableau workbooks and server deployments — connecting to any data source and designed for clarity, speed, and self-service analytics.</p>
+      </div><div data-aos="fade-up" data-aos-delay="180" style="background:#F8FAFF;border:1px solid #E2E8F0;border-radius:16px;padding:1.75rem;transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(37,99,235,0.3)';this.style.background='#FFFFFF';this.style.boxShadow='0 12px 32px rgba(37,99,235,0.08)'" onmouseout="this.style.borderColor='#E2E8F0';this.style.background='#F8FAFF';this.style.boxShadow='none'">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background:linear-gradient(135deg,rgba(5,150,105,0.1),rgba(6,182,212,0.05));border:1px solid rgba(5,150,105,0.2)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <h3 class="font-poppins font-semibold text-lg text-slate-900 mb-2">Looker Studio & Google Analytics</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">Google Looker Studio reports integrated with GA4, Google Ads, and BigQuery — giving marketing teams real-time campaign and traffic insights.</p>
+      </div><div data-aos="fade-up" data-aos-delay="240" style="background:#F8FAFF;border:1px solid #E2E8F0;border-radius:16px;padding:1.75rem;transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(37,99,235,0.3)';this.style.background='#FFFFFF';this.style.boxShadow='0 12px 32px rgba(37,99,235,0.08)'" onmouseout="this.style.borderColor='#E2E8F0';this.style.background='#F8FAFF';this.style.boxShadow='none'">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background:linear-gradient(135deg,rgba(124,58,237,0.1),rgba(37,99,235,0.05));border:1px solid rgba(124,58,237,0.2)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3 class="font-poppins font-semibold text-lg text-slate-900 mb-2">Custom Chart & D3.js Visuals</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">Bespoke interactive charts, maps, and infographics built with D3.js, Chart.js, or Recharts — embedded directly into your web app or portal.</p>
+      </div><div data-aos="fade-up" data-aos-delay="300" style="background:#F8FAFF;border:1px solid #E2E8F0;border-radius:16px;padding:1.75rem;transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(37,99,235,0.3)';this.style.background='#FFFFFF';this.style.boxShadow='0 12px 32px rgba(37,99,235,0.08)'" onmouseout="this.style.borderColor='#E2E8F0';this.style.background='#F8FAFF';this.style.boxShadow='none'">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background:linear-gradient(135deg,rgba(220,38,38,0.1),rgba(245,158,11,0.05));border:1px solid rgba(220,38,38,0.2)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        </div>
+        <h3 class="font-poppins font-semibold text-lg text-slate-900 mb-2">Infographics & Data Storytelling</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">Transform complex analyses into shareable infographics and narrative reports that communicate insight to non-technical stakeholders.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE WORK -->
+<section style="background:#F0F7FF;padding:5rem 0;">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12" data-aos="fade-up">
+      <span class="section-label">Our Process</span>
+      <h2 class="text-3xl lg:text-4xl font-bold mb-4">How We <span class="gradient-text">Work</span></h2>
+      <p class="text-slate-500 max-w-2xl mx-auto">A structured, proven approach that delivers results — fast.</p>
+    </div>
+    <div class="grid md:grid-cols-4 gap-6">
+      <div data-aos="fade-up" data-aos-delay="0" style="text-align:center;padding:1.5rem;">
+        <div style="width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#2563EB,#06B6D4);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-family:'Poppins',sans-serif;font-weight:700;font-size:1.25rem;color:white;">1</div>
+        <h3 class="font-poppins font-semibold text-slate-900 mb-2">Discovery & Audit</h3>
+        <p class="text-slate-500 text-sm">We audit your existing processes and identify automation opportunities.</p>
+      </div><div data-aos="fade-up" data-aos-delay="80" style="text-align:center;padding:1.5rem;">
+        <div style="width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#2563EB,#06B6D4);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-family:'Poppins',sans-serif;font-weight:700;font-size:1.25rem;color:white;">2</div>
+        <h3 class="font-poppins font-semibold text-slate-900 mb-2">Strategy & Design</h3>
+        <p class="text-slate-500 text-sm">We craft a tailored roadmap and solution architecture for your goals.</p>
+      </div><div data-aos="fade-up" data-aos-delay="160" style="text-align:center;padding:1.5rem;">
+        <div style="width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#2563EB,#06B6D4);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-family:'Poppins',sans-serif;font-weight:700;font-size:1.25rem;color:white;">3</div>
+        <h3 class="font-poppins font-semibold text-slate-900 mb-2">Build & Integrate</h3>
+        <p class="text-slate-500 text-sm">Our engineers build, test, and integrate — with zero disruption to ops.</p>
+      </div><div data-aos="fade-up" data-aos-delay="240" style="text-align:center;padding:1.5rem;">
+        <div style="width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#2563EB,#06B6D4);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-family:'Poppins',sans-serif;font-weight:700;font-size:1.25rem;color:white;">4</div>
+        <h3 class="font-poppins font-semibold text-slate-900 mb-2">Launch & Optimize</h3>
+        <p class="text-slate-500 text-sm">We go live, monitor performance, and continuously iterate for improvement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section style="background:#FFFFFF;padding:5rem 0;">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div data-aos="fade-up">
+        <span class="section-label">Industries We Serve</span>
+        <h2 class="text-3xl lg:text-4xl font-bold mb-6">Built for <span class="gradient-text">Every Industry</span></h2>
+        <p class="text-slate-500 mb-8 leading-relaxed">Our Data Visualization expertise spans 13+ industry verticals — from startups to enterprises.</p>
+        <div class="grid grid-cols-2 gap-3">
+          <div style="display:flex;align-items:center;gap:8px;padding:0.6rem 1rem;background:#F8FAFF;border:1px solid #E2E8F0;border-radius:10px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span class="text-slate-700 text-sm font-medium">Manufacturing</span></div><div style="display:flex;align-items:center;gap:8px;padding:0.6rem 1rem;background:#F8FAFF;border:1px solid #E2E8F0;border-radius:10px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span class="text-slate-700 text-sm font-medium">FMCG & Retail</span></div><div style="display:flex;align-items:center;gap:8px;padding:0.6rem 1rem;background:#F8FAFF;border:1px solid #E2E8F0;border-radius:10px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span class="text-slate-700 text-sm font-medium">Healthcare</span></div><div style="display:flex;align-items:center;gap:8px;padding:0.6rem 1rem;background:#F8FAFF;border:1px solid #E2E8F0;border-radius:10px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span class="text-slate-700 text-sm font-medium">FinTech</span></div><div style="display:flex;align-items:center;gap:8px;padding:0.6rem 1rem;background:#F8FAFF;border:1px solid #E2E8F0;border-radius:10px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span class="text-slate-700 text-sm font-medium">Education</span></div><div style="display:flex;align-items:center;gap:8px;padding:0.6rem 1rem;background:#F8FAFF;border:1px solid #E2E8F0;border-radius:10px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span class="text-slate-700 text-sm font-medium">Real Estate</span></div><div style="display:flex;align-items:center;gap:8px;padding:0.6rem 1rem;background:#F8FAFF;border:1px solid #E2E8F0;border-radius:10px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span class="text-slate-700 text-sm font-medium">Logistics</span></div><div style="display:flex;align-items:center;gap:8px;padding:0.6rem 1rem;background:#F8FAFF;border:1px solid #E2E8F0;border-radius:10px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span class="text-slate-700 text-sm font-medium">IT & SaaS</span></div><div style="display:flex;align-items:center;gap:8px;padding:0.6rem 1rem;background:#F8FAFF;border:1px solid #E2E8F0;border-radius:10px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span class="text-slate-700 text-sm font-medium">E-commerce</span></div><div style="display:flex;align-items:center;gap:8px;padding:0.6rem 1rem;background:#F8FAFF;border:1px solid #E2E8F0;border-radius:10px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span class="text-slate-700 text-sm font-medium">Startups</span></div><div style="display:flex;align-items:center;gap:8px;padding:0.6rem 1rem;background:#F8FAFF;border:1px solid #E2E8F0;border-radius:10px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span class="text-slate-700 text-sm font-medium">SMBs</span></div><div style="display:flex;align-items:center;gap:8px;padding:0.6rem 1rem;background:#F8FAFF;border:1px solid #E2E8F0;border-radius:10px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span class="text-slate-700 text-sm font-medium">Enterprises</span></div>
+        </div>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="100">
+        <div style="border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(37,99,235,0.12);border:1px solid rgba(37,99,235,0.1);">
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=900&q=80&fit=crop" alt="Industries served" style="width:100%;height:380px;object-fit:cover;display:block;">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background:linear-gradient(135deg,#1E3A8A 0%,#0F172A 50%,#164E63 100%);padding:5rem 0;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,0.3),transparent 70%);pointer-events:none;"></div>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative" data-aos="fade-up">
+    <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4" style="font-family:'Poppins',sans-serif;">Ready to Get Started?</h2>
+    <p class="text-slate-300 text-lg mb-8 max-w-2xl mx-auto">Let's discuss how our Data Visualization solutions can transform your business. Free consultation, no commitment.</p>
+    <div class="flex flex-wrap gap-4 justify-center">
+      <a href="../contact.html" class="btn-primary" style="background:white;color:#1E3A8A;font-weight:600;">Book a Free Consultation</a>
+      <a href="https://wa.me/919529314215" target="_blank" class="btn-secondary" style="border-color:rgba(255,255,255,0.3);color:white;">WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- OTHER SOLUTIONS -->
+<section style="background:#F8FAFF;padding:5rem 0;">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10" data-aos="fade-up">
+      <span class="section-label">Explore More</span>
+      <h2 class="text-3xl font-bold mb-3">Other <span class="gradient-text">Solutions</span></h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <a href="business-automation.html" data-aos="fade-up" style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:16px;padding:1.5rem;display:block;transition:all 0.3s;box-shadow:0 2px 8px rgba(15,23,42,0.05);" onmouseover="this.style.borderColor='rgba(37,99,235,0.3)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='#E2E8F0';this.style.transform='translateY(0)'">
+    <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-3" style="background:linear-gradient(135deg,rgba(37,99,235,0.1),rgba(6,182,212,0.05));border:1px solid rgba(37,99,235,0.15)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="font-poppins font-semibold text-slate-900 mb-1">Business Automation</div>
+    <div class="text-blue-600 text-sm font-medium">Learn more →</div>
+  </a>
+<a href="ai-ml.html" data-aos="fade-up" style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:16px;padding:1.5rem;display:block;transition:all 0.3s;box-shadow:0 2px 8px rgba(15,23,42,0.05);" onmouseover="this.style.borderColor='rgba(37,99,235,0.3)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='#E2E8F0';this.style.transform='translateY(0)'">
+    <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-3" style="background:linear-gradient(135deg,rgba(37,99,235,0.1),rgba(6,182,212,0.05));border:1px solid rgba(37,99,235,0.15)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+    <div class="font-poppins font-semibold text-slate-900 mb-1">AI / ML Solutions</div>
+    <div class="text-blue-600 text-sm font-medium">Learn more →</div>
+  </a>
+<a href="business-consulting.html" data-aos="fade-up" style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:16px;padding:1.5rem;display:block;transition:all 0.3s;box-shadow:0 2px 8px rgba(15,23,42,0.05);" onmouseover="this.style.borderColor='rgba(37,99,235,0.3)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='#E2E8F0';this.style.transform='translateY(0)'">
+    <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-3" style="background:linear-gradient(135deg,rgba(37,99,235,0.1),rgba(6,182,212,0.05));border:1px solid rgba(37,99,235,0.15)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></div>
+    <div class="font-poppins font-semibold text-slate-900 mb-1">Business Consulting</div>
+    <div class="text-blue-600 text-sm font-medium">Learn more →</div>
+  </a>
+    </div>
+    <div class="text-center mt-8" data-aos="fade-up"><a href="../solutions.html" class="btn-secondary">View All 8 Solutions →</a></div>
+  </div>
+</section>
+
+<footer class="footer-gradient py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-4 gap-10 mb-12">
+      <div class="md:col-span-1">
+        <a href="../index.html" class="flex items-center gap-2.5 mb-4">
+          <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#2563EB,#06B6D4);display:flex;align-items:center;justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <span class="font-poppins font-bold text-xl text-white tracking-tight">AK<span style="background:linear-gradient(135deg,#60A5FA,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">celerate</span></span>
+        </a>
+        <p class="text-slate-400 text-sm leading-relaxed">Premium AI, Data, Automation & Business Consulting. Mumbai, India.</p>
+        <div class="flex gap-3 mt-4">
+          <a href="https://wa.me/919529314215" target="_blank" style="width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;" class="hover:bg-blue-600 transition-colors"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+          <a href="mailto:officialkalpeshattarde@gmail.com" style="width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;" class="hover:bg-blue-600 transition-colors"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-poppins font-semibold text-sm text-white mb-4">Solutions</h4>
+        <div class="space-y-2">
+          <a href="business-automation.html" class="footer-link">Business Automation</a>
+          <a href="ai-ml.html" class="footer-link">AI / ML Solutions</a>
+          <a href="business-consulting.html" class="footer-link">Business Consulting</a>
+          <a href="saas-dev.html" class="footer-link">Website & SaaS Dev</a>
+          <a href="automated-analytics.html" class="footer-link">Automated Analytics</a>
+          <a href="data-visualization.html" class="footer-link">Data Visualization</a>
+          <a href="cloud-devops.html" class="footer-link">Cloud & DevOps</a>
+          <a href="mlops.html" class="footer-link">MLOps</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-poppins font-semibold text-sm text-white mb-4">Company</h4>
+        <div class="space-y-2">
+          <a href="../about.html" class="footer-link">About Us</a>
+          <a href="../founder.html" class="footer-link">Our Founder</a>
+          <a href="../case-studies.html" class="footer-link">Case Studies</a>
+          <a href="../blog.html" class="footer-link">Blog</a>
+          <a href="../careers.html" class="footer-link">Careers</a>
+          <a href="../contact.html" class="footer-link">Contact</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-poppins font-semibold text-sm text-white mb-4">Contact</h4>
+        <div class="space-y-3">
+          <div class="flex items-start gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" class="mt-0.5 flex-shrink-0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.86-.86a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="text-slate-400 text-sm">+91 9529314215</span></div>
+          <div class="flex items-start gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" class="mt-0.5 flex-shrink-0"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span class="text-slate-400 text-sm">officialkalpeshattarde@gmail.com</span></div>
+          <div class="flex items-start gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" class="mt-0.5 flex-shrink-0"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="text-slate-400 text-sm">Mumbai, India</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-slate-500 text-sm">© 2025 AKcelerate. All rights reserved.</p>
+      <p class="text-slate-500 text-sm">AI · Data · Automation · Consulting</p>
+    </div>
+  </div>
+</footer>
+<script src="../js/main.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init({duration:700,once:true,offset:60});</script>
+</body>
+</html>
