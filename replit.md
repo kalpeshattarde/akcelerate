@@ -302,6 +302,23 @@ Remote: `github.com/kalpeshattarde/AKcelerate` (branch: `main`)
 
 ## Change Log
 
+### March 2026 (Session 7)
+- **All canvas animations made theme-aware** across the entire website:
+  - `viz.js`: Added `getTC()` helper function that reads `data-theme` on every animation frame and returns a full color palette (bg1, bg2, text, textMid, textFaint, label, gridLabel, gridLine, panelBg, cardBg, terminalBg, inactiveBg, nodeBg, trackFill, orbitRing, etc.)
+  - All 16 animation modes updated: neural, flow, analytics, dataviz, cloud, mlops, saas, strategy, industries, about, casestudies, contact, services, pricing, insights, founder
+  - **Light mode**: white/`#EFF6FF` backgrounds, `rgba(15,23,42)` dark text, blue-tinted panel cards
+  - **Dark mode**: `#0F172A`/`#1E293B` backgrounds (unchanged), white text — same as before
+  - Theme changes take effect instantly on every frame (no page reload needed)
+- **styles.css additions**:
+  - `[data-theme="light"] .ak-viz-panel`: white/light-blue bg, soft blue border + shadow
+  - `[data-theme="light"] .ak-viz-panel-header`: blue-tinted bottom border
+  - `[data-theme="light"] .ak-viz-label`: dark text
+  - `[data-theme="light"] .process-viz-canvas`: white/light-blue bg
+  - `.ak-dark-card` CSS class + `[data-theme="light"]` override for HTML dashboard panels
+  - `.ak-dc-title`, `.ak-dc-sub`, `.ak-dc-text`, `.ak-dc-muted`, `.ak-dc-bar-track`, `.ak-dc-border-top` classes for child elements
+- **index.html**: Project Delivery Dashboard panel migrated from inline dark styles to `.ak-dark-card` class
+- Committed and pushed to GitHub (`kalpeshattarde/AKcelerate`, branch: `main`, commit: `b89052b`)
+
 ### March 2026 (Session 6)
 - **Homepage visual overhaul** — 4 major sections upgraded on `index.html`:
   1. **Tech Stack section**: 24 tech-logo-pills with Simple Icons CDN logos (real brand colors); 7 inline colored badge fallbacks for AWS, Azure, OpenAI, Power BI, Tableau, dbt, D3.js
