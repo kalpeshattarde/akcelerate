@@ -267,3 +267,42 @@ Full list: business-automation, ai-ml, business-consulting, saas-dev, automated-
 - About page: hero flows directly into "WHAT WE DO" section
 - All inner page heroes: consistent compact padding (5.5rem top, 2-2.5rem bottom)
 - Mobile: all oversized gaps and padding reduced by ~30-40%
+
+---
+
+## Session Log — 2026-03-16 (Dark Mode Card Fix)
+
+### Problem
+Inline `onmouseover` / `onmouseout` JS handlers on card elements were directly setting `element.style.background` to hard-coded white/light values (e.g. `#FFFFFF`, `#F8FAFF`). Because inline styles have highest CSS specificity, these JS handlers overrode all CSS dark mode rules whenever a user hovered over a card in dark mode, causing a jarring "flash to white" effect.
+
+### CSS Classes Added (`public/css/styles.css`)
+| Class | Description |
+|---|---|
+| `.ak-card` | White card, 20px radius, 2rem padding — solutions.html & services.html |
+| `.ak-feature-card` | Tinted (#F8FAFF) card, 16px radius, 1.75rem — feature sections on solution pages |
+| `.ak-link-card` | White anchor card, 16px radius, 1.5rem, display:block — navigation links on solution pages |
+| `.ak-sm-card` | White card, 16px radius, 1.5rem, with base shadow — homepage solutions grid |
+
+Each class has full dark mode variants under `[data-theme="dark"]`.
+
+Also added dark mode helpers for Tailwind text-slate-500/400, border-slate-100/200 and anchor `a[style*="background:#FFFFFF"]` overrides.
+
+### Files Changed
+- `public/css/styles.css` — 4 new CSS classes + helpers
+- `public/solutions.html` — 8 `.ak-card` cards
+- `public/services.html` — 4 `.ak-card` cards
+- `public/solutions/business-automation.html` — 6 `.ak-feature-card` + 3 `.ak-link-card`
+- `public/solutions/ai-ml.html` — 6 `.ak-feature-card` + 3 `.ak-link-card`
+- `public/solutions/business-consulting.html` — 6 `.ak-feature-card` + 3 `.ak-link-card`
+- `public/solutions/saas-dev.html` — 6 `.ak-feature-card` + 3 `.ak-link-card`
+- `public/solutions/analytics.html` — 6 `.ak-feature-card` + 3 `.ak-link-card`
+- `public/solutions/data-viz.html` — 6 `.ak-feature-card` + 3 `.ak-link-card`
+- `public/solutions/cloud-devops.html` — 6 `.ak-feature-card` + 3 `.ak-link-card`
+- `public/solutions/mlops.html` — 6 `.ak-feature-card` + 3 `.ak-link-card`
+- `public/index.html` — 8 `.ak-sm-card` (homepage solutions overview grid)
+
+### Total Handlers Replaced
+**92 inline onmouseover/onmouseout handlers removed** across 11 files.
+
+### GitHub Push
+Completed this session.

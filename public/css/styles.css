@@ -690,8 +690,17 @@ h1,h2,h3,h4,h5,h6 {
 [data-theme="dark"] .text-slate-800 { color: #E2E8F0 !important; }
 [data-theme="dark"] .text-slate-700 { color: #CBD5E1 !important; }
 [data-theme="dark"] .text-slate-600 { color: #94A3B8 !important; }
+[data-theme="dark"] .text-slate-500 { color: #94A3B8 !important; }
+[data-theme="dark"] .text-slate-400 { color: #64748B !important; }
 [data-theme="dark"] .text-gray-700  { color: #CBD5E1 !important; }
 [data-theme="dark"] .text-gray-600  { color: #94A3B8 !important; }
+[data-theme="dark"] .text-gray-500  { color: #94A3B8 !important; }
+
+/* ── Border colour helpers ── */
+[data-theme="dark"] .border-slate-100 { border-color: rgba(255,255,255,0.08) !important; }
+[data-theme="dark"] .border-slate-200 { border-color: rgba(255,255,255,0.1) !important; }
+[data-theme="dark"] .border-gray-100  { border-color: rgba(255,255,255,0.08) !important; }
+[data-theme="dark"] .border-gray-200  { border-color: rgba(255,255,255,0.1) !important; }
 
 /* ── Btn secondary ── */
 [data-theme="dark"] .btn-secondary {
@@ -1438,4 +1447,85 @@ section + section { /* visual separation handled by section padding */ }
 @media (max-height: 600px) {
   .hero-section { min-height: auto; padding: 5rem 0 3rem; }
   .page-hero    { padding: 5rem 0 3rem; }
+}
+
+/* ── a / anchor inline-style white elements (pills, link cards) ── */
+[data-theme="dark"] a[style*="background:#FFFFFF"],
+[data-theme="dark"] a[style*="background: #FFFFFF"] {
+  background: #1E293B !important;
+  border-color: rgba(255,255,255,0.1) !important;
+  color: #94A3B8 !important;
+}
+
+/* ── ak-sm-card: small 16px-radius white cards (homepage solutions grid) ── */
+.ak-sm-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 12px rgba(15,23,42,0.05);
+}
+.ak-sm-card:hover {
+  border-color: rgba(37,99,235,0.35);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(37,99,235,0.1);
+}
+[data-theme="dark"] .ak-sm-card {
+  background: #1E293B;
+  border-color: rgba(255,255,255,0.08);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+[data-theme="dark"] .ak-sm-card:hover {
+  border-color: rgba(6,182,212,0.35);
+  box-shadow: 0 16px 40px rgba(6,182,212,0.1);
+}
+
+/* ── ak-feature-card: tinted bg service cards (solution pages) ── */
+.ak-feature-card {
+  background: #F8FAFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 1.75rem;
+  transition: all 0.3s;
+}
+.ak-feature-card:hover {
+  border-color: rgba(37,99,235,0.3);
+  background: #FFFFFF;
+  box-shadow: 0 12px 32px rgba(37,99,235,0.08);
+}
+[data-theme="dark"] .ak-feature-card {
+  background: #1E293B;
+  border-color: rgba(255,255,255,0.08);
+}
+[data-theme="dark"] .ak-feature-card:hover {
+  background: #243451;
+  border-color: rgba(6,182,212,0.35);
+  box-shadow: 0 12px 32px rgba(6,182,212,0.1);
+}
+
+/* ── ak-link-card: white anchor link cards (solution pages bottom) ── */
+a.ak-link-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: block;
+  transition: all 0.3s;
+  box-shadow: 0 2px 8px rgba(15,23,42,0.05);
+  text-decoration: none;
+}
+a.ak-link-card:hover {
+  border-color: rgba(37,99,235,0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(37,99,235,0.08);
+}
+[data-theme="dark"] a.ak-link-card {
+  background: #1E293B;
+  border-color: rgba(255,255,255,0.08);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+[data-theme="dark"] a.ak-link-card:hover {
+  border-color: rgba(6,182,212,0.35);
+  box-shadow: 0 12px 32px rgba(6,182,212,0.1);
 }
