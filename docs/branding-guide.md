@@ -5,7 +5,7 @@
 **Company Name:** AKcelerate  
 **Tagline:** AI-Driven Manufacturing Intelligence  
 **Founder:** Kalpesh Attarde  
-**Contact:** akcelerateindia@gmail.com | +91 8208555380  
+**Contact:** akceleratehq@gmail.com | +91 8208555380  
 **Location:** Mumbai, India
 
 ## Logo

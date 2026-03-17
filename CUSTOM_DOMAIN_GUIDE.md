@@ -192,7 +192,7 @@ Once you have a custom domain, you can set up professional email:
 
 **3. Forward to Gmail (Free)**
 - Set up email forwarding
-- `kalpesh@akcelerate.com` → `akcelerateindia@gmail.com`
+- `kalpesh@akcelerate.com` → `akceleratehq@gmail.com`
 
 ---
 

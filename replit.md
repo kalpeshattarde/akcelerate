@@ -3,13 +3,13 @@
 ## Overview
 Enterprise SaaS-style website for AKcelerate — a premium AI, Data, Automation and Business Consulting firm serving 13+ industries. Services span 8 solution areas: Business Automation, AI/ML Solutions, Business Consulting, Website & SaaS Development, Automated Analytics, Data Visualization, Cloud & DevOps, and MLOps.
 
-**Founder:** Kalpesh Attarde | +91 9529314215 | officialkalpeshattarde@gmail.com | Mumbai, India
+**Founder:** Kalpesh Attarde | +91 8208555380 | akceleratehq@gmail.com | Mumbai, India
 
 ## Brand Positioning
 - **Primary Pitch**: "Build Smarter Business with AI & Automation"
 - **8 Solution Areas**: Business Automation, AI/ML Solutions, Business Consulting, SaaS Dev, Automated Analytics, Data Visualization, Cloud & DevOps, MLOps
 - **13+ Industries**: Manufacturing, FMCG, Healthcare, Retail, FinTech, Education, Real Estate, Logistics, IT/Tech, E-commerce, Startups, SMBs, Enterprises
-- **Contact**: Phone `+91 9529314215` | Email `officialkalpeshattarde@gmail.com` | WhatsApp `wa.me/919529314215`
+- **Contact**: Phone `+91 8208555380` | Email `akceleratehq@gmail.com` | WhatsApp `wa.me/918208555380`
 - **Social Media**: LinkedIn `https://www.linkedin.com/company/akceleratehq/` | X `https://x.com/akcelerateHQ` | Instagram `https://www.instagram.com/akceleratehq/`
 
 ## Architecture
@@ -207,9 +207,9 @@ Three fixed-position circular buttons stacked bottom-right:
 .floating-whatsapp { bottom: 5.5rem; right: 1.5rem; background: #25D366; }
 /* + .back-to-top at bottom: 1.5rem */
 ```
-- Email → `mailto:officialkalpeshattarde@gmail.com`
-- Call → `tel:+919529314215`
-- WhatsApp → `https://wa.me/919529314215`
+- Email → `mailto:akceleratehq@gmail.com`
+- Call → `tel:+918208555380`
+- WhatsApp → `https://wa.me/918208555380`
 
 ## Key CSS Classes (styles.css ~2500+ lines)
 | Class | Purpose |

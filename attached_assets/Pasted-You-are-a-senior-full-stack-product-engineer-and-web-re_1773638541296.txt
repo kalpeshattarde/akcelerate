@@ -37,8 +37,8 @@ Before making major changes:
 Company: AKcelerate
 Founder: Kalpesh Attarde
 Location: Mumbai, India
-Phone: +91 9529314215
-Email: officialkalpeshattarde@gmail.com
+Phone: +91 8208555380
+Email: akceleratehq@gmail.com
 
 AKcelerate is an AI, Data, Automation, and Business Consulting company.
 

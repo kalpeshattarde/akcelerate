@@ -11,9 +11,9 @@
 |---|---|
 | **Project** | AKcelerate — Premium AI, Data, Automation & Business Consulting |
 | **Founder** | Kalpesh Attarde |
-| **Phone** | +91 9529314215 |
-| **Email** | officialkalpeshattarde@gmail.com |
-| **WhatsApp** | https://wa.me/919529314215 |
+| **Phone** | +91 8208555380 |
+| **Email** | akceleratehq@gmail.com |
+| **WhatsApp** | https://wa.me/918208555380 |
 | **Location** | Mumbai, India |
 | **GitHub** | https://github.com/kalpeshattarde/AKcelerate.git |
 | **Push command** | `git push "https://kalpeshattarde:${GITHUB_PERSONAL_ACCESS_TOKEN}@github.com/kalpeshattarde/akcelerate.git" main` |
@@ -195,7 +195,7 @@ Full list: business-automation, ai-ml, business-consulting, saas-dev, automated-
 
 1. **Always read this file first** before making any changes.
 2. **Never revert brand positioning** back to manufacturing analytics.
-3. **Contact info to use everywhere**: Phone `+91 9529314215`, Email `officialkalpeshattarde@gmail.com`, WhatsApp `wa.me/919529314215`.
+3. **Contact info to use everywhere**: Phone `+91 8208555380`, Email `akceleratehq@gmail.com`, WhatsApp `wa.me/918208555380`.
 4. **Nav font size is 14px (0.875rem)** — do not change it.
 5. **No dead links** — every `href` must point to a real page or anchor.
 6. **Manufacturing is ONE of 13 industries** — not the sole focus of any page.
@@ -300,6 +300,15 @@ Also added dark mode helpers for Tailwind text-slate-500/400, border-slate-100/2
 - `public/solutions/cloud-devops.html` — 6 `.ak-feature-card` + 3 `.ak-link-card`
 - `public/solutions/mlops.html` — 6 `.ak-feature-card` + 3 `.ak-link-card`
 - `public/index.html` — 8 `.ak-sm-card` (homepage solutions overview grid)
+
+## Session Log — 2026-03-17 (Contact Details Normalized)
+
+- Updated the canonical contact details across the workspace.
+- Canonical values:
+  - Phone: `+91 8208555380`
+  - Email: `akceleratehq@gmail.com`
+  - WhatsApp: `https://wa.me/918208555380`
+- `AGENT_MEMORY.md` should be treated as the source of truth for these contact values in future edits.
 
 ### Total Handlers Replaced
 **92 inline onmouseover/onmouseout handlers removed** across 11 files.

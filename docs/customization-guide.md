@@ -58,5 +58,5 @@ Create `.env` in project root:
 ```
 PORT=5000
 NODE_ENV=production
-CONTACT_EMAIL=akcelerateindia@gmail.com
+CONTACT_EMAIL=akceleratehq@gmail.com
 ```
